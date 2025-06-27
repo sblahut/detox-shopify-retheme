@@ -17,6 +17,21 @@
                       <div class="rte">
                         {{ block.settings.content }}
                       </div>
+                      {%- if block.settings.title == "About Detox" -%}
+                        {%- if section.settings.show_social_media -%}
+                          {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
+                          {%- if social_media != blank or shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+                            <div class="footer__social-media">
+                              {{- social_media -}}
+                              {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+                                <div class="footer__follow-on-shop">
+                                  {{- shop | login_button: action: 'follow' -}}
+                                </div>
+                              {%- endif -%}
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endif -%}
                     </div>
                   </div>
                 </div>
@@ -166,24 +181,6 @@
           {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br>{{ powered_by_link }}{%- endcapture -%}
           <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
-
-        {%- if section.settings.show_social_media -%}
-          {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
-        {%- endif -%}
-
-        {%- if social_media != blank or shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-          <div class="footer__aside-item footer__aside-item--social">
-            <p class="footer__aside-title">{{ 'footer.general.follow_us' | t }}</p>
-
-            {{- social_media -}}
-
-            {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-              <div class="footer__follow-on-shop">
-                {{- shop | login_button: action: 'follow' -}}
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
 
         {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
           <div class="footer__aside-item footer__aside-item--payment">
