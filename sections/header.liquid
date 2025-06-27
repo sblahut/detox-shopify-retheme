@@ -16,6 +16,10 @@
   <header class="header header--{{ section.settings.desktop_navigation_layout }} {% unless section.settings.show_condensed_search %}header--search-expanded{% endunless %}" role="banner">
     <div class="container">
       <div class="header__inner">
+        <div class="nav-icon cross">
+          <div class="span"></div>
+        </div>
+
         {%- comment -%}
         --------------------------------------------------------------------------------------
         MOBILE NAV
@@ -417,22 +421,79 @@
     {%- endif -%}
   }
 
+  /* Position the hamburger menu */
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-icon.cross {
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .nav-icon.cross .span {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .nav-icon.cross .span:before,
+  .nav-icon.cross .span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+
+  .nav-icon.cross .span:before {
+    top: -8px;
+  }
+
+  .nav-icon.cross .span:after {
+    bottom: -8px;
+  }
+
+  .nav-icon.cross.active .span {
+    background-color: transparent;
+  }
+
+  .nav-icon.cross.active .span:before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .nav-icon.cross.active .span:after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+
   /* Adjust search bar results width */
   .search-bar__results {
     width: 100%;
-    max-width: 1200px; /* Increased max-width from 800px to 1200px */
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .search-bar__inner {
     width: 100%;
-    max-width: 1200px; /* Match the results width */
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .search-bar__top {
     width: 100%;
-    max-width: 1200px; /* Match the results width */
+    max-width: 1200px;
     margin: 0 auto;
   }
 
@@ -470,6 +531,14 @@
 
 <script>
   document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+
+  // Add hamburger menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const navIcon = document.querySelector('.nav-icon.cross');
+    navIcon.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  });
 </script>
 
 {% schema %}
