@@ -17,6 +17,18 @@
                       <div class="rte">
                         {{ block.settings.content }}
                       </div>
+                      {%- if block.settings.title == "Contact Info" -%}
+                        <div class="footer__contact-icons">
+                          <div class="footer__contact-item">
+                            {%- render 'icon', icon: 'location', class: 'footer__contact-icon' -%}
+                            <span>Detox Nation Suite 108A 345300 Carlsbad Village Dr. Carlsbad, CA 92008</span>
+                          </div>
+                          <a href="mailto:support@detoxrejuvenation.com" class="footer__contact-item footer__contact-item--link">
+                            {%- render 'icon', icon: 'email', class: 'footer__contact-icon' -%}
+                            <span>support@detoxrejuvenation.com</span>
+                          </a>
+                        </div>
+                      {%- endif -%}
                       {%- if block.settings.title == "About Detox" -%}
                         {%- if section.settings.show_social_media -%}
                           {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
@@ -259,13 +271,23 @@
           "type": "text",
           "id": "title",
           "label": "Heading",
-          "default": "About our store"
+          "default": "About"
         },
         {
           "type": "richtext",
           "id": "content",
-          "label": "Content",
-          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
+          "label": "Text",
+          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "Address"
         }
       ]
     },

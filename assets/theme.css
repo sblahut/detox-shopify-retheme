@@ -2689,7 +2689,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   }
 }
 
-@media screen and (min-height: 700px) and (min-width: 641px) {
+@media screen and (min-width: 641px) {
   .mini-cart__line-item-list {
     max-height: 330px;
   }
@@ -4841,7 +4841,7 @@ select option {
 }
 
 .footer a:hover {
-  color: var(--footer-accent-color);
+  color: inherit;
 }
 
 .footer__block-list {
@@ -4856,6 +4856,7 @@ select option {
   margin-bottom: .85em;
   display: block;
   position: relative;
+  text-transform: none;
 }
 
 .footer__title[disabled] {
@@ -10073,6 +10074,36 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 .social-media__item:hover svg {
   opacity: 0.7;
+  color: #EB654E;
+}
+
+.footer__contact-icons {
+  margin-top: 15px;
+}
+
+.footer__contact-icon {
+  width: 28px;
+  height: 28px;
+  color: #EB654E;
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer__contact-item--link {
+  text-decoration: none;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.footer__contact-item--link:hover {
+  opacity: 0.7;
+  color: inherit;
 }
 
 .footer__social-media {
@@ -10097,55 +10128,8 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 @media screen and (any-hover: hover) {
   .social-media__item:hover svg {
-    opacity: 1;
-  }
-
-  .social-media__item--facebook:hover svg {
-    color: #3b5998;
-  }
-
-  .social-media__item--twitter:hover svg {
-    color: #1da1f2;
-  }
-
-  .social-media__item--pinterest:hover svg {
-    color: #bd081c;
-  }
-
-  .social-media__item--instagram:hover svg {
-    color: #d83776;
-  }
-
-  .social-media__item--youtube:hover svg {
-    color: red;
-  }
-
-  .social-media__item--tiktok:hover svg {
-    color: #fd355a;
-  }
-
-  .social-media__item--vimeo:hover svg {
-    color: #1ab7ea;
-  }
-
-  .social-media__item--linkedin:hover svg {
-    color: #0077b5;
-  }
-
-  .social-media__item--snapchat:hover svg {
-    color: #f5dc30;
-  }
-
-  .social-media__item--tumblr:hover svg {
-    color: #35465c;
-  }
-
-  .social-media__item--fancy:hover svg {
-    color: #494e58;
-  }
-
-  .social-media__item--rss:hover svg {
-    color: #f26522;
+    opacity: 0.7;
+    color: #EB654E;
   }
 }
 
