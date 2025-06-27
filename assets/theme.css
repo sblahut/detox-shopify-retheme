@@ -5432,21 +5432,23 @@ select option {
 
 .search-bar {
   z-index: 1;
-  font-size: calc(var(--base-text-font-size)  - (var(--default-text-font-size)  - 15px));
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 15px));
   min-width: 100%;
   padding-bottom: 15px;
   position: relative;
+  max-width: 400px; /* Added max-width to make it more compact */
 }
 
 .search-bar__top {
   background: var(--secondary-background);
   color: var(--text-color);
   z-index: 1;
-  border-radius: 3px;
+  border-radius: 25px; /* Increased border radius for pill shape */
   align-items: center;
-  height: 44px;
+  height: 40px; /* Reduced height */
   display: flex;
   position: relative;
+  border: 1px solid var(--header-border-color); /* Added border */
 }
 
 .search-bar__input-wrapper {
@@ -5464,6 +5466,7 @@ select option {
   height: 100%;
   padding: 0 15px 1px;
   line-height: normal;
+  font-size: 14px; /* Added smaller font size */
 }
 
 .search-bar__input::placeholder {
@@ -5517,15 +5520,16 @@ select option {
 
 .search-bar__submit {
   color: var(--secondary-background);
-  background: var(--header-accent-color);
-  border-radius: 0 3px 3px 0;
+  background: transparent; /* Changed to transparent */
+  border-radius: 0 25px 25px 0; /* Matched border radius */
   flex: none;
-  width: 50px;
+  width: 40px; /* Reduced width */
   height: 100%;
 }
 
 .search-bar__submit svg {
   position: relative;
+  color: var(--text-color); /* Changed icon color */
 }
 
 .search-bar__submit .icon--search {
