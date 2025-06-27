@@ -301,19 +301,11 @@
 
           {%- if shop.customer_accounts_enabled -%}
             <div class="header__action-item header__action-item--account">
-              {%- if customer -%}
-                <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.welcome' | t: first_name: customer.first_name | truncate: 20 }}</span>
-              {%- else -%}
-                <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
-              {%- endif -%}
+
 
               <div class="header__action-item-content">
-                <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__action-item-link header__account-icon icon-state hidden-desk" aria-label="{{ 'header.general.account' | t }}">
+                <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__action-item-link header__account-icon icon-state" aria-label="{{ 'header.general.account' | t }}">
                   <span class="icon-state__primary">{%- render 'icon', icon: 'account' -%}</span>
-                </a>
-
-                <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__action-item-link hidden-pocket hidden-lap">
-                  {{- 'header.general.account' | t -}}
                 </a>
               </div>
             </div>
@@ -330,8 +322,6 @@
 
                   <span class="icon-state__secondary">{%- render 'icon', icon: 'close' -%}</span>
                 </div>
-
-                <span class="hidden-pocket hidden-lap">{{ 'header.general.cart' | t }}</span>
               </div>
             </a>
 
