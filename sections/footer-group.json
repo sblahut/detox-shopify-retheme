@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "text",
+          "settings": {
+            "title": "About Detox",
+            "content": "<p>We’re here to help you take back your power and reclaim your full aliveness, so that you can be who you really came here to be.</p>"
+          }
+        },
+        "footer-1": {
+          "type": "links",
+          "settings": {
+            "menu": "footer-menu-1"
+          }
+        },
+        "text_wwyXHW": {
+          "type": "text",
+          "settings": {
+            "title": "Contact Info",
+            "content": "<p><a href=\"mailto:support@detoxrejuvenation.com\">support@detoxrejuvenation.com</a><br/><br/>Detox Nation Suite 108A 345300 Carlsbad Village Dr. Carlsbad, CA 92008</p>"
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "text_wwyXHW"
+      ],
+      "settings": {
+        "show_social_media": true,
+        "enable_follow_on_shop": true,
+        "show_payment_icons": true,
+        "show_locale_selector": true,
+        "show_country_selector": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

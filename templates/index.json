@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-1": {
+          "type": "image",
+          "settings": {}
+        },
+        "slide-2": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2"
+      ],
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {}
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {}
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {}
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {}
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {}
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ],
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "product-meta": {
+          "type": "product_meta",
+          "settings": {}
+        },
+        "featured-description": {
+          "type": "featured_description",
+          "settings": {}
+        },
+        "variant-selector": {
+          "type": "variant_selector",
+          "settings": {}
+        },
+        "buy-buttons": {
+          "type": "buy_buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product-meta",
+        "featured-description",
+        "variant-selector",
+        "buy-buttons"
+      ],
+      "settings": {}
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {}
+    }
+  },
+  "order": [
+    "slideshow",
+    "featured-collection",
+    "collection-list",
+    "newsletter",
+    "featured-product",
+    "blog-posts"
+  ]
+}
