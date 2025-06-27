@@ -4835,7 +4835,7 @@ select option {
 
 .footer {
   background: #234240;
-  color: #ffffff;
+  color: #FFFFFFB3;
   border-radius: 30px;
   padding: 50px 0;
   margin-top: 50px;
@@ -4875,11 +4875,11 @@ select option {
 .footer__link-item {
   padding: 5px 0;
   display: block;
-  color: #ffffff;
+  color: #FFFFFFB3;
 }
 
 .footer__link-item:hover {
-  color: #ffffff;
+  color: #FFFFFFB3;
   opacity: 0.8;
 }
 
@@ -10117,12 +10117,23 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 .footer__contact-item--link {
   text-decoration: none;
-  transition: opacity 0.25s ease-in-out;
+  color: #FFFFFFB3;
 }
 
 .footer__contact-item--link:hover {
+  color: #FFFFFFB3;
+}
+
+.footer__contact-item--link:hover .footer__contact-icon {
   opacity: 0.7;
-  color: inherit;
+}
+
+.footer__contact-item span {
+  color: #FFFFFFB3;
+}
+
+.rte {
+  color: #FFFFFFB3;
 }
 
 .footer__social-media {

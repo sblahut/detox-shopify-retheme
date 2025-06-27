@@ -19,14 +19,14 @@
                       </div>
                       {%- if block.settings.title == "Contact Info" -%}
                         <div class="footer__contact-icons">
-                          <div class="footer__contact-item">
-                            {%- render 'icon', icon: 'location', class: 'footer__contact-icon' -%}
-                            <span>Detox Nation Suite 108A 345300 Carlsbad Village Dr. Carlsbad, CA 92008</span>
-                          </div>
                           <a href="mailto:support@detoxrejuvenation.com" class="footer__contact-item footer__contact-item--link">
                             {%- render 'icon', icon: 'email', class: 'footer__contact-icon' -%}
                             <span>support@detoxrejuvenation.com</span>
                           </a>
+                          <div class="footer__contact-item">
+                            {%- render 'icon', icon: 'location', class: 'footer__contact-icon' -%}
+                            <span>Detox Nation Suite 108A 345300 Carlsbad Village Dr. Carlsbad, CA 92008</span>
+                          </div>
                         </div>
                       {%- endif -%}
                       {%- if block.settings.title == "About Detox" -%}
