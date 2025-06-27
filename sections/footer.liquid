@@ -7,7 +7,7 @@
             {%- case block.type -%}
               {%- when 'text' -%}
                 <div class="footer__block-item footer__block-item--text {% if block.settings.title == 'Contact Info' %}footer__block-item--contact{% endif %}" {{ block.shopify_attributes }}>
-                  <button class="footer__title heading h6" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
+                  <button class="footer__title heading h3" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
                     <span>{{ block.settings.title | escape }}</span>
                     <span class="plus-button"></span>
                   </button>
@@ -53,7 +53,7 @@
 
                 {%- unless menu.empty? -%}
                   <div class="footer__block-item footer__block-item--links" {{ block.shopify_attributes }}>
-                    <button class="footer__title heading h6" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
+                    <button class="footer__title heading h3" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
                       <span>{{ menu.title }}</span>
                       <span class="plus-button"></span>
                     </button>
@@ -74,7 +74,7 @@
 
               {%- when 'newsletter' -%}
                 <div class="footer__block-item footer__block-item--newsletter" {{ block.shopify_attributes }}>
-                  <p class="footer__title heading h6">{{ block.settings.title | escape }}</p>
+                  <p class="footer__title heading h3">{{ block.settings.title | escape }}</p>
 
                   <div class="footer__newsletter-wrapper">
                     {%- if block.settings.subheading != blank -%}
