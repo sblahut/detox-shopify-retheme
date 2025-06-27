@@ -6,7 +6,7 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'text' -%}
-                <div class="footer__block-item footer__block-item--text" {{ block.shopify_attributes }}>
+                <div class="footer__block-item footer__block-item--text {% if block.settings.title == 'Contact Info' %}footer__block-item--contact{% endif %}" {{ block.shopify_attributes }}>
                   <button class="footer__title heading h6" disabled aria-expanded="false" aria-controls="block-{{ block.id }}" data-action="toggle-collapsible">
                     <span>{{ block.settings.title | escape }}</span>
                     <span class="plus-button"></span>

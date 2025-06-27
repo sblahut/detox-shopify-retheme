@@ -5037,7 +5037,11 @@ select option {
   }
 
   .footer__block-item--links {
-    max-width: 300px;
+    flex-basis: 350px;
+  }
+
+  .footer__block-item--contact {
+    flex-basis: 250px;
   }
 
   .footer__aside {
@@ -10084,6 +10088,7 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 .footer__contact-icon {
   width: 28px;
   height: 28px;
+  margin-right: 20px;
   color: #EB654E;
   opacity: 1;
   will-change: opacity;
@@ -10092,8 +10097,8 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 .footer__contact-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: flex-start;
+  margin-bottom: 15px;
 }
 
 .footer__contact-item--link {
