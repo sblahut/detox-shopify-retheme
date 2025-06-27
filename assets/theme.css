@@ -4834,10 +4834,11 @@ select option {
 }
 
 .footer {
-  border-top: var(--footer-border);
-  background-color: var(--footer-background-color);
-  color: var(--footer-body-text-color);
-  padding: 10px 0 30px;
+  background: #234200;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 50px 0;
+  margin-top: 50px;
 }
 
 .footer a:hover {
@@ -4851,7 +4852,7 @@ select option {
 
 .footer__title {
   text-align: left;
-  color: var(--footer-heading-text-color);
+  color: #ffffff;
   width: 100%;
   margin-bottom: .85em;
   display: block;
@@ -4874,6 +4875,12 @@ select option {
 .footer__link-item {
   padding: 5px 0;
   display: block;
+  color: #ffffff;
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+  opacity: 0.8;
 }
 
 .footer__newsletter-form {
@@ -4883,7 +4890,10 @@ select option {
 .footer__aside {
   font-size: calc(var(--base-text-font-size)  - (var(--default-text-font-size)  - 12px));
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
   display: flex;
 }
 
@@ -4895,6 +4905,10 @@ select option {
   margin-top: 45px;
 }
 
+.footer__aside-item--copyright {
+  margin-top: 0 !important;
+}
+
 .footer__aside-title {
   margin-bottom: .8em;
 }
@@ -4904,7 +4918,7 @@ select option {
 }
 
 .footer__localization-form {
-  color: var(--text-color);
+  color: #ffffff;
   display: flex;
 }
 
