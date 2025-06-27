@@ -329,6 +329,10 @@
               {%- render 'mini-cart' -%}
             {%- endif -%}
           </div>
+
+          <div class="header__action-item header__action-item--book-call">
+            <a href="/book-an-application-call-now/" class="header__book-call-button">Book A Call</a>
+          </div>
         </div>
       </div>
     </div>
@@ -411,6 +415,25 @@
       position: sticky;
       top: 0;
     {%- endif -%}
+  }
+
+  /* Adjust search bar results width */
+  .search-bar__results {
+    width: 100%;
+    max-width: 1200px; /* Increased max-width from 800px to 1200px */
+    margin: 0 auto;
+  }
+
+  .search-bar__inner {
+    width: 100%;
+    max-width: 1200px; /* Match the results width */
+    margin: 0 auto;
+  }
+
+  .search-bar__top {
+    width: 100%;
+    max-width: 1200px; /* Match the results width */
+    margin: 0 auto;
   }
 
   {%- if section.settings.logo -%}
