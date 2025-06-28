@@ -16,7 +16,7 @@
   <div class="announcement-bar">
     <div class="container">
       <div class="announcement-bar__inner">
-        <a href="/practitioner-mentorship/" class="announcement-bar__content announcement-bar__content--center">🔥 Now Available! Is The Root Cause Practitioner Mentorship Right For Me? Replay! <span style="text-decoration: underline;">View Here!</span></a>
+        <a href="/practitioner-mentorship/" class="announcement-bar__content announcement-bar__content--center">🔥 Now Available! Is The Root Cause Practitioner Mentorship Right For Me? Replay! <span>View Here!</span></a>
       </div>
     </div>
   </div>
@@ -547,6 +547,30 @@
       }
     }
   {%- endif -%}
+
+  /* Announcement bar styling */
+  .announcement-bar {
+    background-color: #CBE0D978;
+    padding: 10px 0;
+    color: #000000;
+  }
+
+  .announcement-bar__content {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .announcement-bar__content span {
+    color: #eb654e;
+    transition: color 0.3s ease;
+  }
+
+  .announcement-bar__content:hover span {
+    color: inherit;
+  }
 </style>
 
 <script>
