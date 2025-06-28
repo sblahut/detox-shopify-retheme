@@ -430,20 +430,31 @@
 
   .nav-icon.cross {
     cursor: pointer;
-    width: 25px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     position: relative;
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #70a491;
+    border-radius: 50%;
+    padding: 8px;
+  }
+
+  .nav-icon.cross .span,
+  .nav-icon.cross .span:before,
+  .nav-icon.cross .span:after {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
   }
 
   .nav-icon.cross .span {
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease;
+    position: relative;
+    width: 18px;
   }
 
   .nav-icon.cross .span:before,
@@ -452,7 +463,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #000;
+
     transition: all 0.3s ease;
   }
 
@@ -464,18 +475,19 @@
     bottom: -8px;
   }
 
+  /* Active state for the hamburger menu */
   .nav-icon.cross.active .span {
     background-color: transparent;
   }
 
   .nav-icon.cross.active .span:before {
-    transform: rotate(45deg);
-    top: 0;
+    transform: translateY(6px) rotate(45deg);
+    background-color: #ffffff;
   }
 
   .nav-icon.cross.active .span:after {
-    transform: rotate(-45deg);
-    bottom: 0;
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #ffffff;
   }
 
   /* Adjust search bar results width */
