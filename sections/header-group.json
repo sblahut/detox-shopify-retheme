@@ -43,7 +43,7 @@
         "navigation_phone_number": "Call us 000-000-0000",
         "navigation_email": "info@yourwebsite.com",
         "show_condensed_search": true,
-        "show_search_filter": true,
+        "show_search_filter": false,
         "search_menu": "",
         "show_search_menu_title": true
       }
