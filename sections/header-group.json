@@ -13,6 +13,7 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "disabled": true,
       "settings": {
         "background": "#22403f",
         "text_color": "#ffffff",
@@ -42,7 +43,7 @@
         "navigation_phone_number": "Call us 000-000-0000",
         "navigation_email": "info@yourwebsite.com",
         "show_condensed_search": true,
-        "show_search_filter": false,
+        "show_search_filter": true,
         "search_menu": "",
         "show_search_menu_title": true
       }
