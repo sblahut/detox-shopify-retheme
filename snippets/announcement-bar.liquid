@@ -1,0 +1,23 @@
+{%- if settings.show_announcement -%}
+  <div class="announcement-bar">
+    <div class="container">
+      <div class="announcement-bar__inner">
+        {%- if settings.announcement_link != blank -%}
+          <a href="{{ settings.announcement_link }}" class="announcement-bar__content announcement-bar__content--center">
+            {{ settings.announcement_text }}
+            {%- if settings.announcement_button_label != blank -%}
+              <span>{{ settings.announcement_button_label }}</span>
+            {%- endif -%}
+          </a>
+        {%- else -%}
+          <p class="announcement-bar__content announcement-bar__content--center">
+            {{ settings.announcement_text }}
+            {%- if settings.announcement_button_label != blank -%}
+              <span>{{ settings.announcement_button_label }}</span>
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%} 

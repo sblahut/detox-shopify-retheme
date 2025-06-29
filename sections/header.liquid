@@ -13,7 +13,7 @@
 {%- assign navigation_mobile_menu = linklists[navigation_mobile_menu_handle] -%}
 
 <section data-section-id="{{ section.id }}" data-section-type="header" data-section-settings="{{ section_settings | escape_once }}">
-  {%- section 'announcement-bar' -%}
+  {%- render 'announcement-bar' -%}
 
   <header class="header header--{{ section.settings.desktop_navigation_layout }} {% unless section.settings.show_condensed_search %}header--search-expanded{% endunless %}" role="banner">
     <div class="container">
