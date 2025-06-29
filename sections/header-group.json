@@ -36,7 +36,7 @@
         "show_country_selector": false,
         "navigation_menu": "main-menu",
         "navigation_mobile_menu": "",
-        "desktop_navigation_layout": "inline",
+        "desktop_navigation_layout": "condensed",
         "desktop_navigation_open_trigger": "hover",
         "show_navigation_social_media": true,
         "navigation_phone_number": "Call us 000-000-0000",
