@@ -38,19 +38,19 @@
               <div class="row">
                 <div class="col-6">
                   <div class="list">                      
-                    <a href="#">Home</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Detox Shop</a>
-                    <a href="#">Work With Us</a>
-                    <a href="#">Resources</a>
-                    <a href="#">Blogs</a>
-                    <a href="#">Podcast</a>
-                    <a href="#">Community</a>
-                    <a href="#">Contact Us</a>
+                    <a href="/">Home</a>
+                    <a href="/pages/about-us">About Us</a>
+                    <a href="/collections/detox-shop">Detox Shop</a>
+                    <a href="/pages/work-with-us">Work With Us</a>
+                    <a href="/pages/resources">Resources</a>
+                    <a href="/blogs/news">Blogs</a>
+                    <a href="/pages/podcast">Podcast</a>
+                    <a href="/pages/community">Community</a>
+                    <a href="/pages/contact-us">Contact Us</a>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div  class="img-box">
+                  <div class="img-box">
                     <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
                     <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
                   </div>
@@ -76,13 +76,7 @@
         {%- endcomment -%}
 
         {%- if section.settings.desktop_navigation_layout == 'condensed' and navigation_menu.links.size > 0 -%}
-          <nav class="header__desktop-nav hidden-pocket">
-            <button class="header__desktop-nav-toggle" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-label="{{ 'header.navigation.open_menu' | t }}">
-              <span>{%- render 'icon', icon: 'hamburger' -%} <span class="header__desktop-nav-text">{{- 'header.navigation.menu' | t -}}</span></span>
-            </button>
-
-            {%- render 'desktop-menu', menu: navigation_menu, index: 'desktop-menu-0' -%}
-          </nav>
+          {%- comment -%}Removing condensed menu{%- endcomment -%}
         {%- endif -%}
 
         {%- comment -%}
@@ -346,7 +340,6 @@
     <nav class="nav-bar">
       <div class="nav-bar__inner">
         <div class="container">
-
           <div class="header-bar desktop-bar">
             <div class="nav-icon cross">
               <div class="span"></div>
@@ -362,19 +355,19 @@
                 <div class="row">
                   <div class="col-6">
                     <div class="list">                      
-                      <a href="#">Home</a>
-                      <a href="#">About Us</a>
-                      <a href="#">Detox Shop</a>
-                      <a href="#">Work With Us</a>
-                      <a href="#">Resources</a>
-                      <a href="#">Blogs</a>
-                      <a href="#">Podcast</a>
-                      <a href="#">Community</a>
-                      <a href="#">Contact Us</a>
+                      <a href="/">Home</a>
+                      <a href="/pages/about-us">About Us</a>
+                      <a href="/collections/detox-shop">Detox Shop</a>
+                      <a href="/pages/work-with-us">Work With Us</a>
+                      <a href="/pages/resources">Resources</a>
+                      <a href="/blogs/news">Blogs</a>
+                      <a href="/pages/podcast">Podcast</a>
+                      <a href="/pages/community">Community</a>
+                      <a href="/pages/contact-us">Contact Us</a>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div  class="img-box">
+                    <div class="img-box">
                       <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
                       <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
                     </div>
@@ -383,26 +376,6 @@
               </div>
             </div>
           </div>
-          
-          <ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
-            {%- for link in navigation_menu.links -%}
-              <li class="nav-bar__item">
-                {%- if link.links.size == 0 -%}
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
-                {%- else -%}
-                  {%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
-
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
-                    {{- link.title -}}
-                    {%- render 'icon', icon: 'arrow-bottom' -%}
-                    {%- render 'icon', icon: 'nav-triangle' -%}
-                  </a>
-
-                  {%- render 'desktop-menu', menu: link, index: index -%}
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
         </div>
       </div>
     </nav>
@@ -609,13 +582,197 @@
     width: 100%;
     height: 100vh;
     background: #ffffff;
-    transition: left 0.3s ease;
+    transition: transform 0.3s ease;
     z-index: 1000;
     overflow-y: auto;
+    transform: translateX(-100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .sidebar.open {
+    transform: translateX(0);
     left: 0;
+  }
+
+  .sidebar .container {
+    width: 60%;
+    position: relative;
+  }
+
+  .sidebar .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #70a491;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+  }
+
+  .sidebar .close-button:hover {
+    background: #EB654E;
+  }
+
+  .sidebar .close-button svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .col-6 {
+    width: 50%;
+    padding: 0 15px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list a {
+    color: #234240;
+    text-decoration: none;
+    transition: all 0.5s linear;
+    padding-bottom: 25px;
+    font-family: "Marlide Display", Sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .img-box {
+    text-align: center;
+  }
+
+  .logo-img {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .sidebar.open .img-box .mask-img {
+    -webkit-mask-image: url(https://cdn.shopify.com/s/files/1/0012/7146/4009/t/33/assets/header-image-bg-mask.svg?v=1749817767);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  @media (max-width: 767px) {
+    .sidebar .container {
+      width: 90%;
+    }
+    
+    .col-6 {
+      width: 100%;
+    }
+    
+    .sidebar {
+      justify-content: flex-start;
+      padding: 50px 20px;
+    }
+    
+    .list a {
+      padding-bottom: 15px;
+      font-size: 24px;
+    }
+  }
+
+  /* Remove all condensed menu styles */
+  .header__desktop-nav,
+  .header__desktop-nav-toggle,
+  .nav-bar {
+    display: none !important;
+  }
+
+  /* Hide the bottom mobile menu */
+  @media (max-width: 1000px) {
+    .mobile-bar {
+      display: none !important;
+    }
+
+    /* Keep the top menu visible */
+    .header__inner .nav-icon.cross {
+      display: flex !important;
+    }
+
+    .header__inner .sidebar {
+      display: flex !important;
+    }
+  }
+
+  /* Hide the default mobile navigation */
+  .header__mobile-nav {
+    display: none !important;
+  }
+
+  /* Ensure the top menu still works */
+  .nav-bar {
+    border-bottom: none;
+  }
+
+  .nav-bar__inner {
+    border: none;
+  }
+
+  .header-bar.desktop-bar {
+    display: block;
+  }
+
+  /* Hide only the visual elements of the bottom menu while keeping its structure */
+  .nav-bar .container .header-bar.desktop-bar .nav-icon.cross {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  /* Keep the sidebar functionality but hide the bottom menu's version */
+  .nav-bar .container .header-bar.desktop-bar {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Ensure the top menu stays visible and functional */
+  .header__inner .nav-icon.cross {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .header__inner .sidebar {
+    display: flex;
+  }
+
+  /* Remove borders */
+  .nav-bar {
+    border: none;
+  }
+
+  .nav-bar__inner {
+    border: none;
+  }
+
+  /* Hide the bottom menu completely */
+  .nav-bar {
+    display: none !important;
   }
 </style>
 
@@ -623,34 +780,31 @@
   document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
 
   document.addEventListener('DOMContentLoaded', function() {
-    const navIcons = document.querySelectorAll('.nav-icon.cross');
-    const sidebars = document.querySelectorAll('.sidebar');
+    const navIcon = document.querySelector('.nav-icon.cross');
+    const sidebar = document.querySelector('.sidebar');
     
-    navIcons.forEach(navIcon => {
+    if (navIcon && sidebar) {
       navIcon.addEventListener('click', function() {
-        const sidebar = this.closest('.header-bar')?.querySelector('.sidebar') || document.querySelector('.sidebar');
-        if (sidebar) {
-          sidebar.classList.toggle('open');
-          this.classList.toggle('active');
-        }
+        sidebar.classList.toggle('open');
+        this.classList.toggle('active');
       });
-    });
 
-    // Close button functionality
-    const closeButtons = document.querySelectorAll('.sidebar .close-button');
-    closeButtons.forEach(closeButton => {
-      closeButton.addEventListener('click', function() {
-        const sidebar = this.closest('.sidebar');
-        const navIcon = document.querySelector('.nav-icon.cross');
-        
-        if (sidebar) {
+      const closeButton = sidebar.querySelector('.close-button');
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
           sidebar.classList.remove('open');
-        }
-        if (navIcon) {
+          navIcon.classList.remove('active');
+        });
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-icon') && !event.target.closest('.sidebar')) {
+          sidebar.classList.remove('open');
           navIcon.classList.remove('active');
         }
       });
-    });
+    }
   });
 </script>
 
