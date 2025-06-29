@@ -4590,6 +4590,10 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   margin-bottom: 18px;
 }
 
+.card__section, .card__collapsible-button {
+  border-radius: 20px;
+}
+
 .collection__toolbar {
   padding: 0 var(--mobile-container-gutter);
   box-shadow: 0 1px var(--border-color), 0 -1px var(--border-color);
@@ -4600,6 +4604,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   margin-top: 22px;
   display: flex;
   position: relative;
+  border-radius: 20px;
 }
 
 .collection__toolbar-item {
