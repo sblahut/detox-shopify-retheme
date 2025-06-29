@@ -549,30 +549,7 @@
   }
 
   .header-bar .sidebar .close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #70a491;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-    z-index: 1001;
-  }
-
-  .header-bar .sidebar .close-button:hover {
-    background: #EB654E;
-  }
-
-  .header-bar .sidebar .close-button svg {
-    width: 24px;
-    height: 24px;
-    color: white;
+    display: none;
   }
 
   .sidebar {
@@ -694,7 +671,9 @@
   /* Remove all condensed menu styles */
   .header__desktop-nav,
   .header__desktop-nav-toggle,
-  .nav-bar {
+  .nav-bar,
+  .header__mobile-nav,
+  .mobile-bar {
     display: none !important;
   }
 

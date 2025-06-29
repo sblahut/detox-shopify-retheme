@@ -129,25 +129,5 @@
     </ul>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script>
-    $(function(){
-     var obj = document.querySelectorAll('.nav-icon');
-      for(var i = obj.length -1;i>=0;i--){
-        var toggle = obj[i];
-        toggleactive(toggle);
-      }
-      
-      function toggleactive(toggle) {
-        toggle.addEventListener("click",function() {
-          if(this.classList.contains("active") === true) {
-            this.classList.remove("active");
-          }
-          else {
-            this.classList.add("active");
-          }
-        });
-      }
-    });
-    </script>
   </body>
 </html>
