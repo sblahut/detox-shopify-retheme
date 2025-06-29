@@ -21822,8 +21822,8 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 }
 
 .section__header {
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 15px;
   display: flex;
   overflow: hidden;
