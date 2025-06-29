@@ -1,20 +1,18 @@
-{%- if settings.show_announcement -%}
+{%- comment -%}
+  This snippet is included in the header section and uses section settings
+{%- endcomment -%}
+
+{%- if section.settings.text != blank -%}
   <div class="announcement-bar">
     <div class="container">
       <div class="announcement-bar__inner">
-        {%- if settings.announcement_link != blank -%}
-          <a href="{{ settings.announcement_link }}" class="announcement-bar__content announcement-bar__content--center">
-            {{ settings.announcement_text }}
-            {%- if settings.announcement_button_label != blank -%}
-              <span>{{ settings.announcement_button_label }}</span>
-            {%- endif -%}
+        {%- if section.settings.link != blank -%}
+          <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">
+            {{ section.settings.text }}
           </a>
         {%- else -%}
-          <p class="announcement-bar__content announcement-bar__content--center">
-            {{ settings.announcement_text }}
-            {%- if settings.announcement_button_label != blank -%}
-              <span>{{ settings.announcement_button_label }}</span>
-            {%- endif -%}
+          <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">
+            {{ section.settings.text }}
           </p>
         {%- endif -%}
       </div>
