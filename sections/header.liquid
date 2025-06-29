@@ -437,19 +437,24 @@
   }
 
   .nav-icon.cross {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #70a491;
-    border-radius: 50%;
-    padding: 8px;
-  }
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #70a491;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-icon.cross:hover {
+  background-color: #EB654E !important;
+}
 
   .nav-icon.cross .span,
   .nav-icon.cross .span:before,
