@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "custom_html_FxcVET": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "title": "Shop Detox Nation Approved Products",
+        "html": "<p>Write or copy/paste HTML code</p>"
+      }
+    },
     "main": {
       "type": "main-collection",
       "settings": {
@@ -36,6 +44,7 @@
     }
   },
   "order": [
+    "custom_html_FxcVET",
     "main",
     "recently-viewed-products"
   ]
