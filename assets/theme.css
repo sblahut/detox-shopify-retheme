@@ -4563,6 +4563,15 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 
 .collection__meta {
   margin-bottom: 12px;
+  padding-bottom: 0;
+}
+
+.collection__products-count, .collection__title.heading.h1  {
+  display: none;
+}
+
+div .card {
+  border-radius: 20px;
 }
 
 .collection__description {
@@ -15291,7 +15300,19 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .collection__meta {
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.collection__title.heading.h1 {
+  font-family: "Marlide Display", sans-serif;
+  font-size: 32px;
+  margin-bottom: 0;
+  color: #000000;
+}
+
+.collection__products-count {
+  display: none;
 }
 
 .collection__description {
