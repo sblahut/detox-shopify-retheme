@@ -4614,6 +4614,8 @@ div .card {
   display: flex;
   position: relative;
   border-radius: 20px;
+  margin-left: 12px;
+  width: 97%;
 }
 
 .collection__toolbar-item {
