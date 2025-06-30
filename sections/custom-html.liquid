@@ -1,8 +1,8 @@
-<section class="section" data-section-id="{{ section.id }}" data-section-type="html">
-  <div class="container">
+<section class="section no-padding" data-section-id="{{ section.id }}" data-section-type="html" style="padding: 0; margin: 0;">
+  <div class="container" style="position: relative; padding: 60px 0; margin-bottom: 40px; background-image: url('{{ 'BG-1-min.webp' | asset_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center; overflow: hidden; max-width: 100%;">
     {%- if section.settings.title != blank -%}
       <header class="section__header">
-        <h2 class="section__title heading h2" style="font-weight: 500; font-size: 56px; font-family: Marlide Display; margin-bottom: 0; color: #234240;">{{ section.settings.title | escape }}</h2>
+        <h2 class="section__title heading h2" style="font-weight: 500; font-size: 56px; font-family: Marlide Display; color: #234240;">{{ section.settings.title | escape }}</h2>
       </header>
     {%- endif -%}
 
