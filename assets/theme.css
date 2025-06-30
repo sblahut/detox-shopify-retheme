@@ -6427,7 +6427,9 @@ select option {
 }
 
 .footer {
-  background: #234240;
+  background: url('../assets/footer-bg-new.png');
+  background-size: cover;
+  background-position: center;
   color: #FFFFFFB3;
   border-radius: 30px;
   padding: 50px 0;
@@ -11980,7 +11982,9 @@ select option {
 }
 
 .footer {
-  background: #234240;
+  background: url('../assets/footer-bg-new.png');
+  background-size: cover;
+  background-position: center;
   color: #FFFFFFB3;
   border-radius: 30px;
   padding: 50px 0;
@@ -17163,7 +17167,9 @@ select option {
 }
 
 .footer {
-  background: #234240;
+  background: url('../assets/footer-bg-new.png');
+  background-size: cover;
+  background-position: center;
   color: #FFFFFFB3;
   border-radius: 30px;
   padding: 50px 0;
@@ -22161,10 +22167,6 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 .store-availability-information-container {
   margin-left: 10px;
-}
-
-.store-availability-information__title, .store-availability-list__location {
-  margin-bottom: -2px;
 }
 
 .store-availability-information__stock {
