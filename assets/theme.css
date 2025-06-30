@@ -17509,16 +17509,17 @@ select option {
 .header__book-call-button {
   background: #EB654E;
   color: #FFFFFF;
-  padding: 14px 28px;
   border-radius: 50px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: none;
   margin-left: 2px;
   transition: background-color 0.2s ease-in-out;
-  height: 48px;
+  width: 160px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .header__book-call-button:hover {
