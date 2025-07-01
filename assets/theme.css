@@ -6427,13 +6427,25 @@ select option {
 }
 
 .footer {
-  background: url('../assets/footer-bg-new.png');
+  position: relative;
+  color: #FFFFFFB3;
+  padding: 70px 0;
+  margin-top: 50px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  border-top: none;
+  background-image: url('../assets/footer-bg-new.png') ;
+  mask-image: url('../assets/Footer-background-min.webp');
   background-size: cover;
   background-position: center;
-  color: #FFFFFFB3;
-  border-radius: 30px;
-  padding: 50px 0;
-  margin-top: 50px;
+  background-repeat: no-repeat;
+}
+
+.footer__wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
 .footer a:hover {
@@ -11063,17 +11075,6 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 @media screen and (min-width: 1000px) {
-  .collection-list {
-    white-space: nowrap;
-    margin: 30px -14px 0;
-    overflow: hidden;
-  }
-
-  .collection-list:after {
-    content: "flickity";
-    display: none;
-  }
-
   .collection-item {
     width: 20%;
     padding: 0 14px;
@@ -11982,13 +11983,24 @@ select option {
 }
 
 .footer {
-  background: url('../assets/footer-bg-new.png');
+  background-image: url('../assets/footer-bg-new.png') ;
+  mask-image: url('../assets/Footer-background-min.webp');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: #FFFFFFB3;
-  border-radius: 30px;
-  padding: 50px 0;
+  padding: 70px 0;
   margin-top: 50px;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.footer__wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
 .footer a:hover {
@@ -17167,13 +17179,24 @@ select option {
 }
 
 .footer {
-  background: url('../assets/footer-bg-new.png');
+  background-image: url('../assets/footer-bg-new.png') ;
+  mask-image: url('../assets/Footer-background-min.webp');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: #FFFFFFB3;
-  border-radius: 30px;
-  padding: 50px 0;
+  padding: 70px 0;
   margin-top: 50px;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.footer__wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
 .footer a:hover {
