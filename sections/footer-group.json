@@ -18,7 +18,9 @@
           "type": "text",
           "settings": {
             "title": "About Detox",
-            "content": "<p>We’re here to help you take back your power and reclaim your full aliveness, so that you can be who you really came here to be.</p>"
+            "content": "<p>We’re here to help you take back your power and reclaim your full aliveness, so that you can be who you really came here to be.</p>",
+            "email": "",
+            "address": ""
           }
         },
         "footer-1": {
@@ -31,7 +33,9 @@
           "type": "text",
           "settings": {
             "title": "Contact Info",
-            "content": ""
+            "content": "",
+            "email": "",
+            "address": ""
           }
         }
       },
@@ -40,6 +44,7 @@
         "footer-1",
         "text_wwyXHW"
       ],
+      "custom_css": [],
       "settings": {
         "show_social_media": true,
         "enable_follow_on_shop": true,
