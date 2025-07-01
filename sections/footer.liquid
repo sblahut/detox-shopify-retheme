@@ -190,8 +190,6 @@
             {%- endform -%}
           {%- endif -%}
 
-          {%- capture copyright_info -%}© Detox Nation Enterprise Inc, All Right Reserved{%- endcapture -%}
-          <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
 
         {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
@@ -210,6 +208,10 @@
           <p>{{ copyright_info }}</p>
         </div>
       </aside>
+    </div>
+    <div class="footer__copyright">
+      {%- capture copyright_info -%}© Detox Nation Enterprise Inc, All Right Reserved{%- endcapture -%}
+      <p>{{ copyright_info }}</p>
     </div>
   </div>
 </footer>
