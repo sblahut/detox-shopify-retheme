@@ -13,14 +13,6 @@
 {%- assign navigation_mobile_menu = linklists[navigation_mobile_menu_handle] -%}
 
 <section data-section-id="{{ section.id }}" data-section-type="header" data-section-settings="{{ section_settings | escape_once }}">
-  <div class="announcement-bar">
-    <div class="container">
-      <div class="announcement-bar__inner">
-        <a href="/practitioner-mentorship/" class="announcement-bar__content announcement-bar__content--center">🔥 Now Available! Is The Root Cause Practitioner Mentorship Right For Me? Replay! <span>View Here!</span></a>
-      </div>
-    </div>
-  </div>
-
   <header class="header header--{{ section.settings.desktop_navigation_layout }} {% unless section.settings.show_condensed_search %}header--search-expanded{% endunless %}" role="banner">
     <div class="container">
       <div class="header__inner">
@@ -35,37 +27,37 @@
         {%- endcomment -%}
 
         {%- if navigation_menu.links.size > 0 -%}
-
-                 <div class="header-bar mobile-bar">
-   <div class="nav-icon cross">
-      <div class="span"></div>
-   </div>
-   <div class="sidebar">
-      <div class="container">
-         <div class="row">
-            <div class="col-6">
-               <div class="list">                      
-                  <a href="#">Home</a>
-                  <a href="#">About Us</a>
-                  <a href="#">Detox Shop</a>
-                  <a href="#">Work With Us</a>
-                  <a href="#">Resources</a>
-                  <a href="#">Blogs</a>
-                  <a href="#">Podcast</a>
-                  <a href="#">Community</a>
-                  <a href="#">Contact Us</a>
-               </div>
+          <div class="sidebar">
+            <button class="close-button" aria-label="Close menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <div class="list">                      
+                    <a href="/">Home</a>
+                    <a href="/pages/about-us">About Us</a>
+                    <a href="/collections/detox-shop">Detox Shop</a>
+                    <a href="/pages/work-with-us">Work With Us</a>
+                    <a href="/pages/resources">Resources</a>
+                    <a href="/blogs/news">Blogs</a>
+                    <a href="/pages/podcast">Podcast</a>
+                    <a href="/pages/community">Community</a>
+                    <a href="/pages/contact-us">Contact Us</a>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="img-box">
+                    <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
+                    <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-6">
-               <div  class="img-box">
-                  <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
-                  <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+          </div>
         
           <nav class="header__mobile-nav hidden-lap-and-up">
             <button class="header__mobile-nav-toggle icon-state touch-area" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-controls="mobile-menu" aria-label="{{ 'header.navigation.open_menu' | t }}">
@@ -84,13 +76,7 @@
         {%- endcomment -%}
 
         {%- if section.settings.desktop_navigation_layout == 'condensed' and navigation_menu.links.size > 0 -%}
-          <nav class="header__desktop-nav hidden-pocket">
-            <button class="header__desktop-nav-toggle" data-action="toggle-menu" aria-expanded="false" aria-haspopup="true" aria-label="{{ 'header.navigation.open_menu' | t }}">
-              <span>{%- render 'icon', icon: 'hamburger' -%} <span class="header__desktop-nav-text">{{- 'header.navigation.menu' | t -}}</span></span>
-            </button>
-
-            {%- render 'desktop-menu', menu: navigation_menu, index: 'desktop-menu-0' -%}
-          </nav>
+          {%- comment -%}Removing condensed menu{%- endcomment -%}
         {%- endif -%}
 
         {%- comment -%}
@@ -354,57 +340,42 @@
     <nav class="nav-bar">
       <div class="nav-bar__inner">
         <div class="container">
-
           <div class="header-bar desktop-bar">
-   <div class="nav-icon cross">
-      <div class="span"></div>
-   </div>
-   <div class="sidebar">
-      <div class="container">
-         <div class="row">
-            <div class="col-6">
-               <div class="list">                      
-                  <a href="#">Home</a>
-                  <a href="#">About Us</a>
-                  <a href="#">Detox Shop</a>
-                  <a href="#">Work With Us</a>
-                  <a href="#">Resources</a>
-                  <a href="#">Blogs</a>
-                  <a href="#">Podcast</a>
-                  <a href="#">Community</a>
-                  <a href="#">Contact Us</a>
-               </div>
+            <div class="nav-icon cross">
+              <div class="span"></div>
             </div>
-            <div class="col-6">
-               <div  class="img-box">
-                  <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
-                  <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
-               </div>
+            <div class="sidebar">
+              <button class="close-button" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="list">                      
+                      <a href="/">Home</a>
+                      <a href="/pages/about-us">About Us</a>
+                      <a href="/collections/detox-shop">Detox Shop</a>
+                      <a href="/pages/work-with-us">Work With Us</a>
+                      <a href="/pages/resources">Resources</a>
+                      <a href="/blogs/news">Blogs</a>
+                      <a href="/pages/podcast">Podcast</a>
+                      <a href="/pages/community">Community</a>
+                      <a href="/pages/contact-us">Contact Us</a>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="img-box">
+                      <img src="https://6aian3viw8cr41pg-1271464009.shopifypreview.com/cdn/shop/files/Logo-Updated_62251da2-7e93-4f31-9787-fdcd62ceb2a7_350x.svg?v=1748014499" class="logo-img">
+                      <img src="https://detoxnation.com/wp-content/uploads/2024/12/Elevae_23_0000004508-1-2-min.webp" class="mask-img">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-         </div>
-      </div>
-   </div>
-</div>
-          
-          <ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
-            {%- for link in navigation_menu.links -%}
-              <li class="nav-bar__item">
-                {%- if link.links.size == 0 -%}
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
-                {%- else -%}
-                  {%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
-
-                  <a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index }}" aria-haspopup="true">
-                    {{- link.title -}}
-                    {%- render 'icon', icon: 'arrow-bottom' -%}
-                    {%- render 'icon', icon: 'nav-triangle' -%}
-                  </a>
-
-                  {%- render 'desktop-menu', menu: link, index: index -%}
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -429,6 +400,35 @@
     {%- endif -%}
   }
 
+  /* Custom header action item spacing */
+  .header__action-list {
+    gap: 2px !important;
+  }
+
+  .header__action-item {
+    padding: 0 !important;
+  }
+
+  .header__action-item-link {
+    padding: 8px !important;
+  }
+
+  .header__book-call-button {
+    padding: 20px 35px !important;
+    height: 54px !important;
+    margin-left: 2px !important;
+  }
+
+  @media screen and (min-width: 641px) {
+    .header__action-list {
+      gap: 4px !important;
+    }
+    
+    .header__book-call-button {
+      margin-left: 4px !important;
+    }
+  }
+
   /* Position the hamburger menu */
   .header__inner {
     display: flex;
@@ -437,19 +437,24 @@
   }
 
   .nav-icon.cross {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #70a491;
-    border-radius: 50%;
-    padding: 8px;
-  }
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #70a491;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-icon.cross:hover {
+  background-color: #EB654E !important;
+}
 
   .nav-icon.cross .span,
   .nav-icon.cross .span:before,
@@ -471,16 +476,18 @@
     position: absolute;
     width: 100%;
     height: 2px;
-
     transition: all 0.3s ease;
   }
 
   .nav-icon.cross .span:before {
     top: -8px;
+    width: 100%;
   }
 
   .nav-icon.cross .span:after {
     bottom: -8px;
+    width: 50%;
+    left: 0;
   }
 
   /* Active state for the hamburger menu */
@@ -571,17 +578,243 @@
   .announcement-bar__content:hover span {
     color: inherit;
   }
+
+  .header-bar .sidebar .close-button {
+    display: none;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    left: 0;
+  }
+
+  .sidebar .container {
+    width: 60%;
+    position: relative;
+  }
+
+  .sidebar .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #70a491;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+  }
+
+  .sidebar .close-button:hover {
+    background: #EB654E;
+  }
+
+  .sidebar .close-button svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .col-6 {
+    width: 50%;
+    padding: 0 15px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list a {
+    color: #234240;
+    text-decoration: none;
+    transition: all 0.5s linear;
+    padding-bottom: 25px;
+    font-family: "Marlide Display", Sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .img-box {
+    text-align: center;
+  }
+
+  .logo-img {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .sidebar.open .img-box .mask-img {
+    -webkit-mask-image: url(https://cdn.shopify.com/s/files/1/0012/7146/4009/t/33/assets/header-image-bg-mask.svg?v=1749817767);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  @media (max-width: 767px) {
+    .sidebar .container {
+      width: 90%;
+    }
+    
+    .col-6 {
+      width: 100%;
+    }
+    
+    .sidebar {
+      justify-content: flex-start;
+      padding: 50px 20px;
+    }
+    
+    .list a {
+      padding-bottom: 15px;
+      font-size: 24px;
+    }
+  }
+
+  /* Remove all condensed menu styles */
+  .header__desktop-nav,
+  .header__desktop-nav-toggle,
+  .nav-bar,
+  .header__mobile-nav,
+  .mobile-bar {
+    display: none !important;
+  }
+
+  /* Hide the bottom mobile menu */
+  @media (max-width: 1000px) {
+    .mobile-bar {
+      display: none !important;
+    }
+
+    /* Keep the top menu visible */
+    .header__inner .nav-icon.cross {
+      display: flex !important;
+    }
+
+    .header__inner .sidebar {
+      display: flex !important;
+    }
+  }
+
+  /* Hide the default mobile navigation */
+  .header__mobile-nav {
+    display: none !important;
+  }
+
+  /* Ensure the top menu still works */
+  .nav-bar {
+    border-bottom: none;
+  }
+
+  .nav-bar__inner {
+    border: none;
+  }
+
+  .header-bar.desktop-bar {
+    display: block;
+  }
+
+  /* Hide only the visual elements of the bottom menu while keeping its structure */
+  .nav-bar .container .header-bar.desktop-bar .nav-icon.cross {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  /* Keep the sidebar functionality but hide the bottom menu's version */
+  .nav-bar .container .header-bar.desktop-bar {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Ensure the top menu stays visible and functional */
+  .header__inner .nav-icon.cross {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .header__inner .sidebar {
+    display: flex;
+  }
+
+  /* Remove borders */
+  .nav-bar {
+    border: none;
+  }
+
+  .nav-bar__inner {
+    border: none;
+  }
+
+  /* Hide the bottom menu completely */
+  .nav-bar {
+    display: none !important;
+  }
 </style>
 
 <script>
   document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
 
-  // Add hamburger menu toggle functionality
   document.addEventListener('DOMContentLoaded', function() {
     const navIcon = document.querySelector('.nav-icon.cross');
-    navIcon.addEventListener('click', function() {
-      this.classList.toggle('active');
-    });
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (navIcon && sidebar) {
+      navIcon.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+        this.classList.toggle('active');
+      });
+
+      const closeButton = sidebar.querySelector('.close-button');
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
+          sidebar.classList.remove('open');
+          navIcon.classList.remove('active');
+        });
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-icon') && !event.target.closest('.sidebar')) {
+          sidebar.classList.remove('open');
+          navIcon.classList.remove('active');
+        }
+      });
+    }
   });
 </script>
 

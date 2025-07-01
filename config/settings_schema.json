@@ -8,6 +8,36 @@
     "theme_support_url": "https:\/\/support.maestrooo.com\/article\/203-contact-us"
   },
   {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Announcement bar settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement text"
+      },
+      {
+        "type": "text",
+        "id": "announcement_button_label",
+        "label": "Button label (optional)"
+      },
+      {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Announcement link (optional)"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {

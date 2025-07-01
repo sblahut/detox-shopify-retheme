@@ -13,14 +13,13 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": true,
       "settings": {
         "background": "#22403f",
         "text_color": "#ffffff",
-        "text": "Announce something here",
+        "text": "🔥 Detox Nation Anniversary Sale – 20% off of CellCore and 10% Off Everything Else with code CELEBRATE2025",
         "text_position": "left",
         "link": "",
-        "show_newsletter": true,
+        "show_newsletter": false,
         "newsletter_button": "Subscribe & Save",
         "newsletter_title": "Newsletter",
         "newsletter_content": "<p>A short sentence describing what someone will receive by subscribing</p>"
@@ -37,7 +36,7 @@
         "show_country_selector": false,
         "navigation_menu": "main-menu",
         "navigation_mobile_menu": "",
-        "desktop_navigation_layout": "inline",
+        "desktop_navigation_layout": "condensed",
         "desktop_navigation_open_trigger": "hover",
         "show_navigation_social_media": true,
         "navigation_phone_number": "Call us 000-000-0000",

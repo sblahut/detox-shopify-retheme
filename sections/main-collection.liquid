@@ -43,6 +43,9 @@
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings="{{ section_settings | escape_once }}">
   <div class="container container--flush">
     <div class="page__sub-header">
+
+      {%- comment -%}Removing breadcrumb navigation - Maybe bring back later {%- endcomment -%}
+      {%- comment -%}
       <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
         <ol class="breadcrumb__list" role="list">
           <li class="breadcrumb__item">
@@ -60,9 +63,9 @@
           </li>
         </ol>
       </nav>
+       {%- endcomment -%}
     </div>
-
-    <div {% if has_filters %}class="layout"{% endif %}>
+    <div class="layout">
       {%- comment -%}
       --------------------------------------------------------------------------------------
       FILTER BAR (DESKTOP)
