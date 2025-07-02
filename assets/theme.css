@@ -22726,6 +22726,15 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   border-color: #70A491;
 }
 
+/* Remove styling from ellipsis dots */
+.pagination__nav-item:not([href]):not(.is-active) {
+  background: transparent;
+  border: none;
+  padding: 15px 0px;
+  width: auto;
+  color: #000000;
+}
+
 .pagination__prev,
 .pagination__next {
   padding: 15px 20px;
