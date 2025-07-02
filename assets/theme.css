@@ -6309,7 +6309,15 @@ select option {
 }
 
 .gift-card__code {
-  border: 1px solid var(--border-color);
+  padding: 15px 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--Neutral-Grey-02, #E6E6E7);
+  background: var(--FFFFFF, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   text-align: center;
   border-radius: 3px;
@@ -11866,13 +11874,17 @@ select option {
 }
 
 .gift-card__code {
-  border: 1px solid var(--border-color);
+  padding: 15px 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--Neutral-Grey-02, #E6E6E7);
+  background: var(--FFFFFF, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   text-align: center;
-  border-radius: 3px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   margin-bottom: 15px;
   padding: 6px 15px;
   display: inline-flex;
@@ -13432,10 +13444,6 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 
 .aspect-ratio--square {
   padding-bottom: 100% !important;
-}
-
-.aspect-ratio--short {
-  padding-bottom: 75% !important;
 }
 
 .aspect-ratio--tall {
@@ -17062,13 +17070,17 @@ select option {
 }
 
 .gift-card__code {
-  border: 1px solid var(--border-color);
+  padding: 15px 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--Neutral-Grey-02, #E6E6E7);
+  background: var(--FFFFFF, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   text-align: center;
-  border-radius: 3px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   margin-bottom: 15px;
   padding: 6px 15px;
   display: inline-flex;
@@ -22666,84 +22678,82 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 }
 
 .pagination {
-  color: var(--heading-color);
-  font-weight: var(--text-font-bolder-weight);
-  font-size: calc(var(--base-text-font-size)  - (var(--default-text-font-size)  - 14px));
-  border-top: 1px solid var(--border-color);
-  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 }
 
 .pagination__inner {
-  position: relative;
-}
-
-.pagination__prev, .pagination__next {
-  align-items: center;
-  height: 100%;
   display: flex;
-  position: absolute;
-  top: 0;
-}
-
-.pagination__prev svg, .pagination__next svg {
-  width: 8px;
-  height: 12px;
-  position: relative;
-}
-
-.pagination__prev {
-  left: 0;
-}
-
-.pagination__prev svg {
-  margin-right: 14px;
-}
-
-.pagination__next {
-  right: 0;
-}
-
-.pagination__next svg {
-  margin-left: 14px;
-}
-
-.pagination__nav, .pagination__page-count {
-  text-align: center;
-  display: block;
+  align-items: center;
+  gap: 15px;
 }
 
 .pagination__nav {
-  display: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .pagination__nav-item {
-  margin: 0 2px;
-  padding: 8px 11px;
-  line-height: 1;
-  display: inline-block;
+  padding: 15px 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--Neutral-Grey-02, #E6E6E7);
+  background: var(--FFFFFF, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
 }
 
-.pagination__nav-item.is-active {
-  background: var(--primary-button-background);
-  color: var(--primary-button-text-color);
-  border-radius: 3px;
+.pagination__nav-item.is-active,
+.pagination__nav-item:hover {
+  background-color: #70A491;
+  color: #fff;
+  border-color: #70A491;
 }
 
-.card .pagination {
-  padding: 20px;
+.pagination__prev,
+.pagination__next {
+  padding: 15px 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--Neutral-Grey-02, #E6E6E7);
+  background: var(--FFFFFF, #FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #000000;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination__prev:hover,
+.pagination__next:hover {
+  background-color: #70A491;
+  color: #fff;
+  border-color: #70A491;
+}
+
+.pagination__prev svg,
+.pagination__next svg {
+  width: 8px;
+  height: 12px;
+}
+
+.pagination__page-count {
+  display: none;
 }
 
 @media screen and (min-width: 641px) {
-  .pagination__nav {
-    display: block;
-  }
-
-  .pagination__page-count {
-    display: none;
-  }
-
-  .card .pagination {
-    padding: 20px 30px;
+  .pagination {
+    margin: 60px 0;
   }
 }
 
