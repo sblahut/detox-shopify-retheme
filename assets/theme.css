@@ -7107,10 +7107,6 @@ td, th {
   left: 1px;
 }
 
-.flickity-prev-next-button.next {
-  right: -25px;
-}
-
 .flickity-prev-next-button.next svg {
   left: -1px;
 }
@@ -24833,9 +24829,16 @@ product-rerender {
     width: fit-content;
     margin: -33px auto 0;
     border-radius: 70px;
-  display:block;
-  position: relative;
-  z-index: 1;
+    display:block;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+.template-collection .product-item .add-to-cart-form button:hover,
+.recently-viewed .add-to-cart-form button:hover {
+    background-color: #EB654E;
+    border-color: #EB654E;
 }
 
 .template-collection .product-item--vertical .product-item__info{
