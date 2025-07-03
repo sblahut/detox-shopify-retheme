@@ -18119,7 +18119,7 @@ select option {
 }
 
 .search-bar__item-price {
-  color: var(--accent-color);
+  color: #234240;
 }
 
 .search-bar__result-link {
