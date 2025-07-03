@@ -17571,12 +17571,29 @@ select option {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
 }
 
-.header__book-call-button:hover {
+.product-form__add-button {
+  background: #EB654E;
+  color: #FFFFFF;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
+  margin-left: 2px;
+  transition: background-color 0.2s ease-in-out;
+  width: 160px;
+  display: inline-flex;
+  float: right;
+}
+
+.header__book-call-button:hover, .product-form__add-button:hover {
   background: #d54d37;
   color: #FFFFFF;
+}
+
+.shopify-payment-button {
+  display: none;
 }
 
 @media screen and (max-width: 640px) {
@@ -24811,7 +24828,7 @@ product-rerender {
   margin-bottom: 0;
   }
 
-.template-collection .product-item .ProductItem__Wrapper{
+.template-collection .product-item .ProductItem__Wrapper, .product-list--vertical .product-item .ProductItem__Wrapper{
     -webkit-mask-image: url("https://cdn.shopify.com/s/files/1/0012/7146/4009/files/product-item-bg_small_bfaf90e4-1f05-4a3c-b90d-530c6882b321.webp?v=1750064709");
     -webkit-mask-size: cover;
     -webkit-mask-position: center bottom;
