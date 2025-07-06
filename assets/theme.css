@@ -20447,7 +20447,13 @@ select option {
 }
 
 .product-meta__vendor {
-  text-transform: uppercase;
+  font-size: 20px;
+  font-family: Mozaic Geo;
+  color: #234240;
+}
+
+.product-meta__vendor:hover {
+  text-decoration: none;
 }
 
 .product-meta__vendor + .product-meta__sku:before {
@@ -20559,10 +20565,7 @@ select option {
 }
 
 .product-form__info-title {
-  vertical-align: baseline;
-  white-space: nowrap;
-  padding-right: 12px;
-  display: table-cell;
+  display: none;
 }
 
 .product-form__info-item--quantity > * {
@@ -20876,8 +20879,10 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 }
 
 .price {
-  font-size: calc(var(--base-text-font-size)  - (var(--default-text-font-size)  - 24px));
-  color: var(--accent-color);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 125%;
+  color: #234240;
 }
 
 .price--highlight {
