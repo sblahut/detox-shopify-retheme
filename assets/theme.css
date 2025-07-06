@@ -20492,6 +20492,19 @@ select option {
   margin-left: 12px;
 }
 
+.product-meta__description p {
+  color:#232420;
+  font-family: Mozaic GEO;
+
+}
+
+.product-meta__description h4 {
+  font-family: Mozaic GEO;
+
+  text-transform: none;
+}
+
+
 .product-form__payment-container + .product-meta__description, .product-form__payment-container + .product-meta__text {
   margin-top: 25px;
   margin-bottom: 0;
