@@ -20737,6 +20737,38 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   display: none !important;
 }
 
+/* === FINAL OVERRIDE: Quantity pill even split & full width === */
+.product-form__quantity-with-rules{
+  max-width:none !important;       /* grow to full card width */
+  flex-wrap:nowrap !important;     /* stay on one line        */
+  padding:0 !important;            /* remove side padding     */
+  overflow:hidden;                /* clip inner borders      */
+}
+
+.product-form__quantity-with-rules > quantity-picker,
+.product-form__quantity-with-rules > .product-form__add-button--inline{
+  flex:1 1 50% !important;        /* 50 / 50 split           */
+  width:100% !important;
+  min-width:0 !important;
+}
+
+.product-form__add-button--inline{
+  margin-left:0 !important;       /* no side gap             */
+  display:flex !important;        /* perfectly centred text  */
+  justify-content:center;
+  align-items:center;
+  flex:1 1 50% !important;        /* ensure flex shares space*/
+  border:none !important;          /* remove inner border */
+  border-radius:0 !important;       /* let pill radius come from container */
+}
+
+
+/* Remove border from quantity selector wrapper so only outer pill shows */
+.product-form__quantity-with-rules .quantity-selector--product{
+  border:none !important;
+  background:transparent !important;
+}
+
 /* === Custom layout for inline Add-to-Cart button next to quantity selector === */
 .product-form__add-button--inline {
   margin-left: 2.5rem;
