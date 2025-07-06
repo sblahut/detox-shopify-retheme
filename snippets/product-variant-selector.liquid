@@ -340,6 +340,12 @@
             {%- if quantity_rules != blank -%}
               <p class="product-form__quantity-rules text--small">{{ quantity_rules | remove_first: ' / ' | capitalize }}</p>
             {%- endif -%}
+
+            {%- if variant.available -%}
+              <button type="submit" class="product-form__add-button button button--primary product-form__add-button--inline">{{ 'product.form.add_to_cart' | t }}</button>
+            {%- else -%}
+              <button type="button" class="product-form__add-button button button--disabled product-form__add-button--inline" disabled>{{ 'product.form.sold_out' | t }}</button>
+            {%- endif -%}
           </div>
         </div>
       </div>
