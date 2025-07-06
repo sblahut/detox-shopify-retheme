@@ -3690,21 +3690,28 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px !important;
+  text-transform: none;
+  font-family: Mozaic Geo;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
@@ -9290,21 +9297,27 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
@@ -14463,21 +14476,30 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px !important;
+  text-transform: none;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
