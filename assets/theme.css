@@ -4496,6 +4496,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   text-align: center;
   font-weight: var(--text-font-bolder-weight);
   margin-bottom: 10px;
+  font-family: Mozaic Geo;
 }
 
 .cart-recap__secure-payment-title svg {
@@ -19518,7 +19519,7 @@ select option {
 
 .line-item__price {
   font-weight: var(--text-font-bolder-weight);
-  color: var(--accent-color);
+  color: #22403f;
   display: inline-block;
 }
 
