@@ -20495,6 +20495,8 @@ select option {
 .product-meta__description p {
   color:#232420;
   font-family: Mozaic GEO;
+  margin-block-end: .9rem;
+  margin-block-start: 0;
 
 }
 
