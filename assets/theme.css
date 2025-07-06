@@ -20789,13 +20789,13 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
     width: calc(50% - 15px);
     margin-left: 0;
   }
-
+  
   .product-block-list__item--info {
     width: calc(50% - 15px);
     height: 100%;
     position: absolute;
     top: 15rem;
-    right: 0;
+    right: 0.5rem;
   }
 }
 
