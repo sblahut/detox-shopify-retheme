@@ -20593,7 +20593,7 @@ select option {
   padding: 0 24px;
   border: 1px solid #E6E6E7;
   background: #FFF;
-  max-width: 288px;
+  max-width: 50%;
   width: 100%;
   border-radius: 100px;
   gap: 0;
@@ -20724,7 +20724,7 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 
 /* === Custom layout for inline Add-to-Cart button next to quantity selector === */
 .product-form__add-button--inline {
-  margin-left: 16px;
+  margin-left: 2.5rem;
   height: 48px;
 }
 
