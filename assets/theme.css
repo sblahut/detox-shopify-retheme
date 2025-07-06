@@ -20776,7 +20776,7 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
     width: calc(50% - 15px);
     height: 100%;
     position: absolute;
-    top: 0;
+    top: 15rem;
     right: 0;
   }
 }
