@@ -20705,6 +20705,29 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   margin-bottom: -10px;
 }
 
+.product-block-list__item--liquid {
+  display: none !important;
+}
+
+/* === Custom layout for inline Add-to-Cart button next to quantity selector === */
+.product-form__add-button--inline {
+  margin-left: 16px;
+  height: 48px;
+}
+
+@media screen and (max-width: 640px) {
+  .product-form__add-button--inline {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* Hide the original buy-buttons block (now replaced inline) */
+.product-form__buy-buttons {
+  display: none !important;
+}
+
 .product__refund-policy-link {
   justify-content: space-between;
   align-items: center;
@@ -23839,6 +23862,13 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   width: 64px;
   min-width: 64px;
   height: 100%;
+}
+
+/* Hide duplicate product detail blocks that were moved into the product-info card */
+.product-block-list__item--description,
+.product-block-list__item--content,
+.product-block-list__item--liquid {
+  display: none !important;
 }
 
 .shipping-estimator__results {

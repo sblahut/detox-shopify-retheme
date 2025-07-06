@@ -41,6 +41,33 @@
                   {%- render 'store-availability', product_variant: product.selected_or_first_available_variant -%}
                 </div>
 
+              
+              {%- when 'description' -%}
+                {%- if product.description != blank -%}
+                  <div class="product-meta__description rte">
+                    {{ product.description | remove: 'data-section-type="product"' }}
+                  </div>
+                {%- endif -%}
+
+              {%- when 'content' -%}
+                {%- assign page = block.settings.page -%}
+
+                {%- if page != blank -%}
+                  {%- assign title = page.title -%}
+                  {%- assign content = page.content -%}
+                {%- else -%}
+                  {%- assign title = block.settings.title -%}
+                  {%- assign content = block.settings.content -%}
+                {%- endif -%}
+
+                {%- if content != blank -%}
+                  <div class="product-meta__content rte">
+                    {%- if title != blank -%}<h3 class="product-meta__content-heading heading h4">{{ title }}</h3>{%- endif -%}
+                    {{ content }}
+                  </div>
+                {%- endif -%}
+              </div>
+
               {%- when 'featured_description' -%}
                 {%- comment -%}This is only shown on the featured product section{%- endcomment -%}
                 {%- if product.description != blank -%}
