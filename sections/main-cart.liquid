@@ -74,14 +74,28 @@
                             <div class="line-item__image-wrapper">
                               {%- comment -%}For vertical images we force to contain them on a square ratio to avoid growing too large{%- endcomment -%}
 
-                              {%- if line_item.image.aspect_ratio < 1 -%}
-                                <div class="aspect-ratio aspect-ratio--square">
-                                  <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
-                                </div>
+                              {%- if gift_wrap_product.handle == line_item.product.handle -%}
+                                {%- if line_item.image.aspect_ratio < 1 -%}
+                                  <div class="aspect-ratio aspect-ratio--square">
+                                    <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
+                                  </div>
+                                {%- else -%}
+                                  <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: line_item.image.aspect_ratio }}%">
+                                    <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
+                                  </div>
+                                {%- endif -%}
                               {%- else -%}
-                                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: line_item.image.aspect_ratio }}%">
-                                  <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
-                                </div>
+                                <a href="{{ line_item.url }}" class="line-item__image-link">
+                                  {%- if line_item.image.aspect_ratio < 1 -%}
+                                    <div class="aspect-ratio aspect-ratio--square">
+                                      <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
+                                    </div>
+                                  {%- else -%}
+                                    <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: line_item.image.aspect_ratio }}%">
+                                      <img loading="lazy" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
+                                    </div>
+                                  {%- endif -%}
+                                </a>
                               {%- endif -%}
                             </div>
 
