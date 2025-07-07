@@ -23402,6 +23402,9 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   align-items: center;
   list-style: none;
   display: flex;
+  font-family: Mozaic GEO;
+  font-size: 18px;
+  line-height: 150%;
 }
 
 .breadcrumb__list svg {
