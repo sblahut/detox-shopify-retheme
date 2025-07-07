@@ -3690,21 +3690,28 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px !important;
+  text-transform: none;
+  font-family: Mozaic Geo;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
@@ -4489,6 +4496,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   text-align: center;
   font-weight: var(--text-font-bolder-weight);
   margin-bottom: 10px;
+  font-family: Mozaic Geo;
 }
 
 .cart-recap__secure-payment-title svg {
@@ -9290,21 +9298,27 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
@@ -14463,21 +14477,30 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 }
 
 .button--primary {
-  background: var(--primary-button-background);
+  background: #70a491;
   color: var(--primary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--secondary {
-  background: var(--secondary-button-background);
+  background: #70a491;
   color: var(--secondary-button-text-color);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px !important;
+  text-transform: none;
+  font-family: Mozaic Geo;
 }
 
 .button--secondary:hover {
-  background: rgba(var(--secondary-button-background-rgb), .8);
+  background: #EB654E;
 }
 
 .button--ternary {
@@ -16411,7 +16434,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
   -webkit-appearance: none;
   resize: none;
   box-shadow: 0 1px rgba(var(--border-color-rgb), .25) inset;
-  border-radius: 2px;
+  border-radius: 30px;
   width: 100%;
   height: 48px;
   padding: 12px;
@@ -16694,7 +16717,7 @@ select::-ms-expand {
   border: 1px solid var(--form-border-color);
   box-shadow: 0 -1px 1px rgba(var(--border-color-rgb), .3) inset;
   background: none;
-  border-radius: 2px;
+  border-radius: 30px;
   width: 100%;
   height: 48px;
   padding: 0 36px 0 12px;
@@ -19479,7 +19502,8 @@ select option {
 }
 
 .line-item__vendor {
-  text-transform: uppercase;
+  color: rgb(45, 66, 64);
+  font-size: 16px;;
 }
 
 .line-item__title {
@@ -19496,7 +19520,7 @@ select option {
 
 .line-item__price {
   font-weight: var(--text-font-bolder-weight);
-  color: var(--accent-color);
+  color: #22403f;
   display: inline-block;
 }
 
@@ -19553,6 +19577,14 @@ select option {
   margin-left: 10px;
   line-height: 1;
   display: inline-block;
+}
+
+.line-item-table th {
+  color: #EB654E;
+}
+
+.line-item-table tbody {
+  color: #234240;
 }
 
 @media screen and (max-width: 640px) {
