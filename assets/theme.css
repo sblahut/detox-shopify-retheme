@@ -19502,7 +19502,8 @@ select option {
 }
 
 .line-item__vendor {
-  text-transform: uppercase;
+  color: rgb(45, 66, 64);
+  font-size: 16px;;
 }
 
 .line-item__title {
