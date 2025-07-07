@@ -19579,6 +19579,14 @@ select option {
   display: inline-block;
 }
 
+.line-item-table th {
+  color: #EB654E;
+}
+
+.line-item-table tbody {
+  color: #234240;
+}
+
 @media screen and (max-width: 640px) {
   .line-item-table, .line-item-table tbody {
     width: auto;
