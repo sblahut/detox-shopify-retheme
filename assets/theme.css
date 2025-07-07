@@ -4116,6 +4116,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 
 .mini-cart__product-vendor {
   text-transform: uppercase;
+  color: #234240;
 }
 
 .mini-cart__product-title {
@@ -9723,6 +9724,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 
 .mini-cart__product-vendor {
   text-transform: uppercase;
+  color: #234240;
 }
 
 .mini-cart__product-title {
@@ -14905,6 +14907,7 @@ body:not(.is-tabbing) [tabindex]:focus, body:not(.is-tabbing) label:focus, body:
 
 .mini-cart__product-vendor {
   text-transform: uppercase;
+  color: #234240;
 }
 
 .mini-cart__product-title {
