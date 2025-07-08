@@ -25083,6 +25083,11 @@ product-rerender {
   margin-right: 0;
 }
 
+/* Product Detail Page padding consistency */
+.template-product .product-block-list__item {
+  padding: 0 20px;
+}
+
 /* sidebar css */
 .header-bar ul {
   top: 0;
