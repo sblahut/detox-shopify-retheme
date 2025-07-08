@@ -26356,11 +26356,14 @@ product-rerender {
   width: 100% !important;
 }
 
+.product-list--vertical .product-item {
+  background: #ffffff !important;
+}
+
 .template-collection .product-list,
 .template-collection .product-item,
 .template-collection .collection .card,
-.product-list--vertical .product-list,
-.product-list--vertical .product-item {
+.product-list--vertical .product-list {
   background: transparent;
   border: 0;
 }
