@@ -38,6 +38,9 @@
           <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
+      <div class="mini-cart__free-shipping-banner" style="padding: 12px 10px; background: #f7f7f7; color: #234240; font-weight: bold; text-align: center;">
+        Spend $349 and get free shipping! (US only)
+      </div>
       <div class="mini-cart__content">
         {%- if shipping_alert != blank -%}
           <div class="mini-cart__alert-wrapper">
@@ -184,6 +187,19 @@
       </div>
 
       <div class="mini-cart__recap">
+        <div class="mini-cart__info-block" style="margin-bottom: 18px;">
+          <div style="margin-bottom: 8px; color: #234240;">Shipping calculated at checkout</div>
+          <label style="display: flex; align-items: flex-start; font-size: 14px; margin-bottom: 8px; gap: 8px;">
+            <input type="checkbox" required style="margin-top: 2px;">
+            <span>
+              I have read and agree to Detox RejuveNation’s
+              <a href="/pages/terms-and-conditions" target="_blank" style="color: #70a491; text-decoration: underline; white-space: nowrap;">terms and conditions</a>.
+            </span>
+          </label>
+          <div style="font-size: 10px; color: #234240; background: #f7f7f7; border-radius: 6px; padding: 8px 12px;">
+            <strong>Please place refrigerated items in the fridge upon receipt.</strong>
+          </div>
+        </div>
         {%- if cart.cart_level_discount_applications != blank -%}
           {%- for discount_application in cart.cart_level_discount_applications -%}
             <div class="mini-cart__recap-price-line mini-cart__recap-price-line--highlight text--pull">
@@ -220,8 +236,7 @@
           <div class="button-group button-group--loose button-group--fit">
             <a href="{{ routes.cart_url }}" class="button button--secondary" data-no-instant>{{ 'cart.general.view_cart' | t }}</a>
             {%- if settings.cart_show_checkout_button -%}
-              <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
-            {%- endif -%}
+              <button id="checkoutButton" type="submit" name="checkout" class="button button--primary" disabled>Checkout</button>            {%- endif -%}
           </div>
         </div>
 
@@ -255,5 +270,14 @@
       cartToggle.setAttribute('aria-expanded', 'false');
     }
   }
+    document.addEventListener('DOMContentLoaded', function() {
+      var checkbox = document.getElementById('termsCheckbox');
+      var checkoutBtn = document.getElementById('checkoutButton');
+      if (checkbox && checkoutBtn) {
+        checkbox.addEventListener('change', function() {
+          checkoutBtn.disabled = !checkbox.checked;
+        });
+      }
+    });
 </script>
   

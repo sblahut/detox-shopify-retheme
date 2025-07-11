@@ -4387,6 +4387,19 @@ body.no-mobile-scroll {
   background: #eb654e;
 }
 
+.mini-cart__free-shipping-banner {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.mini-cart__info-block a {
+  color: #70a491;
+  text-decoration: underline;
+}
+
+.mini-cart__info-block a:hover {
+  color: #eb654e !important;
+}
+
 .mini-cart {
   background: var(--secondary-background);
   color: var(--text-color);
