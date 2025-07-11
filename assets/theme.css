@@ -6923,6 +6923,20 @@ select option {
   margin-left: 3vw;
 }
 
+/* Mobile and Tablet styles for footer logo */
+@media screen and (max-width: 1007px) {
+  .footer__logo {
+    margin-bottom: 5px;
+  }
+}
+
+/* If you need different spacing for mobile only */
+@media screen and (max-width: 767px) {
+  .footer__logo {
+    margin-bottom: 5px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .footer__logo-image {
     max-width: 150px;
