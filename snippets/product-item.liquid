@@ -55,11 +55,11 @@
     {%- assign primary_media = product.featured_media -%}
 
     <a href="{{ product.url }}" class="product-item__image-wrapper {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}">
-      <div class="aspect-ratio {% if settings.product_image_size != 'natural' %}aspect-ratio--{{ settings.product_image_size }}{% endif %}" style="padding-bottom: {{ 100.0 | divided_by: primary_media.preview_image.aspect_ratio }}%">
-        {{- primary_media | image_url: width: primary_media.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, 600px', widths: '200,300,400,600,800,1000,1200,1400,1600', data-media-id: primary_media.id, class: 'product-item__primary-image' -}}
+      <div class="aspect-ratio {% if settings.product_image_size != 'natural' %}aspect-ratio--{{ settings.product_image_size }}{% endif %}" style="padding-bottom: {{ 100.0 | divided_by: primary_media.aspect_ratio }}%">
+        {{- primary_media | image_url: width: primary_media.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000', class: 'product-item__primary-image' -}}
 
         {%- if show_secondary_media -%}
-          {{- product.media[1] | image_url: width: product.media[1].width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, 600px', widths: '200,300,400,600,800,1000,1200,1400,1600', class: 'product-item__secondary-image' -}}
+          {{- product.media[1] | image_url: width: product.media[1].width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, (max-width: 999px) 50vw, 33vw', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000', class: 'product-item__secondary-image' -}}
         {%- endif -%}
       </div>
     </a>
