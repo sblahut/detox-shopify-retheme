@@ -77,6 +77,14 @@
         "include_margins": true
       }
     },
+    "product_recommendations_PnARbH": {
+      "type": "product-recommendations",
+      "name": "Related products",
+      "settings": {
+        "heading": "Related Products",
+        "show_quick_buy": false
+      }
+    },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
       "settings": {
@@ -88,6 +96,7 @@
   "order": [
     "main",
     "175096785629fb8c84",
+    "product_recommendations_PnARbH",
     "recently-viewed-products"
   ]
 }
