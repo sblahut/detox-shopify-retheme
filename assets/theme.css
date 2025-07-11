@@ -4306,6 +4306,87 @@ body:not(.is-tabbing) textarea:focus {
   margin-bottom: 15px;
 }
 
+/* Drawer-specific styles for mini-cart */
+.mini-cart--drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  width: 400px !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1002 !important;
+  box-shadow: -2px 0 16px rgba(0,0,0,0.15) !important;
+  border-radius: 0 !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), opacity 0.25s, visibility 0.25s !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.mini-cart--drawer[aria-hidden="false"] {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Optional: prevent body scroll when drawer is open */
+body.no-mobile-scroll {
+  overflow: hidden !important;
+}
+
+.mini-cart--drawer .mini-cart__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mini-cart__line-item-list {
+  max-height: 900px !important;
+}
+
+.mini-cart--drawer .mini-cart__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.mini-cart--drawer .mini-cart__line-item-list {
+  flex: 1 1 auto;
+  min-height: 0; /* for flexbox scrolling */
+  overflow-y: auto;
+}
+
+.mini-cart--drawer .mini-cart__recap,
+.mini-cart--drawer .mini-cart__button-container {
+  flex-shrink: 0;
+  background: var(--secondary-background, #fff);
+  padding-bottom: 16px;
+}
+
+.mini-cart__close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #70a491;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+}
+
+.mini-cart__close-button:hover {
+  background: #eb654e;
+}
+
 .mini-cart {
   background: var(--secondary-background);
   color: var(--text-color);

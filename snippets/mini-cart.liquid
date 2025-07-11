@@ -1,4 +1,4 @@
-<form method="post" action="{{ routes.cart_url }}" id="mini-cart" class="mini-cart" aria-hidden="true" novalidate="novalidate" data-item-count="{{ cart.item_count }}">
+<form method="post" action="{{ routes.cart_url }}" id="mini-cart" class="mini-cart{% if settings.cart_type == 'drawer' %} mini-cart--drawer{% endif %}" aria-hidden="true" novalidate="novalidate" data-item-count="{{ cart.item_count }}">
   <input type="hidden" name="attributes[collection_products_per_page]" value="">
   <input type="hidden" name="attributes[collection_layout]" value="">
 
@@ -32,6 +32,12 @@
     </div>
   {%- else -%}
     <div class="mini-cart__inner">
+      <button class="close-button mini-cart__close-button" aria-label="Close cart" type="button" onclick="closeMiniCart()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
       <div class="mini-cart__content">
         {%- if shipping_alert != blank -%}
           <div class="mini-cart__alert-wrapper">
@@ -235,3 +241,19 @@
     </div>
   {%- endif -%}
 </form>
+<script>
+  function closeMiniCart() {
+    const miniCart = document.getElementById('mini-cart');
+    const cartToggle = document.querySelector('.header__cart-toggle');
+    
+    if (miniCart) {
+      miniCart.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-mobile-scroll');
+    }
+    
+    if (cartToggle) {
+      cartToggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+</script>
+  
