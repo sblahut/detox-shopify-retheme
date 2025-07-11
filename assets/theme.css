@@ -26617,6 +26617,11 @@ product-rerender {
   margin: 0;
 }
 
+.list a:hover {
+  color: #E86C60 !important;
+  text-decoration: none;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
