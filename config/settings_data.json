@@ -97,6 +97,11 @@
         "type": "shopify://apps/stack-discounts-ninja/blocks/app-embed/42061352-3816-430f-b7f9-d8d92f58c694",
         "disabled": false,
         "settings": {}
+      },
+      "3066834073402364550": {
+        "type": "shopify://apps/sellup-upsell-add-ons/blocks/global_sellup/001ec440-29ea-4cbf-9265-4963fa825261",
+        "disabled": false,
+        "settings": {}
       }
     }
   },

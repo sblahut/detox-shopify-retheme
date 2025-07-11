@@ -25,23 +25,16 @@
         "upsell_products_count": 4
       }
     },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed",
-        "show_quick_buy": false
-      }
-    },
-    "17509681169fc80554": {
+    "1752261539f74d6572": {
       "type": "apps",
       "blocks": {
-        "selleasy_lb_upsell_widget_icuc_jr9hcC": {
-          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-icuc/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "sellup_upsell_add_ons_cart_upsells_RAjtRc": {
+          "type": "shopify://apps/sellup-upsell-add-ons/blocks/cart_upsells/001ec440-29ea-4cbf-9265-4963fa825261",
           "settings": {}
         }
       },
       "block_order": [
-        "selleasy_lb_upsell_widget_icuc_jr9hcC"
+        "sellup_upsell_add_ons_cart_upsells_RAjtRc"
       ],
       "settings": {
         "include_margins": true
@@ -50,7 +43,6 @@
   },
   "order": [
     "main",
-    "17509681169fc80554",
-    "recently-viewed-products"
+    "1752261539f74d6572"
   ]
 }
