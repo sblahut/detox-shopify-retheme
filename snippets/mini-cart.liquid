@@ -190,13 +190,13 @@
         <div class="mini-cart__info-block" style="margin-bottom: 18px;">
           <div style="margin-bottom: 8px; color: #234240;">Shipping calculated at checkout</div>
           <label style="display: flex; align-items: flex-start; font-size: 14px; margin-bottom: 8px; gap: 8px;">
-            <input type="checkbox" required style="margin-top: 2px;">
+            <input id="miniCartTermsCheckbox" type="checkbox" required style="margin-top: 2px;">
             <span>
-              I have read and agree to Detox RejuveNation’s
+              I have read and agree to Detox RejuveNation's
               <a href="/pages/terms-and-conditions" target="_blank" style="color: #70a491; text-decoration: underline; white-space: nowrap;">terms and conditions</a>.
             </span>
           </label>
-          <div style="font-size: 10px; color: #234240; background: #f7f7f7; border-radius: 6px; padding: 8px 12px;">
+          <div style="font-size: 12px; color: #234240; background: #f7f7f7; border-radius: 6px; padding: 8px 12px;">
             <strong>Please place refrigerated items in the fridge upon receipt.</strong>
           </div>
         </div>
@@ -236,7 +236,7 @@
           <div class="button-group button-group--loose button-group--fit">
             <a href="{{ routes.cart_url }}" class="button button--secondary" data-no-instant>{{ 'cart.general.view_cart' | t }}</a>
             {%- if settings.cart_show_checkout_button -%}
-              <button id="checkoutButton" type="submit" name="checkout" class="button button--primary" disabled>Checkout</button>            {%- endif -%}
+              <button id="miniCartCheckoutButton" type="submit" name="checkout" class="button button--primary" disabled style="transition: all 0.3s ease; opacity: 0.5; cursor: not-allowed; background-color: #234240 !important; border-color: #234240;">Checkout</button>{%- endif -%}
           </div>
         </div>
 
@@ -270,14 +270,68 @@
       cartToggle.setAttribute('aria-expanded', 'false');
     }
   }
-    document.addEventListener('DOMContentLoaded', function() {
-      var checkbox = document.getElementById('termsCheckbox');
-      var checkoutBtn = document.getElementById('checkoutButton');
-      if (checkbox && checkoutBtn) {
-        checkbox.addEventListener('change', function() {
-          checkoutBtn.disabled = !checkbox.checked;
-        });
+
+  function updateMiniCartButtonStyle(button, isEnabled) {
+    if (isEnabled) {
+      button.style.opacity = '1';
+      button.style.cursor = 'pointer';
+      button.style.backgroundColor = '#234240 !important';
+      button.style.borderColor = '#234240';
+    } else {
+      button.style.opacity = '0.5';
+      button.style.cursor = 'not-allowed';
+      button.style.backgroundColor = '#234240 !important';
+      button.style.borderColor = '#234240';
+    }
+  }
+
+  function setupMiniCartCheckout() {
+    const checkbox = document.getElementById('miniCartTermsCheckbox');
+    const checkoutBtn = document.getElementById('miniCartCheckoutButton');
+    
+    if (checkbox && checkoutBtn) {
+      // Set initial state
+      checkoutBtn.disabled = !checkbox.checked;
+      updateMiniCartButtonStyle(checkoutBtn, checkbox.checked);
+      
+      // Remove existing listener to prevent duplicates
+      const newCheckboxHandler = function() {
+        checkoutBtn.disabled = !this.checked;
+        updateMiniCartButtonStyle(checkoutBtn, this.checked);
+      };
+      
+      checkbox.removeEventListener('change', newCheckboxHandler);
+      checkbox.addEventListener('change', newCheckboxHandler);
+    }
+  }
+
+  // Run setup when mini-cart opens
+  document.addEventListener('click', function(event) {
+    if (event.target.closest('.header__cart-toggle')) {
+      // Small delay to ensure drawer content is loaded
+      setTimeout(setupMiniCartCheckout, 100);
+    }
+  });
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', setupMiniCartCheckout);
+  
+  // Re-initialize after cart updates
+  document.addEventListener('cart:updated', setupMiniCartCheckout);
+  
+  // Additional event listener for drawer mutations
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+        setupMiniCartCheckout();
       }
     });
+  });
+
+  // Start observing the mini-cart for changes
+  const miniCart = document.getElementById('mini-cart');
+  if (miniCart) {
+    observer.observe(miniCart, { attributes: true });
+  }
 </script>
   

@@ -4900,6 +4900,7 @@ body.no-mobile-scroll {
 
 .cart-recap__notices {
   margin: 24px 0;
+  color: #234240 !important;
 }
 
 .cart-recap__secure-payment-title {

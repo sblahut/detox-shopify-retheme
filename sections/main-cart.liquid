@@ -481,9 +481,61 @@
                       </p>
                     </div>
 
+                    <div class="cart-recap__info-block" style="margin-bottom: 18px;">
+                      <label style="display: flex; align-items: flex-start; font-size: 14px; margin-bottom: 8px; gap: 8px;">
+                        <input id="cartTermsCheckbox" type="checkbox" required style="margin-top: 2px;">
+                        <span>
+                          I have read and agree to Detox RejuveNation's
+                          <a href="/pages/terms-and-conditions" target="_blank" style="color: #70a491; text-decoration: underline; white-space: nowrap;">terms and conditions</a>.
+                        </span>
+                      </label>
+                      <div style="font-size: 12px; color: #234240; background: #f7f7f7; border-radius: 6px; padding: 8px 12px;">
+                        <strong>Please place refrigerated items in the fridge upon receipt.</strong>
+                      </div>
+                    </div>
+
                     <input type="hidden" name="attributes[collection_products_per_page]" value="">
                     <input type="hidden" name="attributes[collection_layout]" value="">
-                    <button type="submit" name="checkout" class="cart-recap__checkout button button--primary button--full button--large">{{ 'cart.general.checkout' | t }}</button>
+                    <button type="submit" name="checkout" id="cartCheckoutButton" class="cart-recap__checkout button button--primary button--full button--large" style="transition: all 0.3s ease; opacity: 0.5; cursor: not-allowed; background-color: #234240 !important; border-color: #234240;" disabled>{{ 'cart.general.checkout' | t }}</button>
+
+                    <script>
+                      function setupMainCartCheckout() {
+                        const checkbox = document.getElementById('cartTermsCheckbox');
+                        const checkoutBtn = document.getElementById('cartCheckoutButton');
+                        
+                        if (checkbox && checkoutBtn) {
+                          // Set initial state
+                          checkoutBtn.disabled = !checkbox.checked;
+                          updateButtonStyle(checkoutBtn, checkbox.checked);
+                          
+                          // Add change listener
+                          checkbox.addEventListener('change', function() {
+                            checkoutBtn.disabled = !this.checked;
+                            updateButtonStyle(checkoutBtn, this.checked);
+                          });
+                        }
+                      }
+
+                      function updateButtonStyle(button, isEnabled) {
+                        if (isEnabled) {
+                          button.style.opacity = '1';
+                          button.style.cursor = 'pointer';
+                          button.style.backgroundColor = '#234240 !important';
+                          button.style.borderColor = '#234240';
+                        } else {
+                          button.style.opacity = '0.5';
+                          button.style.cursor = 'not-allowed';
+                          button.style.backgroundColor = '#234240 !important';
+                          button.style.borderColor = '#234240';
+                        }
+                      }
+
+                      // Initialize on page load
+                      document.addEventListener('DOMContentLoaded', setupMainCartCheckout);
+                      
+                      // Re-initialize after cart updates
+                      document.addEventListener('cart:updated', setupMainCartCheckout);
+                    </script>
                   </div>
                 </div>
 
