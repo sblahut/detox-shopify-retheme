@@ -26472,6 +26472,30 @@ product-rerender {
   transition: all 0.2s ease-in-out;
 }
 
+.LaunchTipAddToCartForm, .launchtip_add_to_cart.launchtip_upsell_design.add-to-cart {
+  background-color: #70a491;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0;
+  border-radius: 70px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  width: 100%; 
+}
+
+.LaunchTipAddToCartForm:hover,
+.launchtip_add_to_cart.launchtip_upsell_design.add-to-cart:hover
+{
+  background-color: #eb654e !important;
+  border-color: #eb654e !important;
+}
+
 .template-collection .product-item .add-to-cart-form button:hover,
 .product-list--vertical .product-item .add-to-cart-form button:hover {
   background-color: #eb654e;
