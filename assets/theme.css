@@ -21191,6 +21191,9 @@ select option {
   margin-bottom: 40px;
 }
 
+.page__content p {
+  color: #234240 !important;
+}
 @media screen and (min-width: 641px) {
   .page__header {
     margin: 35px 0;
