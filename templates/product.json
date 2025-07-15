@@ -34,6 +34,10 @@
             "progress_bar_max_value": 50
           }
         },
+        "recharge_subscriptions_subscription_widget_v2_zJG48N": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -51,6 +55,7 @@
       "block_order": [
         "product_meta",
         "variant_selector",
+        "recharge_subscriptions_subscription_widget_v2_zJG48N",
         "buy_buttons",
         "description"
       ],
