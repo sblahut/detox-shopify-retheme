@@ -26445,7 +26445,7 @@ product-rerender {
 
 .template-collection .product-item .ProductItem__Wrapper,
 .product-list--vertical .product-item .ProductItem__Wrapper {
-  -webkit-mask-image: url("/assets/overlay_collection.svg");
+  -webkit-mask-image: url("overlay_collection.svg");
   -webkit-mask-size: cover;
   -webkit-mask-position: center bottom;
   -webkit-mask-repeat: no-repeat;
