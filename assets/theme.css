@@ -26445,7 +26445,7 @@ product-rerender {
 
 .template-collection .product-item .ProductItem__Wrapper,
 .product-list--vertical .product-item .ProductItem__Wrapper {
-  -webkit-mask-image: url("https://cdn.shopify.com/s/files/1/0012/7146/4009/files/product-item-bg_small_bfaf90e4-1f05-4a3c-b90d-530c6882b321.webp?v=1750064709");
+  -webkit-mask-image: url("/assets/overlay_collection.svg");
   -webkit-mask-size: cover;
   -webkit-mask-position: center bottom;
   -webkit-mask-repeat: no-repeat;
