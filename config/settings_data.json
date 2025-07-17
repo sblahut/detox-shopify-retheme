@@ -56,7 +56,7 @@
     "cart_empty_button_link": "shopify://collections/all",
     "cart_show_checkout_button": true,
     "cart_show_free_shipping_threshold": false,
-    "cart_free_shipping_threshold": "50",
+    "cart_free_shipping_threshold": "349",
     "social_facebook": "https://www.facebook.com/DetoxRejuveNation",
     "social_twitter": "",
     "social_pinterest": "",
@@ -95,6 +95,32 @@
       },
       "14236898902689827741": {
         "type": "shopify://apps/stack-discounts-ninja/blocks/app-embed/42061352-3816-430f-b7f9-d8d92f58c694",
+        "disabled": false,
+        "settings": {}
+      },
+      "3066834073402364550": {
+        "type": "shopify://apps/sellup-upsell-add-ons/blocks/global_sellup/001ec440-29ea-4cbf-9265-4963fa825261",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#467C99",
+          "contrast_color": "#FFFFFF",
+          "color_brand_secondary": "#467C99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#FFFFFF",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "16798170927650018749": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/storefront-experiences/371eed76-0b44-4869-9813-730372ea378e",
         "disabled": false,
         "settings": {}
       }

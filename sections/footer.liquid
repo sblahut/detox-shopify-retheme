@@ -222,6 +222,47 @@
   </div>
 </footer>
 
+<style>
+  /* Override footer background for tablet and mobile */
+  @media screen and (max-width: 1024px) {
+    #shopify-section-sections--19564340740310__footer .footer,
+    #shopify-section-footer-group .footer,
+    .shopify-section-group-footer-group .footer,
+    .footer {
+      background: url('{{ "footer-bg-mobile-image-.webp" | asset_url }}') center center/cover no-repeat !important;
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    /* Remove any theme overlays */
+    #shopify-section-sections--19564340740310__footer .footer::before,
+    #shopify-section-sections--19564340740310__footer .footer::after,
+    .shopify-section-group-footer-group .footer::before,
+    .shopify-section-group-footer-group .footer::after,
+    .footer::before,
+    .footer::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+    }
+  }
+
+  /* Existing styles */
+  @media screen and (max-width: 699px) {
+    .footer__copyright {
+      padding: 60px 0px 0px 0px;
+    }
+    
+    .footer__copyright p {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  }
+</style>
 
 {% schema %}
 {

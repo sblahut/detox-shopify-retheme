@@ -39,14 +39,14 @@
                 <div class="col-6">
                   <div class="list">                      
                     <a href="/">Home</a>
-                    <a href="/pages/about-us">About Us</a>
+                    <a href="https://detoxnation.com/about/">About Us</a>
                     <a href="/collections/detox-shop">Detox Shop</a>
-                    <a href="/pages/work-with-us">Work With Us</a>
-                    <a href="/pages/resources">Resources</a>
-                    <a href="/blogs/news">Blogs</a>
-                    <a href="/pages/podcast">Podcast</a>
-                    <a href="/pages/community">Community</a>
-                    <a href="/pages/contact-us">Contact Us</a>
+                    <a href="https://detoxnation.com/programs/">Work With Us</a>
+                    <a href="https://detoxnation.com/resources/">Resources</a>
+                    <a href="https://detoxnation.com/blog/">Blogs</a>
+                    <a href="https://detoxnation.com/podcast/">Podcast</a>
+                    <a href="https://detoxnation.com/community/">Community</a>
+                    <a href="https://detoxnation.com/contact-us/">Contact Us</a>
                   </div>
                 </div>
                 <div class="col-6">
@@ -383,6 +383,64 @@
 </section>
 
 <style>
+  /* Add these new styles before the existing styles */
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .header__logo {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .header__logo-image {
+    width: auto;
+    height: auto;
+  }
+
+  .header__action-list {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Tablet-specific adjustments */
+  @media screen and (max-width: 999px) and (min-width: 768px) {
+    .header__logo-image {
+      max-width: 200px !important;
+    }
+
+    .header__action-list {
+      gap: 0;
+    }
+
+    .header__action-item {
+      padding: 0 !important;
+    }
+
+    .header__action-item-link {
+      padding: 6px !important;
+    }
+
+    .header__book-call-button {
+      padding: 15px 25px !important;
+      height: 44px !important;
+      font-size: 14px !important;
+    }
+
+    .nav-icon.cross {
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+    }
+  }
+
+  /* Existing styles below */
   :root {
     --header-is-sticky: {% if section.settings.enable_sticky_header %}1{% else %}0{% endif %};
     --header-inline-navigation: {% if section.settings.desktop_navigation_layout == 'inline' %}1{% else %}0{% endif %};

@@ -4387,6 +4387,19 @@ body.no-mobile-scroll {
   background: #eb654e;
 }
 
+.mini-cart__free-shipping-banner {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.mini-cart__info-block a {
+  color: #70a491;
+  text-decoration: underline;
+}
+
+.mini-cart__info-block a:hover {
+  color: #eb654e !important;
+}
+
 .mini-cart {
   background: var(--secondary-background);
   color: var(--text-color);
@@ -4887,6 +4900,7 @@ body.no-mobile-scroll {
 
 .cart-recap__notices {
   margin: 24px 0;
+  color: #234240 !important;
 }
 
 .cart-recap__secure-payment-title {
@@ -6921,6 +6935,20 @@ select option {
   text-align: center;
   margin-bottom: -10vh;
   margin-left: 3vw;
+}
+
+/* Mobile and Tablet styles for footer logo */
+@media screen and (max-width: 1007px) {
+  .footer__logo {
+    margin-bottom: 5px;
+  }
+}
+
+/* If you need different spacing for mobile only */
+@media screen and (max-width: 767px) {
+  .footer__logo {
+    margin-bottom: 5px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -21163,6 +21191,9 @@ select option {
   margin-bottom: 40px;
 }
 
+.page__content p {
+  color: #234240 !important;
+}
 @media screen and (min-width: 641px) {
   .page__header {
     margin: 35px 0;
@@ -26472,6 +26503,30 @@ product-rerender {
   transition: all 0.2s ease-in-out;
 }
 
+.LaunchTipAddToCartForm, .launchtip_add_to_cart.launchtip_upsell_design.add-to-cart {
+  background-color: #70a491;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0;
+  border-radius: 70px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  width: 100%; 
+}
+
+.LaunchTipAddToCartForm:hover,
+.launchtip_add_to_cart.launchtip_upsell_design.add-to-cart:hover
+{
+  background-color: #eb654e !important;
+  border-color: #eb654e !important;
+}
+
 .template-collection .product-item .add-to-cart-form button:hover,
 .product-list--vertical .product-item .add-to-cart-form button:hover {
   background-color: #eb654e;
@@ -26563,6 +26618,11 @@ product-rerender {
   font-size: 32px;
   font-weight: 500;
   margin: 0;
+}
+
+.list a:hover {
+  color: #E86C60 !important;
+  text-decoration: none;
 }
 
 .row {
