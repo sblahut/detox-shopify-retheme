@@ -22667,6 +22667,22 @@ shopify-accelerated-checkout-cart {
   position: relative;
 }
 
+
+.template-collection .collection__dynamic-part .product-list--collection .product-item .buy-button {
+  margin-top: -50px;
+  margin-left: 72px;
+  width: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.template-collection .collection__dynamic-part .product-list--collection .product-item .buy-button .button {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+
 .product-form__quantity-with-rules .buy-button {
   width: 50%;
 }
