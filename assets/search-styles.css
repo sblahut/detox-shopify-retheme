@@ -10,6 +10,11 @@
   display: none;
 }
 
+.product-list--collection {
+  border-radius: 30px;
+  margin-left: 30px !important;
+}
+
 .template-search .product-list--collection {
   display: flex;
   flex-wrap: wrap;
