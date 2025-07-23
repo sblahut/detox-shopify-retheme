@@ -24163,6 +24163,10 @@ shopify-accelerated-checkout-cart {
   color: #ffffffb3;
 }
 
+.rte li {
+  color: #000000;
+}
+
 .footer__social-media {
   margin-top: 20px;
 }
