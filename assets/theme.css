@@ -22120,8 +22120,11 @@ shopify-accelerated-checkout-cart {
 @media screen and (max-width: 640px) {
   .product-form__add-button--inline {
     margin-left: 0;
-    margin-top: 10px;
     width: 100%;
+  }
+
+  .product-form__quantity-with-rules {
+    width: 90%;
   }
 }
 
