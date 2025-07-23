@@ -6941,9 +6941,10 @@ select option {
   border-top: none;
   background-image: url("../assets/footer-bg-new.png");
   background-size: contain;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   border-radius: 30px;
+  max-width: 1400px; /* Temp fix until we get a larger footer background image */
 }
 
 .footer__wrapper {
