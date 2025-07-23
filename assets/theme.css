@@ -22667,6 +22667,10 @@ shopify-accelerated-checkout-cart {
   position: relative;
 }
 
+.product-form__quantity-with-rules .buy-button {
+  width: 50%;
+}
+
 .product-item:after {
   content: "";
   box-shadow: 1px 0 var(--border-color), 0 1px var(--border-color);
