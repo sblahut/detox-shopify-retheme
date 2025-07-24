@@ -21839,7 +21839,6 @@ select option {
 
 .product-meta__description h4 {
   font-family: Mozaic GEO;
-
   text-transform: none;
 }
 
@@ -24184,7 +24183,7 @@ shopify-accelerated-checkout-cart {
   color: #ffffffb3;
 }
 
-.rte li {
+.rte li, .description {
   color: #000000;
 }
 
