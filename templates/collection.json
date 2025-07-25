@@ -37,6 +37,9 @@
     },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
+      "custom_css": [
+        ".flickity {border-radius: 30px !important;}"
+      ],
       "settings": {
         "title": "Recently viewed",
         "show_quick_buy": false
