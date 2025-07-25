@@ -234,9 +234,11 @@
 
         <div class="mini-cart__button-container">
           <div class="button-group button-group--loose button-group--fit">
-            <a href="{{ routes.cart_url }}" class="button button--secondary" data-no-instant>{{ 'cart.general.view_cart' | t }}</a>
+            <!-- Removed the View Cart button -->
+            {% comment %} <a href="{{ routes.cart_url }}" class="button button--secondary" data-no-instant>{{ 'cart.general.view_cart' | t }}</a> {% endcomment %}
             {%- if settings.cart_show_checkout_button -%}
-              <button id="miniCartCheckoutButton" type="submit" name="checkout" class="button button--primary" disabled style="transition: all 0.3s ease; opacity: 0.5; cursor: not-allowed; background-color: #234240 !important; border-color: #234240;">Checkout</button>{%- endif -%}
+              <button id="miniCartCheckoutButton" type="submit" name="checkout" class="button button--primary button--full" disabled style="transition: all 0.3s ease; opacity: 0.5; cursor: not-allowed; background-color: #234240 !important; border-color: #234240;">Checkout</button>
+            {%- endif -%}
           </div>
         </div>
 
