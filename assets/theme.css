@@ -3754,6 +3754,10 @@ body:not(.is-tabbing) textarea:focus {
   }
 }
 
+#shopify-section-template--19674248872150__newsletter {
+  display: none;
+}
+
 .blog-sidebar__item--newsletter {
   text-align: center;
   border-radius: 3px;
