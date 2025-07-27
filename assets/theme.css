@@ -18660,12 +18660,12 @@ select option {
 }
 
 .header__cart-count {
-  background: #eb654e !important;
+  background: #70A491 !important;
   color: #ffffff;
 }
 
 .header__book-call-button {
-  background: #eb654e;
+  background: #70A491;
   color: #ffffff;
   border-radius: 50px;
   font-weight: 500;
