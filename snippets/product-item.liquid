@@ -354,12 +354,17 @@
   {%- endcomment -%}
 
   {%- if product.available -%}
-    <form method="post" action="/cart/add" class="add-to-cart-form" data-productid="{{ product.id }}">
+    <form method="post" action="{{ routes.cart_add_url }}" class="product-item__action-list button-stack" data-product-form>
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-      <button type="submit" class="btn">Add to Cart</button>
+      <input type="hidden" name="quantity" value="1">
+      <buy-button class="buy-button">
+        <button type="submit" class="product-item__action-button button button--small button--primary">
+          {{- 'product.form.add_to_cart' | t -}}
+        </button>
+      </buy-button>
     </form>
   {%- else -%}
-    <span class="sold-out">Sold Out</span>
+    <span class="product-item__sold-out button-stack">{{ 'product.form.sold_out' | t }}</span>
   {%- endif -%}
 
 

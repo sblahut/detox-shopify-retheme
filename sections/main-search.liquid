@@ -318,13 +318,166 @@
               <div {% if has_filters %}class="layout__section"{% endif %}>
                 {%- if search.results_count > 0 -%}
                   <div class="collection">
+                    <div class="collection__dynamic-part">
+                      <div class="collection__toolbar">
+                        {%- if has_filters -%}
+                          <button class="collection__toolbar-item collection__toolbar-item--filter hidden-lap-and-up" data-action="open-drawer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-collection-filters">
+                            <span class="collection__filter-icon {% if active_filters_count > 0 %}collection__filter-icon--active{% endif %}">{%- render 'icon', icon: 'filter' -%}</span>
+                            {{ 'collection.filter.title' | t }}{% if active_filters_count > 0 %}&nbsp;({{ active_filters_count }}){% endif %}
+                          </button>
+                        {%- endif -%}
+
+                        <div class="collection__toolbar-item collection__toolbar-item--count hidden-pocket">
+                          {%- assign offset = paginate.current_offset | plus: 1 -%}
+                          {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
+
+                          <span class="collection__showing-count hidden-pocket hidden-lap">{{ 'search.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</span>
+
+                          <label for="showing-count">{{ 'collection.general.display' | t }}:</label>
+
+                          <div class="value-picker-wrapper">
+                            <button class="value-picker-button" aria-haspopup="true" aria-expanded="false" aria-controls="display-by-selector" data-action="open-value-picker">
+                              <span class="hidden-phone">{{ 'collection.general.page_size' | t: page_size: paginate.page_size }}</span><!--
+                              -->{%- render 'icon', icon: 'arrow-bottom' -%}
+                            </button>
+
+                            <div id="display-by-selector" class="value-picker" aria-hidden="true">
+                              {% render 'icon', icon: 'nav-triangle-borderless' %}
+
+                              <div class="value-picker__inner">
+                                <header class="value-picker__header">
+                                  <span class="value-picker__title text--strong">{{ 'collection.general.display' | t }}</span>
+                                  <button class="value-picker__close" data-action="close-value-picker" aria-controls="display-by-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
+                                </header>
+
+                                <div class="value-picker__choice-list">
+                                  <button class="value-picker__choice-item link {% if items_per_page == 24 %}is-selected{% endif %}" data-action="select-value" data-value="24">{{ 'collection.general.page_size' | t: page_size: 24 }} {% render 'icon', icon: 'check-2' %}</button>
+                                  <button class="value-picker__choice-item link {% if items_per_page == 36 %}is-selected{% endif %}" data-action="select-value" data-value="36">{{ 'collection.general.page_size' | t: page_size: 36 }} {% render 'icon', icon: 'check-2' %}</button>
+                                  <button class="value-picker__choice-item link {% if items_per_page == 48 %}is-selected{% endif %}" data-action="select-value" data-value="48">{{ 'collection.general.page_size' | t: page_size: 48 }} {% render 'icon', icon: 'check-2' %}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collection__toolbar-item collection__toolbar-item--sort">
+                          {%- assign search_sort_by = search.sort_by | default: search.default_sort_by -%}
+
+                          {%- for option in search.sort_options -%}
+                            {%- if option.value == search_sort_by -%}
+                              {%- assign search_sort_by_name = option.name -%}
+                              {%- break -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+
+                          <div class="value-picker-wrapper">
+                            <button class="value-picker-button" aria-haspopup="true" aria-expanded="false" aria-controls="sort-by-selector" data-action="open-value-picker">
+                              <span class="hidden-tablet-and-up">{{ 'collection.sorting.title' | t }}</span><!--
+                              --><span class="hidden-phone">{{ 'collection.sorting.title' | t }}: {{ search_sort_by_name }}</span><!--
+                              -->{%- render 'icon', icon: 'arrow-bottom' -%}
+                            </button>
+
+                            <div id="sort-by-selector" class="value-picker" aria-hidden="true">
+                              {% render 'icon', icon: 'nav-triangle-borderless' %}
+
+                              <div class="value-picker__inner">
+                                <header class="value-picker__header">
+                                  <span class="value-picker__title text--strong">{{ 'collection.sorting.title' | t }}</span>
+                                  <button class="value-picker__close" data-action="close-value-picker" aria-controls="sort-by-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
+                                </header>
+
+                                <div class="value-picker__choice-list">
+                                  {%- for option in search.sort_options -%}
+                                    <button class="value-picker__choice-item link {% if option.value == search_sort_by %}is-selected{% endif %}" data-action="select-value" data-value="{{ option.value }}">{{ option.name }} {% render 'icon', icon: 'check-2' %}</button>
+                                  {%- endfor -%}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collection__toolbar-item collection__toolbar-item--layout">
+                          <span class="collection__layout-label hidden-phone">{{ 'collection.layout.title' | t }}</span>
+
+                          {%- if section.settings.default_view_layout == 'grid' -%}
+                            <button type="button" class="collection__layout-button {% if view_mode == 'grid' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.grid' | t }}" data-action="change-layout" data-layout-mode="grid">{% render 'icon', icon: 'grid' %}</button>
+                            <button type="button" class="collection__layout-button {% if view_mode == 'list' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.list' | t }}" data-action="change-layout" data-layout-mode="list">{% render 'icon', icon: 'list' %}</button>
+                          {%- else -%}
+                            <button type="button" class="collection__layout-button {% if view_mode == 'list' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.list' | t }}" data-action="change-layout" data-layout-mode="list">{% render 'icon', icon: 'list' %}</button>
+                            <button type="button" class="collection__layout-button {% if view_mode == 'grid' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.grid' | t }}" data-action="change-layout" data-layout-mode="grid">{% render 'icon', icon: 'grid' %}</button>
+                          {%- endif -%}
+                        </div>
+                      </div>
+
+                      {%- comment -%}
+                      --------------------------------------------------------------------------------------
+                      MOBILE FILTERS
+                      --------------------------------------------------------------------------------------
+                      {%- endcomment -%}
+
+                      {%- if has_filters and active_filters_count > 0 -%}
+                        <div class="card__section collection__mobile-filters-recap hidden-lap-and-up">
+                          <div class="collection__mobile-active-filters">
+                            {%- for filter in search.filters -%}
+                              {%- if filter.type == 'list' -%}
+                                {%- for active_filter_value in filter.active_values -%}
+                                  <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ active_filter_value.url_to_remove | escape }}">
+                                    <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
+                                    {{- active_filter_value.label -}}
+                                  </button>
+                                {%- endfor -%}
+                                {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+                                <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ filter.url_to_remove | escape }}">
+                                  <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
+                                  {{- filter.min_value.value | default: 0 | money_without_trailing_zeros }} - {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -}}
+                                </button>
+                                {%- elsif filter.type == 'boolean' and filter.true_value.active -%}
+                                <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ filter.url_to_remove | escape }}">
+                                  <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
+                                  {{- filter.label -}}
+                                </button>
+                              {%- endif -%}
+                            {%- endfor -%}
+
+                            {%- if active_filters_count > 1 -%}
+                              <button class="collection__mobile-active-clear" data-action="clear-filters" data-url="{{ routes.search_url }}?sort_by={{ sort_by }}q={{ search.terms | escape }}&type=product">{{ 'collection.filter.clear_all' | t }}</button>
+                            {%- endif -%}
+                          </div>
+
+                          <span class="collection__mobile-active-filters-results">{{ 'collection.general.results_count' | t: count: search.results_count }}</span>
+                        </div>
+                      {%- endif -%}
+
+                      {%- comment -%}
+                      --------------------------------------------------------------------------------------
+                      COLLECTION PRODUCTS
+                      --------------------------------------------------------------------------------------
+                      {%- endcomment -%}
+
+                      {%- if view_mode == 'grid' -%}
+                        {%- assign show_as_list = false -%}
+                      {%- else -%}
+                        {%- assign show_as_list = true -%}
+                      {%- endif -%}
+
+                      <div class="product-list product-list--collection">
+                        {%- assign product_results = search.results | where: 'object_type', 'product' -%}
+
+                        {%- for product in product_results -%}
+                          {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes -%}
+                        {%- endfor -%}
+                      </div>
+
+                      {%- render 'pagination', paginate: paginate -%}
+
+                      <script type="application/json" data-collection-products-count>
+                        {
+                          "productsCount": "{{ 'search.general.results_count' | t: count: search.results_count }}"
+                        }
+                      </script>
+                    </div>
                     <div class="card">
                       <header class="card__header card__header--tight">
-                        {%- comment -%}
-                        IMPLEMENTATION NOTE: unfortunately I was forced to add a lot of extra div (collection__meta, collection__meta-inner, collection__header-inner,...)
-                        to be able to accommodate with the brand related layout which make things more complicated...
-                        {%- endcomment -%}
-
                         <div class="collection__header">
                           <div class="collection__header-inner">
                             <div class="collection__meta">
@@ -338,164 +491,7 @@
                         </div>
                       </header>
 
-                      <div class="collection__dynamic-part">
-                        <div class="collection__toolbar">
-                          {%- if has_filters -%}
-                            <button class="collection__toolbar-item collection__toolbar-item--filter hidden-lap-and-up" data-action="open-drawer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-collection-filters">
-                              <span class="collection__filter-icon {% if active_filters_count > 0 %}collection__filter-icon--active{% endif %}">{%- render 'icon', icon: 'filter' -%}</span>
-                              {{ 'collection.filter.title' | t }}{% if active_filters_count > 0 %}&nbsp;({{ active_filters_count }}){% endif %}
-                            </button>
-                          {%- endif -%}
 
-                          <div class="collection__toolbar-item collection__toolbar-item--count hidden-pocket">
-                            {%- assign offset = paginate.current_offset | plus: 1 -%}
-                            {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
-
-                            <span class="collection__showing-count hidden-pocket hidden-lap">{{ 'search.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</span>
-
-                            <label for="showing-count">{{ 'collection.general.display' | t }}:</label>
-
-                            <div class="value-picker-wrapper">
-                              <button class="value-picker-button" aria-haspopup="true" aria-expanded="false" aria-controls="display-by-selector" data-action="open-value-picker">
-                                <span class="hidden-phone">{{ 'collection.general.page_size' | t: page_size: paginate.page_size }}</span><!--
-                                -->{%- render 'icon', icon: 'arrow-bottom' -%}
-                              </button>
-
-                              <div id="display-by-selector" class="value-picker" aria-hidden="true">
-                                {% render 'icon', icon: 'nav-triangle-borderless' %}
-
-                                <div class="value-picker__inner">
-                                  <header class="value-picker__header">
-                                    <span class="value-picker__title text--strong">{{ 'collection.general.display' | t }}</span>
-                                    <button class="value-picker__close" data-action="close-value-picker" aria-controls="display-by-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
-                                  </header>
-
-                                  <div class="value-picker__choice-list">
-                                    <button class="value-picker__choice-item link {% if items_per_page == 24 %}is-selected{% endif %}" data-action="select-value" data-value="24">{{ 'collection.general.page_size' | t: page_size: 24 }} {% render 'icon', icon: 'check-2' %}</button>
-                                    <button class="value-picker__choice-item link {% if items_per_page == 36 %}is-selected{% endif %}" data-action="select-value" data-value="36">{{ 'collection.general.page_size' | t: page_size: 36 }} {% render 'icon', icon: 'check-2' %}</button>
-                                    <button class="value-picker__choice-item link {% if items_per_page == 48 %}is-selected{% endif %}" data-action="select-value" data-value="48">{{ 'collection.general.page_size' | t: page_size: 48 }} {% render 'icon', icon: 'check-2' %}</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="collection__toolbar-item collection__toolbar-item--sort">
-                            {%- assign search_sort_by = search.sort_by | default: search.default_sort_by -%}
-
-                            {%- for option in search.sort_options -%}
-                              {%- if option.value == search_sort_by -%}
-                                {%- assign search_sort_by_name = option.name -%}
-                                {%- break -%}
-                              {%- endif -%}
-                            {%- endfor -%}
-
-                            <div class="value-picker-wrapper">
-                              <button class="value-picker-button" aria-haspopup="true" aria-expanded="false" aria-controls="sort-by-selector" data-action="open-value-picker">
-                                <span class="hidden-tablet-and-up">{{ 'collection.sorting.title' | t }}</span><!--
-                                --><span class="hidden-phone">{{ 'collection.sorting.title' | t }}: {{ search_sort_by_name }}</span><!--
-                                -->{%- render 'icon', icon: 'arrow-bottom' -%}
-                              </button>
-
-                              <div id="sort-by-selector" class="value-picker" aria-hidden="true">
-                                {% render 'icon', icon: 'nav-triangle-borderless' %}
-
-                                <div class="value-picker__inner">
-                                  <header class="value-picker__header">
-                                    <span class="value-picker__title text--strong">{{ 'collection.sorting.title' | t }}</span>
-                                    <button class="value-picker__close" data-action="close-value-picker" aria-controls="sort-by-selector" aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', icon: 'close' %}</button>
-                                  </header>
-
-                                  <div class="value-picker__choice-list">
-                                    {%- for option in search.sort_options -%}
-                                      <button class="value-picker__choice-item link {% if option.value == search_sort_by %}is-selected{% endif %}" data-action="select-value" data-value="{{ option.value }}">{{ option.name }} {% render 'icon', icon: 'check-2' %}</button>
-                                    {%- endfor -%}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="collection__toolbar-item collection__toolbar-item--layout">
-                            <span class="collection__layout-label hidden-phone">{{ 'collection.layout.title' | t }}</span>
-
-                            {%- if section.settings.default_view_layout == 'grid' -%}
-                              <button type="button" class="collection__layout-button {% if view_mode == 'grid' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.grid' | t }}" data-action="change-layout" data-layout-mode="grid">{% render 'icon', icon: 'grid' %}</button>
-                              <button type="button" class="collection__layout-button {% if view_mode == 'list' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.list' | t }}" data-action="change-layout" data-layout-mode="list">{% render 'icon', icon: 'list' %}</button>
-                            {%- else -%}
-                              <button type="button" class="collection__layout-button {% if view_mode == 'list' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.list' | t }}" data-action="change-layout" data-layout-mode="list">{% render 'icon', icon: 'list' %}</button>
-                              <button type="button" class="collection__layout-button {% if view_mode == 'grid' %}is-selected{% endif %} touch-area" aria-label="{{ 'collection.layout.grid' | t }}" data-action="change-layout" data-layout-mode="grid">{% render 'icon', icon: 'grid' %}</button>
-                            {%- endif -%}
-                          </div>
-                        </div>
-
-                        {%- comment -%}
-                        --------------------------------------------------------------------------------------
-                        MOBILE FILTERS
-                        --------------------------------------------------------------------------------------
-                        {%- endcomment -%}
-
-                        {%- if has_filters and active_filters_count > 0 -%}
-                          <div class="card__section collection__mobile-filters-recap hidden-lap-and-up">
-                            <div class="collection__mobile-active-filters">
-                              {%- for filter in search.filters -%}
-                                {%- if filter.type == 'list' -%}
-                                  {%- for active_filter_value in filter.active_values -%}
-                                    <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ active_filter_value.url_to_remove | escape }}">
-                                      <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
-                                      {{- active_filter_value.label -}}
-                                    </button>
-                                  {%- endfor -%}
-                                  {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
-                                  <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ filter.url_to_remove | escape }}">
-                                    <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
-                                    {{- filter.min_value.value | default: 0 | money_without_trailing_zeros }} - {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -}}
-                                  </button>
-                                  {%- elsif filter.type == 'boolean' and filter.true_value.active -%}
-                                  <button class="collection__mobile-active-filter-item" data-action="clear-filters" data-url="{{ filter.url_to_remove | escape }}">
-                                    <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
-                                    {{- filter.label -}}
-                                  </button>
-                                {%- endif -%}
-                              {%- endfor -%}
-
-                              {%- if active_filters_count > 1 -%}
-                                <button class="collection__mobile-active-clear" data-action="clear-filters" data-url="{{ routes.search_url }}?sort_by={{ sort_by }}q={{ search.terms | escape }}&type=product">{{ 'collection.filter.clear_all' | t }}</button>
-                              {%- endif -%}
-                            </div>
-
-                            <span class="collection__mobile-active-filters-results">{{ 'collection.general.results_count' | t: count: search.results_count }}</span>
-                          </div>
-                        {%- endif -%}
-
-                        {%- comment -%}
-                        --------------------------------------------------------------------------------------
-                        COLLECTION PRODUCTS
-                        --------------------------------------------------------------------------------------
-                        {%- endcomment -%}
-
-                        {%- if view_mode == 'grid' -%}
-                          {%- assign show_as_list = false -%}
-                        {%- else -%}
-                          {%- assign show_as_list = true -%}
-                        {%- endif -%}
-
-                        <div class="product-list product-list--collection">
-                          {%- assign product_results = search.results | where: 'object_type', 'product' -%}
-
-                          {%- for product in product_results -%}
-                            {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes -%}
-                          {%- endfor -%}
-                        </div>
-
-                        {%- render 'pagination', paginate: paginate -%}
-
-                        <script type="application/json" data-collection-products-count>
-                          {
-                            "productsCount": "{{ 'search.general.results_count' | t: count: search.results_count }}"
-                          }
-                        </script>
-                      </div>
                     </div>
                   </div>
                 {%- else -%}

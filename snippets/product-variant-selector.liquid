@@ -342,9 +342,11 @@
             {%- endif -%}
 
             {%- if variant.available -%}
-              <button type="submit" class="product-form__add-button button button--primary product-form__add-button--inline">{{ 'product.form.add_to_cart' | t }}</button>
+              <buy-button class="buy-button">
+                <button type="submit" class="product-form__add-button button button--primary">{{ 'product.form.add_to_cart' | t }}</button>
+              </buy-button>
             {%- else -%}
-              <button type="button" class="product-form__add-button button button--disabled product-form__add-button--inline" disabled>{{ 'product.form.sold_out' | t }}</button>
+              <button type="button" class="product-form__add-button button button--disabled" disabled>{{ 'product.form.sold_out' | t }}</button>
             {%- endif -%}
           </div>
         </div>
