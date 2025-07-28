@@ -5758,7 +5758,7 @@ div .card {
     border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
-    border-radius: 3px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -5815,7 +5815,7 @@ div .card {
 }
 
 .featured-collection .product-list {
-  border-radius: 2px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 
@@ -11668,7 +11668,7 @@ body:not(.is-tabbing) textarea:focus {
     border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
-    border-radius: 3px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -11725,7 +11725,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .featured-collection .product-list {
-  border-radius: 2px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 
@@ -17121,7 +17121,7 @@ body:not(.is-tabbing) textarea:focus {
     border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
-    border-radius: 3px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -17178,7 +17178,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .featured-collection .product-list {
-  border-radius: 2px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 
@@ -21423,12 +21423,6 @@ select option {
   color: var(--accent-color);
 }
 
-.popover__panel-list {
-  transition: height 0.2s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
 .popover__panel {
   visibility: hidden;
   width: 100%;
@@ -23813,10 +23807,6 @@ shopify-accelerated-checkout-cart {
   border-top: 1px solid var(--border-color);
   margin-top: 22px;
   padding-top: 20px;
-}
-
-.store-availability-list__stock {
-  margin-bottom: 2px;
 }
 
 .store-availability-list__stock svg {

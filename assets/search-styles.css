@@ -11,8 +11,16 @@
 }
 
 .product-list--collection {
-  border-radius: 30px;
+  border-radius: 20px;
   margin-left: 30px !important;
+  clip-path: inset(0 0 0 0 round 20px);
+  background: var(--secondary-background);
+}
+
+.product-list,
+.featured-collection .product-list {
+  clip-path: inset(0 0 0 0 round 20px);
+  background: var(--secondary-background);
 }
 
 .template-search .product-list--collection {
