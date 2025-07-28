@@ -15,12 +15,35 @@
   margin-left: 30px !important;
   clip-path: inset(0 0 0 0 round 20px);
   background: var(--secondary-background);
+  position: relative;
 }
 
 .product-list,
 .featured-collection .product-list {
   clip-path: inset(0 0 0 0 round 20px);
   background: var(--secondary-background);
+  position: relative;
+}
+
+.product-list--scrollable {
+  position: relative;
+  overflow: visible !important;
+}
+
+.product-list--scrollable .flickity-viewport {
+  overflow: hidden;
+}
+
+.product-list--scrollable .flickity-prev-next-button {
+  z-index: 999;
+}
+
+.product-list--scrollable .flickity-prev-next-button.previous {
+  left: 25px;
+}
+
+.product-list--scrollable .flickity-prev-next-button.next {
+  right: 25px;
 }
 
 .template-search .product-list--collection {
