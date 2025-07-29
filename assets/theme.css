@@ -26452,3 +26452,10 @@ product-rerender {
     top: 15px;
   }
 }
+
+/* Mobile vendor title centering */
+@media screen and (max-width: 640px) {
+  .product-meta__reference {
+    text-align: center !important;
+  }
+}
