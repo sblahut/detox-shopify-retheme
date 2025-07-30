@@ -111,6 +111,7 @@
   background: #fff !important;
   padding: 14px 14px 50px !important;
   position: relative !important;
+  overflow: visible !important;
 }
 
 /* Alternative selectors for search pages that don't have template-search class */
@@ -132,6 +133,7 @@ body[class*="search"] .product-list--collection .product-item .ProductItem__Wrap
   background: #fff !important;
   padding: 14px 14px 50px !important;
   position: relative !important;
+  overflow: visible !important;
 }
 
 /* Very specific selector based on the actual HTML structure in search */
@@ -149,6 +151,7 @@ body[class*="search"] .product-list--collection .product-item .ProductItem__Wrap
   background: #fff !important;
   padding: 14px 14px 50px !important;
   position: relative !important;
+  overflow: visible !important;
 }
 
 .template-search .product-item .product-item__image-wrapper {
@@ -215,7 +218,33 @@ body[class*="search"] .product-item .product-item__image-wrapper {
   font-size: 18px !important;
   min-height: 50px !important;
   width: 50% !important;
-  margin-left: 80px !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+}
+
+/* Fix parent containers to allow button positioning */
+.template-search .product-item__action-list,
+.template-search .product-item .product-item__action-list,
+.template-search .button-stack {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.template-search .product-item__info,
+.template-search .product-item .product-item__info {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.template-search .add-to-cart-form,
+.template-search .product-item .add-to-cart-form {
+  overflow: visible !important;
+  position: relative !important;
 }
 
 /* Responsive Styles */
