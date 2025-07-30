@@ -26467,4 +26467,60 @@ product-rerender {
   .product-meta__reference {
     text-align: center !important;
   }
+  
+  /* Mobile footer background image */
+  .footer {
+    background-image: url("footer-bg-mobile-detoxnation.webp") !important;
+    padding: 80px 20px !important;
+    margin: 30px auto 0 auto !important;
+    mask-size: 95vw 400px !important;
+  }
+}
+
+/* Search page overlay styling - ensure search results match collection page */
+.template-search .ProductItem__Wrapper,
+.template-search .product-item .ProductItem__Wrapper,
+.template-search .product-list--collection .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+}
+
+/* Copy the exact working collection page approach for search */
+.template-search .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center bottom;
+  -webkit-mask-repeat: no-repeat;
+  border-radius: 20px;
+  background: #fff;
+  padding: 14px 14px 50px;
+}
+
+.template-search .product-item .product-item__image-wrapper,
+.template-search .product-item .aspect-ratio {
+  height: 328px !important;
+}
+
+/* Add the same layout background and styling as collection pages */
+.template-search .layout {
+  background-color: #f3f5f6;
+  padding-top: 50px;
+  margin-top: 0;
+}
+
+.template-search .product-item .product-item__title {
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
 }

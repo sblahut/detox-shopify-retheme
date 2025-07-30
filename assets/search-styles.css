@@ -51,31 +51,119 @@
   flex-wrap: wrap;
   margin: 0 -15px;
   width: calc(100% + 30px);
+  background: transparent !important;
+  border: none !important;
 }
 
 .template-search .product-list--collection .product-item--vertical {
   padding: 0 15px;
   width: 25%;
   margin-bottom: 40px;
+  background: transparent !important;
+  border: none !important;
 }
 
-.template-search .product-item .ProductItem__Wrapper {
-  -webkit-mask-image: url("overlay_collection.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-position: center bottom;
-  -webkit-mask-repeat: no-repeat;
-  border-radius: 20px;
-  background: #fff;
-  padding: 14px 14px 50px;
-  position: relative;
+/* Remove any grid lines or borders from search results */
+.template-search .product-item {
+  background: var(--secondary-background) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.template-search .product-list--collection:after {
+  display: none !important;
+}
+
+.template-search .product-list--collection:before {
+  display: none !important;
+}
+
+/* Override the clip-path that creates grid lines on search pages */
+.template-search .product-list--collection {
+  clip-path: none !important;
+  border-radius: 0 !important;
+  margin-left: 0 !important;
+  background: transparent !important;
+}
+
+.template-search .product-list {
+  clip-path: none !important;
+  background: transparent !important;
+}
+
+/* Search page overlay styling - ensure search results match collection page styling */
+.template-search .ProductItem__Wrapper,
+.template-search .product-item .ProductItem__Wrapper,
+.template-search .product-list--collection .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+}
+
+/* Alternative selectors for search pages that don't have template-search class */
+[data-section-type="main-search"] .ProductItem__Wrapper,
+[data-section-type="main-search"] .product-item .ProductItem__Wrapper,
+[data-section-type="main-search"] .product-list--collection .product-item .ProductItem__Wrapper,
+body[class*="search"] .ProductItem__Wrapper,
+body[class*="search"] .product-item .ProductItem__Wrapper,
+body[class*="search"] .product-list--collection .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+}
+
+/* Very specific selector based on the actual HTML structure in search */
+[data-section-type="collection"] .product-list--collection .product-item .ProductItem__Wrapper,
+.product-list--collection .product-item--vertical .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
 }
 
 .template-search .product-item .product-item__image-wrapper {
-  margin: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
+  margin: -14px -14px 0;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Alternative selectors for search pages image wrapper */
+[data-section-type="main-search"] .product-item .product-item__image-wrapper,
+body[class*="search"] .product-item .product-item__image-wrapper {
+  margin: -14px -14px 0 !important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+/* Image wrapper for the specific search selectors */
+[data-section-type="collection"] .product-list--collection .product-item .product-item__image-wrapper,
+.product-list--collection .product-item--vertical .product-item__image-wrapper {
+  margin: -14px -14px 0 !important;
+  border-radius: 20px 20px 0 0 !important;
 }
 
 .template-search .product-item img {
