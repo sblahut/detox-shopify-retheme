@@ -287,45 +287,72 @@
     }
   }
 
+  let checkboxHandler = null; // Store handler reference
+
   function setupMiniCartCheckout() {
     const checkbox = document.getElementById('miniCartTermsCheckbox');
     const checkoutBtn = document.getElementById('miniCartCheckoutButton');
     
     if (checkbox && checkoutBtn) {
+      // Remove existing listener to prevent duplicates
+      if (checkboxHandler) {
+        checkbox.removeEventListener('change', checkboxHandler);
+      }
+      
       // Set initial state
       checkoutBtn.disabled = !checkbox.checked;
       updateMiniCartButtonStyle(checkoutBtn, checkbox.checked);
       
-      // Remove existing listener to prevent duplicates
-      const newCheckboxHandler = function() {
+      // Create new handler
+      checkboxHandler = function() {
         checkoutBtn.disabled = !this.checked;
         updateMiniCartButtonStyle(checkoutBtn, this.checked);
       };
       
-      checkbox.removeEventListener('change', newCheckboxHandler);
-      checkbox.addEventListener('change', newCheckboxHandler);
+      // Add new listener
+      checkbox.addEventListener('change', checkboxHandler);
+    }
+  }
+
+  // Improved mini-cart detection
+  function initMiniCartWhenVisible() {
+    const miniCart = document.getElementById('mini-cart');
+    if (miniCart && miniCart.getAttribute('aria-hidden') === 'false') {
+      // Use requestAnimationFrame to ensure DOM is fully rendered
+      requestAnimationFrame(() => {
+        setTimeout(setupMiniCartCheckout, 50);
+      });
     }
   }
 
   // Run setup when mini-cart opens
   document.addEventListener('click', function(event) {
     if (event.target.closest('.header__cart-toggle')) {
-      // Small delay to ensure drawer content is loaded
-      setTimeout(setupMiniCartCheckout, 100);
+      // Multiple attempts to ensure it works
+      setTimeout(initMiniCartWhenVisible, 50);
+      setTimeout(initMiniCartWhenVisible, 150);
+      setTimeout(initMiniCartWhenVisible, 300);
     }
   });
 
   // Initialize on page load
-  document.addEventListener('DOMContentLoaded', setupMiniCartCheckout);
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setupMiniCartCheckout, 100);
+  });
   
   // Re-initialize after cart updates
-  document.addEventListener('cart:updated', setupMiniCartCheckout);
+  document.addEventListener('cart:updated', function() {
+    setTimeout(setupMiniCartCheckout, 100);
+  });
   
   // Additional event listener for drawer mutations
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
-        setupMiniCartCheckout();
+        const target = mutation.target;
+        if (target.getAttribute('aria-hidden') === 'false') {
+          setTimeout(setupMiniCartCheckout, 50);
+        }
       }
     });
   });
@@ -335,5 +362,17 @@
   if (miniCart) {
     observer.observe(miniCart, { attributes: true });
   }
+
+  // Backup method - check periodically when mini-cart is visible
+  setInterval(function() {
+    const miniCart = document.getElementById('mini-cart');
+    const checkbox = document.getElementById('miniCartTermsCheckbox');
+    const checkoutBtn = document.getElementById('miniCartCheckoutButton');
+    
+    if (miniCart && miniCart.getAttribute('aria-hidden') === 'false' && 
+        checkbox && checkoutBtn && !checkboxHandler) {
+      setupMiniCartCheckout();
+    }
+  }, 500);
 </script>
   
