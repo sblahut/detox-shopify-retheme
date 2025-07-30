@@ -57,7 +57,7 @@
 
 .template-search .product-list--collection .product-item--vertical {
   padding: 0 15px;
-  width: 25%;
+  width: 33.33%;
   margin-bottom: 40px;
   background: transparent !important;
   border: none !important;
@@ -68,6 +68,7 @@
   background: var(--secondary-background) !important;
   border: none !important;
   box-shadow: none !important;
+  outline: none !important;
 }
 
 .template-search .product-list--collection:after {
@@ -84,11 +85,14 @@
   border-radius: 0 !important;
   margin-left: 0 !important;
   background: transparent !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .template-search .product-list {
   clip-path: none !important;
   background: transparent !important;
+  border: none !important;
 }
 
 /* Search page overlay styling - ensure search results match collection page styling */
@@ -201,6 +205,17 @@ body[class*="search"] .product-item .product-item__image-wrapper {
 
 .template-search .product-item .add-to-cart-form button:hover {
   background: rgb(235, 101, 78);
+}
+
+/* Make add to cart buttons larger on search page */
+.template-search .product-item .add-to-cart-form .btn,
+.template-search .product-item .add-to-cart-form .button,
+.template-search .product-item .button {
+  padding: 8px 12px !important;
+  font-size: 18px !important;
+  min-height: 50px !important;
+  width: 50% !important;
+  margin-left: 80px !important;
 }
 
 /* Responsive Styles */
