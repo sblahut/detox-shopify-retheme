@@ -246,26 +246,43 @@ body[class*="search"] .product-item .product-item__image-wrapper {
   position: relative !important;
 }
 
-/* Remove borders from the entire search container */
+/* AGGRESSIVE BORDER REMOVAL FOR SEARCH PAGES */
+.template-search *,
+.template-search *:before,
+.template-search *:after {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Specific targeting for known problematic elements */
 .template-search .collection,
 .template-search .collection__dynamic-part,
-.template-search .container {
+.template-search .container,
+.template-search .page__content,
+.template-search .layout,
+.template-search .layout__section {
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
 }
 
 /* Remove card borders on search pages */
-.template-search .card {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-left: none !important;
-  border-right: none !important;
+.template-search .card,
+.template-search .card__header,
+.template-search .card__section {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* Remove any section borders */
-.template-search .card__section {
+.template-search section,
+.template-search div[class*="section"],
+.template-search div[class*="collection"] {
   border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* Responsive Styles */
