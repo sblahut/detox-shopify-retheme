@@ -56,7 +56,6 @@
 }
 
 .template-search .product-list--collection .product-item--vertical {
-  padding: 0 15px;
   width: 33.33%;
   margin-bottom: 40px;
   background: transparent !important;
@@ -245,6 +244,28 @@ body[class*="search"] .product-item .product-item__image-wrapper {
 .template-search .product-item .add-to-cart-form {
   overflow: visible !important;
   position: relative !important;
+}
+
+/* Remove borders from the entire search container */
+.template-search .collection,
+.template-search .collection__dynamic-part,
+.template-search .container {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove card borders on search pages */
+.template-search .card {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Remove any section borders */
+.template-search .card__section {
+  border: none !important;
 }
 
 /* Responsive Styles */
