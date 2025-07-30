@@ -26215,6 +26215,20 @@ product-rerender {
   margin-right: 0;
 }
 
+/* Ensure collection page toolbar is visible and styled like search page */
+.template-collection .collection__toolbar {
+  width: 97% !important;
+  margin-left: 45px !important;
+}
+
+.template-collection .collection__toolbar-item--count {
+  display: flex !important;
+}
+
+.template-collection .collection__showing-count {
+  display: inline !important;
+}
+
 /* Product Detail Page padding consistency */
 .template-product .product-block-list__item {
   padding: 0 20px;
