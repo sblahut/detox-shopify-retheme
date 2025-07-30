@@ -255,6 +255,22 @@ body[class*="search"] .product-item .product-item__image-wrapper {
   outline: none !important;
 }
 
+/* Add back specific borders that should exist to match collection page */
+.template-search .card {
+  border-top: 1px solid var(--border-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  border-left: 1px solid var(--border-color) !important;
+  border-right: 1px solid var(--border-color) !important;
+  background: var(--secondary-background) !important;
+  margin-bottom: 18px !important;
+  position: relative !important;
+}
+
+.template-search .collection__toolbar {
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px var(--border-color) !important;
+}
+
 /* Specific targeting for known problematic elements */
 .template-search .collection,
 .template-search .collection__dynamic-part,
@@ -267,8 +283,7 @@ body[class*="search"] .product-item .product-item__image-wrapper {
   outline: none !important;
 }
 
-/* Remove card borders on search pages */
-.template-search .card,
+/* Remove card borders on search pages - but keep the filter card borders */
 .template-search .card__header,
 .template-search .card__section {
   border: none !important;
@@ -278,8 +293,8 @@ body[class*="search"] .product-item .product-item__image-wrapper {
 
 /* Remove any section borders */
 .template-search section,
-.template-search div[class*="section"],
-.template-search div[class*="collection"] {
+.template-search div[class*="section"]:not(.card),
+.template-search div[class*="collection"]:not(.collection__toolbar) {
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
