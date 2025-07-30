@@ -6941,18 +6941,22 @@ select option {
 .footer {
   position: relative;
   color: #ffffffb3;
-  padding: 70px 40px;
-  margin: 50px 40px 0 40px;
-  min-height: 500px;
+  padding: 120px 40px;
+  margin: 50px auto 0 auto;
+  min-height: 512px;
   display: flex;
   align-items: center;
   border-top: none;
-  background-image: url("../assets/footer-bg-new.png");
-  background-size: contain;
-  background-position: center bottom;
+  background-image: url("footer-bg-detoxnation.webp");
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  border-radius: 30px;
-  max-width: 1400px; /* Temp fix until we get a larger footer background image */
+  mask-image: url("Footer-background-min.webp");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 97vw 512px;
+  border-radius: 40px;
+  max-width: 1400px;
 }
 
 .footer__wrapper {
@@ -6963,7 +6967,7 @@ select option {
 
 .footer__logo {
   text-align: center;
-  margin-bottom: -10vh;
+  margin-bottom: -8vh;
   margin-left: 3vw;
 }
 
@@ -12410,7 +12414,7 @@ select option {
 }
 
 .footer {
-  background-image: url("../assets/footer-bg-new.png");
+  background-image: url("footer-bg-detoxnation.webp");
   mask-image: url("../assets/Footer-background-min.webp");
   background-size: cover;
   background-position: center;
@@ -17874,7 +17878,7 @@ select option {
 }
 
 .footer {
-  background-image: url("../assets/footer-bg-new.png");
+  background-image: url("footer-bg-detoxnation.webp");
   mask-image: url("../assets/Footer-background-min.webp");
   background-size: cover;
   background-position: center;
