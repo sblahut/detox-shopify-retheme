@@ -9123,7 +9123,7 @@ var CollectionSection = class {
     this.sortByValuePicker = new ValuePicker("sort-by-selector", { onValueSelect: this._sortByChanged.bind(this) });
     this.productItemColorSwatch = new ProductItemColorSwatch(this.element);
     if (window.theme.pageType === "search") {
-      this._loadContentResults();
+      // this._loadContentResults(); // Disabled to remove pages/blog posts section
     }
     window.addEventListener("popstate", () => {
       this.currentUrl = new URL(window.location.href);
