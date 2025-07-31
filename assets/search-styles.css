@@ -11,8 +11,39 @@
 }
 
 .product-list--collection {
-  border-radius: 30px;
+  border-radius: 20px;
   margin-left: 30px !important;
+  clip-path: inset(0 0 0 0 round 20px);
+  background: var(--secondary-background);
+  position: relative;
+}
+
+.product-list,
+.featured-collection .product-list {
+  clip-path: inset(0 0 0 0 round 20px);
+  background: var(--secondary-background);
+  position: relative;
+}
+
+.product-list--scrollable {
+  position: relative;
+  overflow: visible !important;
+}
+
+.product-list--scrollable .flickity-viewport {
+  overflow: hidden;
+}
+
+.product-list--scrollable .flickity-prev-next-button {
+  z-index: 999;
+}
+
+.product-list--scrollable .flickity-prev-next-button.previous {
+  left: 25px;
+}
+
+.product-list--scrollable .flickity-prev-next-button.next {
+  right: 25px;
 }
 
 .template-search .product-list--collection {
@@ -20,31 +51,125 @@
   flex-wrap: wrap;
   margin: 0 -15px;
   width: calc(100% + 30px);
+  background: transparent !important;
+  border: none !important;
 }
 
 .template-search .product-list--collection .product-item--vertical {
-  padding: 0 15px;
-  width: 25%;
+  width: 33.33%;
   margin-bottom: 40px;
+  background: transparent !important;
+  border: none !important;
 }
 
-.template-search .product-item .ProductItem__Wrapper {
-  -webkit-mask-image: url("overlay_collection.svg");
-  -webkit-mask-size: cover;
-  -webkit-mask-position: center bottom;
-  -webkit-mask-repeat: no-repeat;
-  border-radius: 20px;
-  background: #fff;
-  padding: 14px 14px 50px;
-  position: relative;
+/* Remove any grid lines or borders from search results */
+.template-search .product-item {
+  background: var(--secondary-background) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.template-search .product-list--collection:after {
+  display: none !important;
+}
+
+.template-search .product-list--collection:before {
+  display: none !important;
+}
+
+/* Override the clip-path that creates grid lines on search pages */
+.template-search .product-list--collection {
+  clip-path: none !important;
+  border-radius: 0 !important;
+  margin-left: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.template-search .product-list {
+  clip-path: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Search page overlay styling - ensure search results match collection page styling */
+.template-search .ProductItem__Wrapper,
+.template-search .product-item .ProductItem__Wrapper,
+.template-search .product-list--collection .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Alternative selectors for search pages that don't have template-search class */
+[data-section-type="main-search"] .ProductItem__Wrapper,
+[data-section-type="main-search"] .product-item .ProductItem__Wrapper,
+[data-section-type="main-search"] .product-list--collection .product-item .ProductItem__Wrapper,
+body[class*="search"] .ProductItem__Wrapper,
+body[class*="search"] .product-item .ProductItem__Wrapper,
+body[class*="search"] .product-list--collection .product-item .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Very specific selector based on the actual HTML structure in search */
+[data-section-type="collection"] .product-list--collection .product-item .ProductItem__Wrapper,
+.product-list--collection .product-item--vertical .ProductItem__Wrapper {
+  -webkit-mask-image: url("overlay_collection.svg") !important;
+  -webkit-mask-size: cover !important;
+  -webkit-mask-position: center bottom !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-image: url("overlay_collection.svg") !important;
+  mask-size: cover !important;
+  mask-position: center bottom !important;
+  mask-repeat: no-repeat !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  padding: 14px 14px 50px !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 .template-search .product-item .product-item__image-wrapper {
-  margin: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
+  margin: -14px -14px 0;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Alternative selectors for search pages image wrapper */
+[data-section-type="main-search"] .product-item .product-item__image-wrapper,
+body[class*="search"] .product-item .product-item__image-wrapper {
+  margin: -14px -14px 0 !important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+/* Image wrapper for the specific search selectors */
+[data-section-type="collection"] .product-list--collection .product-item .product-item__image-wrapper,
+.product-list--collection .product-item--vertical .product-item__image-wrapper {
+  margin: -14px -14px 0 !important;
+  border-radius: 20px 20px 0 0 !important;
 }
 
 .template-search .product-item img {
@@ -58,9 +183,19 @@
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Ensure adequate spacing for image container to prevent overflow */
+.template-search .product-item .product-item__image-wrapper {
+  position: relative !important;
+  min-height: 200px !important;
+  overflow: hidden !important;
+  margin-bottom: 15px !important;
+}
+
+/* Add proper spacing for product info to prevent image overlap */
 .template-search .product-item--vertical .product-item__info {
-  padding: 20px 0;
+  padding: 20px 0 60px !important; /* Increased bottom padding for button space */
   text-align: center;
+  margin-top: 10px !important;
 }
 
 .template-search .product-item .add-to-cart-form {
@@ -84,10 +219,106 @@
   background: rgb(235, 101, 78);
 }
 
+/* Make add to cart buttons larger on search page */
+.template-search .product-item .add-to-cart-form .btn,
+.template-search .product-item .add-to-cart-form .button,
+.template-search .product-item .button {
+  padding: 8px 12px !important;
+  font-size: 18px !important;
+  min-height: 50px !important;
+  width: 50% !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+}
+
+/* Fix parent containers to allow button positioning */
+.template-search .product-item__action-list,
+.template-search .product-item .product-item__action-list,
+.template-search .button-stack {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.template-search .product-item__info,
+.template-search .product-item .product-item__info {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.template-search .add-to-cart-form,
+.template-search .product-item .add-to-cart-form {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* AGGRESSIVE BORDER REMOVAL FOR SEARCH PAGES */
+.template-search *,
+.template-search *:before,
+.template-search *:after {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Add back specific borders that should exist to match collection page */
+.template-search .card {
+  border-top: 1px solid var(--border-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  border-left: 1px solid var(--border-color) !important;
+  border-right: 1px solid var(--border-color) !important;
+  background: var(--secondary-background) !important;
+  margin-bottom: 18px !important;
+  position: relative !important;
+}
+
+.template-search .collection__toolbar {
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px var(--border-color) !important;
+}
+
+/* Specific targeting for known problematic elements */
+.template-search .collection,
+.template-search .collection__dynamic-part,
+.template-search .container,
+.template-search .page__content,
+.template-search .layout,
+.template-search .layout__section {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove card borders on search pages - but keep the filter card borders */
+.template-search .card__header,
+.template-search .card__section {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove any section borders */
+.template-search section,
+.template-search div[class*="section"]:not(.card),
+.template-search div[class*="collection"]:not(.collection__toolbar) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 999px) {
   .template-search .product-list--collection .product-item--vertical {
     width: 33.333%;
+  }
+  
+  /* Adjust image container height for medium screens */
+  .template-search .product-item .product-item__image-wrapper {
+    min-height: 180px !important;
   }
 }
 
@@ -104,5 +335,19 @@
   .template-search .product-list--collection .product-item--vertical {
     padding: 0 10px;
     margin-bottom: 25px;
+  }
+  
+  /* Smaller image container for mobile */
+  .template-search .product-item .product-item__image-wrapper {
+    min-height: 150px !important;
+  }
+  
+  /* Adjust button positioning for mobile */
+  .template-search .product-item .add-to-cart-form .btn,
+  .template-search .product-item .add-to-cart-form .button,
+  .template-search .product-item .button {
+    width: 60% !important;
+    font-size: 14px !important;
+    min-height: 40px !important;
   }
 } 

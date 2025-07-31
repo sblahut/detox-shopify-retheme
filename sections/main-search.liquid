@@ -317,8 +317,8 @@
 
               <div {% if has_filters %}class="layout__section"{% endif %}>
                 {%- if search.results_count > 0 -%}
-                  <div class="collection">
-                    <div class="collection__dynamic-part">
+                  <div class="collection" style="border-bottom: none !important;">
+                    <div class="collection__dynamic-part" style="border-bottom: none !important;">
                       <div class="collection__toolbar">
                         {%- if has_filters -%}
                           <button class="collection__toolbar-item collection__toolbar-item--filter hidden-lap-and-up" data-action="open-drawer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-collection-filters">
@@ -476,7 +476,7 @@
                         }
                       </script>
                     </div>
-                    <div class="card">
+                    {% comment %} <div class="card" style="border-bottom: none !important;">
                       <header class="card__header card__header--tight">
                         <div class="collection__header">
                           <div class="collection__header-inner">
@@ -492,7 +492,7 @@
                       </header>
 
 
-                    </div>
+                    </div> {% endcomment %}
                   </div>
                 {%- else -%}
                   <div class="collection__dynamic-part">
