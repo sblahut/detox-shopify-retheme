@@ -26093,7 +26093,7 @@ product-rerender {
 .section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .aspect-ratio,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__image-wrapper,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .aspect-ratio {
-  height: 220px !important;
+  height: 200px !important;
 }
 
 .template-collection .product-item img,
@@ -26103,11 +26103,6 @@ product-rerender {
   width: 100% !important;
 }
 
-/* Reduce image height for recently viewed and related products */
-.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item img,
-.section[data-section-type="product-recommendations"] .product-list--vertical .product-item img {
-  height: 220px !important;
-}
 
 .product-list--vertical .product-item {
   background: #ffffff !important;
