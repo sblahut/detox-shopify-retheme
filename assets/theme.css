@@ -26096,6 +26096,12 @@ product-rerender {
   height: 200px !important;
 }
 
+/* Fix title spacing in recently viewed and related products - simpler approach */
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__title,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__title {
+  min-height: 3em !important;
+}
+
 .template-collection .product-item img,
 .product-list--vertical .product-item img {
   object-fit: contain !important;
