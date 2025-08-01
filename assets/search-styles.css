@@ -350,4 +350,16 @@ body[class*="search"] .product-item .product-item__image-wrapper {
     font-size: 14px !important;
     min-height: 40px !important;
   }
+
+  .template-collection .collection__toolbar-item--count {
+    display: none !important;
+  }
+
+  .template-collection .collection__toolbar{
+    width: 85% !important;
+  }
+
+ .product-list--collection .product-item--vertical {
+    width: 90% !important;
+  }
 } 
