@@ -18172,12 +18172,31 @@ select option {
   display: block;
 }
 
-.header__logo {
-  order: 2;
-  margin-left: 1vw !important;
-  text-align: center;
-  flex: 1 0 auto;
-}
+  .header__logo {
+    order: 2;
+    margin-left: 1vw !important;
+    text-align: center;
+    flex: 1 0 auto;
+  }
+
+  /* Mobile header improvements */
+  @media screen and (max-width: 640px) {
+    .header__logo {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: center;
+    }
+    
+    .header__inner {
+      padding: 0 15px;
+    }
+    
+    .section__title,
+    .collection__title {
+      padding: 0 15px;
+      margin: 0 15px;
+    }
+  }
 
 .header__logo-image {
   margin: 0 auto;
