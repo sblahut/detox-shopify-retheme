@@ -15416,6 +15416,11 @@ body:not(.is-tabbing) textarea:focus {
   right: 6px;
 }
 
+#buy-me-cart .bm-fonts #bm-cart-count {
+  background-color: #70A491 !important;
+
+}
+
 .mini-cart__alert-wrapper {
   padding-top: 20px;
 }
