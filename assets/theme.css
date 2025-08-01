@@ -22258,9 +22258,10 @@ shopify-accelerated-checkout-cart {
 
 .template-collection .collection__dynamic-part .product-list--collection .product-item .buy-button {
   margin-top: -50px;
-  margin-left: 72px;
-  width: 50%;
-  position: relative;
+  width: 40%;
+  position: absolute;
+  left: 49%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
