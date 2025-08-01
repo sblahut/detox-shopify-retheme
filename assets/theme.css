@@ -21745,6 +21745,20 @@ shopify-accelerated-checkout-cart {
   text-align: center !important;
 }
 
+/* PDP Add to cart button colors */
+.product-form__add-button,
+.product-form__add-button--inline {
+  background-color: #70A491 !important;
+  border-color: #70A491 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.product-form__add-button:hover,
+.product-form__add-button--inline:hover {
+  background-color: #234240 !important;
+  border-color: #234240 !important;
+}
+
 /* Mobile improvements for product form */
 @media screen and (max-width: 640px) {
   .product-form__quantity-with-rules {
