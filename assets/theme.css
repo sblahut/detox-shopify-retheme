@@ -26232,7 +26232,7 @@ product-rerender {
 }
 
 .template-collection .product-item .add-to-cart-form button,
-.product-list--vertical .product-item .add-to-cart-form button {
+.product-list--vertical .product-item .add-to-cart-form button{
   background-color: #70a491;
   font-size: 16px;
   text-transform: capitalize;
@@ -26247,6 +26247,14 @@ product-rerender {
   position: relative;
   z-index: 1;
   transition: all 0.2s ease-in-out;
+}
+
+,
+.section[data-section-type="recently-viewed-products"] .product-item .add-to-cart-form button,
+.section[data-section-type="recently-viewed-products"] .product-item__action-button,
+.section[data-section-type="product-recommendations"] .product-item .add-to-cart-form button,
+.section[data-section-type="product-recommendations"] .product-item__action-button {
+  background-color: #70a491;
 }
 
 .LaunchTipAddToCartForm, .launchtip_add_to_cart.launchtip_upsell_design.add-to-cart {
@@ -26274,9 +26282,13 @@ product-rerender {
 }
 
 .template-collection .product-item .add-to-cart-form button:hover,
-.product-list--vertical .product-item .add-to-cart-form button:hover {
-  background-color: #eb654e;
-  border-color: #eb654e;
+.product-list--vertical .product-item .add-to-cart-form button:hover,
+.section[data-section-type="recently-viewed-products"] .product-item .add-to-cart-form button:hover,
+.section[data-section-type="recently-viewed-products"] .product-item__action-button:hover,
+.section[data-section-type="product-recommendations"] .product-item .add-to-cart-form button:hover,
+.section[data-section-type="product-recommendations"] .product-item__action-button:hover {
+  background-color: #234240;
+  border-color: #234240;
 }
 
 .template-collection .product-item--vertical .product-item__info,
