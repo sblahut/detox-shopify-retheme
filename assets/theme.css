@@ -26263,7 +26263,6 @@ product-rerender {
   transition: all 0.2s ease-in-out;
 }
 
-,
 .section[data-section-type="recently-viewed-products"] .product-item .add-to-cart-form button,
 .section[data-section-type="recently-viewed-products"] .product-item__action-button,
 .section[data-section-type="product-recommendations"] .product-item .add-to-cart-form button,
