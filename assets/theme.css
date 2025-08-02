@@ -26220,6 +26220,133 @@ product-rerender {
   min-height: 3em !important;
 }
 
+/* Mobile carousel - show one product at a time */
+@media screen and (max-width: 999px) {
+  .mobile-carousel-wrapper {
+    position: relative !important;
+    width: 100vw !important; /* Force full viewport width */
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    overflow: hidden !important;
+  }
+  
+  
+  .mobile-carousel-wrapper .scroller__inner {
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 60px !important; /* Space for arrows */
+    margin: 0 !important; /* Remove negative margin */
+    width: 100% !important;
+    scroll-padding-left: 60px !important; /* Ensure first item aligns with padding */
+  }
+  
+  /* Force single product display on mobile */
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important; /* Remove gap for more precise scrolling */
+    padding: 0 !important;
+    width: 1500% !important; /* CRITICAL: Wide enough to hold all products horizontally */
+  }
+  
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable .product-item {
+    width: calc(100vw - 120px) !important; /* Full viewport minus space for arrows */
+    max-width: 350px !important;
+    min-width: 280px !important;
+    flex-shrink: 0 !important;
+    white-space: normal !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    margin-right: 20px !important; /* Consistent margin for spacing */
+    border: none !important; /* Clean design */
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important; /* Ensure products are always visible */
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Ensure product content is always visible */
+  .mobile-carousel-wrapper .product-item * {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Remove borders from product items on mobile */
+  .mobile-carousel-wrapper .product-item,
+  .mobile-carousel-wrapper .product-item *,
+  .mobile-carousel-wrapper .product-item::before,
+  .mobile-carousel-wrapper .product-item::after {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .mobile-carousel-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    background: #70a491 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+  
+  .mobile-carousel-btn:hover {
+    background: #234240 !important;
+    border-color: #234240 !important;
+  }
+  
+  .mobile-carousel-btn:hover svg {
+    color: white !important;
+  }
+  
+  .mobile-carousel-btn--prev {
+    left: 10px !important;
+  }
+  
+  .mobile-carousel-btn--next {
+    right: 10px !important;
+  }
+  
+  .mobile-carousel-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: #fff !important;
+  }
+  
+  .mobile-carousel-btn:disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+  }
+
+  /* Remove height restriction to allow add to cart buttons to show */
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable .product-item {
+    height: 80% !important;
+  }
+}
+
+/* Hide mobile carousel buttons on desktop */
+@media screen and (min-width: 1000px) {
+  .mobile-carousel-btn {
+    display: none !important;
+  }
+}
+
 .template-collection .product-item img,
 .product-list--vertical .product-item img {
   object-fit: contain !important;

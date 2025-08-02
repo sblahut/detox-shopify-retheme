@@ -14,7 +14,13 @@
 
     <div class="recently-viewed-products-placeholder">
       {%- if request.page_type == 'search' -%}
-        <div class="scroller">
+        <div class="scroller mobile-carousel-wrapper">
+          <button class="mobile-carousel-btn mobile-carousel-btn--prev" type="button" aria-label="Previous products">
+            {%- render 'icon', icon: 'arrow-left' -%}
+          </button>
+          <button class="mobile-carousel-btn mobile-carousel-btn--next" type="button" aria-label="Next products">
+            {%- render 'icon', icon: 'arrow-right' -%}
+          </button>
           <div class="scroller__inner">
             <div class="product-list product-list--vertical product-list--scrollable">
               {%- comment -%}
