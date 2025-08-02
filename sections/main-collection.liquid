@@ -438,7 +438,7 @@
                           -->{%- render 'icon', icon: 'arrow-bottom' -%}
                         </button>
 
-                        <div id="display-by-selector" class="value-picker" aria-hidden="true">
+                        <div id="display-by-selector" class="value-picker value-picker--align-center" aria-hidden="true">
                           {% render 'icon', icon: 'nav-triangle-borderless' %}
 
                           <div class="value-picker__inner">
@@ -485,7 +485,9 @@
 
                             <div class="value-picker__choice-list">
                               {%- for option in collection.sort_options -%}
-                                <button class="value-picker__choice-item link {% if option.value == collection_sort_by %}is-selected{% endif %}" data-action="select-value" data-value="{{ option.value }}">{{ option.name }} {% render 'icon', icon: 'check-2' %}</button>
+                                {%- unless option.value contains 'price' -%}
+                                  <button class="value-picker__choice-item link {% if option.value == collection_sort_by %}is-selected{% endif %}" data-action="select-value" data-value="{{ option.value }}">{{ option.name }} {% render 'icon', icon: 'check-2' %}</button>
+                                {%- endunless -%}
                               {%- endfor -%}
                             </div>
                           </div>

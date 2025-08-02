@@ -11237,3 +11237,156 @@ photoswipe/dist/photoswipe.js:
 instant.page/instantpage.js:
   (*! instant.page v5.2.0 - (C) 2019-2023 Alexandre Dieulot - https://instant.page/license *)
 */
+
+// Mobile carousel navigation for recently viewed products and related products
+function initMobileCarousel() {
+  const carouselWrappers = document.querySelectorAll('.mobile-carousel-wrapper');
+  
+  carouselWrappers.forEach((wrapper, index) => {
+    // Skip if already initialized
+    if (wrapper.dataset.carouselInit) {
+      return;
+    }
+    wrapper.dataset.carouselInit = 'true';
+    
+    const scrollContainer = wrapper.querySelector('.scroller__inner');
+    const prevBtn = wrapper.querySelector('.mobile-carousel-btn--prev');
+    const nextBtn = wrapper.querySelector('.mobile-carousel-btn--next');
+    
+    if (!scrollContainer || !prevBtn || !nextBtn) {
+      return;
+    }
+    
+    // Track current index and get product items
+    let currentIndex = 0;
+    const productItems = scrollContainer.querySelectorAll('.product-item');
+    
+    // Function to update button states
+    function updateButtonStates() {
+      const isAtStart = currentIndex <= 0;
+      const isAtEnd = currentIndex >= productItems.length - 1;
+      
+      prevBtn.disabled = isAtStart;
+      nextBtn.disabled = isAtEnd;
+      
+      prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+      nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+    }
+    
+    // Ensure all products are visible
+    productItems.forEach((item) => {
+      item.style.opacity = '1';
+      item.style.visibility = 'visible';
+      item.style.display = 'block';
+    });
+    
+    // Function to scroll to specific index
+    function scrollToIndex(index) {
+      if (!productItems.length || index < 0 || index >= productItems.length) {
+        return;
+      }
+      
+      const targetItem = productItems[index];
+      const scrollOffset = targetItem.offsetLeft - 60; // Account for padding
+      
+      scrollContainer.scrollTo({ 
+        left: scrollOffset, 
+        behavior: 'smooth' 
+      });
+      
+      currentIndex = index;
+      setTimeout(updateButtonStates, 300);
+    }
+    
+    // Function to scroll to next/previous product
+    function scrollToProduct(direction) {
+      if (direction === 'next' && currentIndex < productItems.length - 1) {
+        scrollToIndex(currentIndex + 1);
+      } else if (direction === 'prev' && currentIndex > 0) {
+        scrollToIndex(currentIndex - 1);
+      }
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToProduct('prev');
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToProduct('next');
+    });
+    
+    // Update button states on scroll
+    scrollContainer.addEventListener('scroll', updateButtonStates);
+    
+    // Initialize carousel
+    scrollToIndex(0); // Start at first product
+    
+    // Initial button state update
+    setTimeout(updateButtonStates, 100);
+    
+    // Update on window resize
+    window.addEventListener('resize', updateButtonStates);
+  });
+}
+
+
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+  initMobileCarousel();
+});
+
+// Also initialize when new content is loaded (for recently viewed products)
+document.addEventListener('DOMContentLoaded', function() {
+  // Try multiple times with increasing delays to catch dynamically loaded content
+  const retryIntervals = [500, 1000, 2000, 3000, 5000];
+  
+  retryIntervals.forEach(delay => {
+    setTimeout(() => {
+      console.log(`Retrying carousel init after ${delay}ms...`);
+      initMobileCarousel();
+    }, delay);
+  });
+  
+  // Watch for dynamically loaded content
+  const observer = new MutationObserver(function(mutations) {
+    let shouldInit = false;
+    
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes.length) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === 1) { // Element node
+            // Check if this node or its children contain our carousel wrapper
+            if (node.classList && node.classList.contains('mobile-carousel-wrapper')) {
+              console.log('Found carousel wrapper added to DOM');
+              shouldInit = true;
+            } else if (node.querySelector && node.querySelector('.mobile-carousel-wrapper')) {
+              console.log('Found carousel wrapper in added content');
+              shouldInit = true;
+            }
+            // Also check for recently viewed products section
+            else if (node.querySelector && node.querySelector('[data-section-type="recently-viewed-products"]')) {
+              console.log('Found recently viewed products section added');
+              shouldInit = true;
+            }
+          }
+        });
+      }
+    });
+    
+    if (shouldInit) {
+      setTimeout(() => {
+        console.log('Initializing carousel due to DOM changes...');
+        initMobileCarousel();
+      }, 200);
+    }
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+});

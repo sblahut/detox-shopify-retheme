@@ -3984,7 +3984,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .button--primary:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .button--secondary {
@@ -6968,7 +6968,7 @@ select option {
 .footer__logo {
   text-align: center;
   margin-bottom: -8vh;
-  margin-left: 3vw;
+  margin-left: 1vw;
 }
 
 /* Mobile and Tablet styles for footer logo */
@@ -9609,7 +9609,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .button--primary:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .button--secondary {
@@ -15047,7 +15047,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .button--primary:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .button--secondary {
@@ -15414,6 +15414,11 @@ body:not(.is-tabbing) textarea:focus {
   position: absolute;
   bottom: 100%;
   right: 6px;
+}
+
+#buy-me-cart .bm-fonts #bm-cart-count {
+  background-color: #70A491 !important;
+
 }
 
 .mini-cart__alert-wrapper {
@@ -18167,12 +18172,39 @@ select option {
   display: block;
 }
 
-.header__logo {
-  order: 2;
-  margin: 0 auto;
-  text-align: center;
-  flex: 1 0 auto;
-}
+  .header__logo {
+    order: 2;
+    margin-left: 1vw !important;
+    text-align: center;
+    flex: 1 0 auto;
+  }
+
+  /* Mobile header improvements */
+  @media screen and (max-width: 640px) {
+    .header__logo {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: center;
+    }
+    
+    .header__inner {
+      padding: 0 15px;
+    }
+    
+    .section__title,
+    .collection__title {
+      padding: 0 15px;
+      margin: 0 15px;
+    }
+
+    .product-block-list__item{
+      margin-top: 30px;
+    }
+
+    .card--collapsed .card__section {
+      margin-top: 40px;
+    }
+  }
 
 .header__logo-image {
   margin: 0 auto;
@@ -21665,10 +21697,12 @@ shopify-accelerated-checkout-cart {
 
 /* === FINAL OVERRIDE: Quantity pill even split & full width === */
 .product-form__quantity-with-rules {
-  max-width: none !important; /* grow to full card width */
+  max-width: none !important; 
   flex-wrap: nowrap !important; /* stay on one line        */
   padding: 0 !important; /* remove side padding     */
   overflow: hidden; /* clip inner borders      */
+  max-height: 60px !important; /* prevent excessive height */
+  height: 48px !important; /* consistent height */
 }
 
 .product-form__quantity-with-rules > quantity-picker,
@@ -21679,13 +21713,15 @@ shopify-accelerated-checkout-cart {
 }
 
 .product-form__add-button--inline {
-  margin-left: 0 !important; /* no side gap             */
-  display: flex !important; /* perfectly centred text  */
-  justify-content: center;
-  align-items: center;
+  margin-left: 0 !important;
+  display: flex !important; 
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
   flex: 1 1 50% !important; /* ensure flex shares space*/
   border: none !important; /* remove inner border */
   border-radius: 0 !important; /* let pill radius come from container */
+  height: 48px !important; /* consistent height */
 }
 
 /* Remove border from quantity selector wrapper so only outer pill shows */
@@ -21698,6 +21734,42 @@ shopify-accelerated-checkout-cart {
 .product-form__add-button--inline {
   margin-left: 2.5rem;
   height: 48px;
+}
+
+/* Ensure all add to cart buttons have centered text */
+.product-form__add-button,
+.button--primary {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* PDP Add to cart button colors */
+.product-form__add-button,
+.product-form__add-button--inline {
+  background-color: #70A491 !important;
+  border-color: #70A491 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.product-form__add-button:hover,
+.product-form__add-button--inline:hover {
+  background-color: #234240 !important;
+  border-color: #234240 !important;
+}
+
+/* Mobile improvements for product form */
+@media screen and (max-width: 640px) {
+  .product-form__quantity-with-rules {
+    max-height: 50px !important;
+    height: 44px !important;
+  }
+  
+  .product-form__add-button--inline {
+    height: 44px !important;
+    font-size: 14px !important;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -21758,6 +21830,31 @@ shopify-accelerated-checkout-cart {
     right: 0.5rem;
   }
 }
+
+@media screen and (min-width: 1626px) {
+  .product-form__quantity-with-rules {
+    max-width: 98% !important; 
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .product-form__quantity-with-rules {
+    max-width: 75% !important; 
+  }
+}
+
+@media screen and (min-width: 2100px) {
+  .product-form__quantity-with-rules {
+    max-width: 70% !important; 
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  .product-form__quantity-with-rules {
+    max-width: 70% !important; 
+  }
+}
+
 
 @media screen and (min-width: 1280px) {
   .product-block-list--medium .product-block-list__wrapper {
@@ -22253,9 +22350,10 @@ shopify-accelerated-checkout-cart {
 
 .template-collection .collection__dynamic-part .product-list--collection .product-item .buy-button {
   margin-top: -50px;
-  margin-left: 72px;
-  width: 50%;
-  position: relative;
+  width: 40%;
+  position: absolute;
+  left: 49%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
@@ -25955,12 +26053,22 @@ product-rerender {
     right: auto !important;
   }
 
+  .value-picker--align-center {
+    left: 40%;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+
   .value-picker[aria-hidden="false"] {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.4s cubic-bezier(0, 1, 0.4, 1),
       transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), visibility 0.4s linear;
     transform: scale(1.001);
+  }
+
+  .value-picker--align-center[aria-hidden="false"] {
+    transform: translateX(-50%) scale(1.001);
   }
 
   .value-picker .icon--nav-triangle-borderless {
@@ -25979,10 +26087,20 @@ product-rerender {
     right: auto;
   }
 
+  .value-picker--align-center .icon--nav-triangle-borderless {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
   .value-picker[data-picker-position="top"] .icon--nav-triangle-borderless {
     top: 100%;
     bottom: auto;
     transform: rotateZ(180deg);
+  }
+
+  .value-picker--align-center[data-picker-position="top"] .icon--nav-triangle-borderless {
+    transform: translateX(-50%) rotateZ(180deg);
   }
 
   .value-picker__inner {
@@ -26088,12 +26206,154 @@ product-rerender {
   height: 328px !important;
 }
 
+/* Reduce height for recently viewed and related products to minimize white space */
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__image-wrapper,
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .aspect-ratio,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__image-wrapper,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .aspect-ratio {
+  height: 200px !important;
+}
+
+/* Fix title spacing in recently viewed and related products - simpler approach */
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__title,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__title {
+  min-height: 3em !important;
+}
+
+/* Mobile carousel - show one product at a time */
+@media screen and (max-width: 999px) {
+  .mobile-carousel-wrapper {
+    position: relative !important;
+    width: 100vw !important; /* Force full viewport width */
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    overflow: hidden !important;
+  }
+  
+  
+  .mobile-carousel-wrapper .scroller__inner {
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 60px !important; /* Space for arrows */
+    margin: 0 !important; /* Remove negative margin */
+    width: 100% !important;
+    scroll-padding-left: 60px !important; /* Ensure first item aligns with padding */
+  }
+  
+  /* Force single product display on mobile */
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important; /* Remove gap for more precise scrolling */
+    padding: 0 !important;
+    width: 1500% !important; /* CRITICAL: Wide enough to hold all products horizontally */
+  }
+  
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable .product-item {
+    width: calc(100vw - 120px) !important; /* Full viewport minus space for arrows */
+    max-width: 350px !important;
+    min-width: 280px !important;
+    flex-shrink: 0 !important;
+    white-space: normal !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    margin-right: 20px !important; /* Consistent margin for spacing */
+    border: none !important; /* Clean design */
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important; /* Ensure products are always visible */
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Ensure product content is always visible */
+  .mobile-carousel-wrapper .product-item * {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Remove borders from product items on mobile */
+  .mobile-carousel-wrapper .product-item,
+  .mobile-carousel-wrapper .product-item *,
+  .mobile-carousel-wrapper .product-item::before,
+  .mobile-carousel-wrapper .product-item::after {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .mobile-carousel-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    background: #70a491 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+  
+  .mobile-carousel-btn:hover {
+    background: #234240 !important;
+    border-color: #234240 !important;
+  }
+  
+  .mobile-carousel-btn:hover svg {
+    color: white !important;
+  }
+  
+  .mobile-carousel-btn--prev {
+    left: 10px !important;
+  }
+  
+  .mobile-carousel-btn--next {
+    right: 10px !important;
+  }
+  
+  .mobile-carousel-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: #fff !important;
+  }
+  
+  .mobile-carousel-btn:disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+  }
+
+  /* Remove height restriction to allow add to cart buttons to show */
+  .mobile-carousel-wrapper .product-list--vertical.product-list--scrollable .product-item {
+    height: 80% !important;
+  }
+}
+
+/* Hide mobile carousel buttons on desktop */
+@media screen and (min-width: 1000px) {
+  .mobile-carousel-btn {
+    display: none !important;
+  }
+}
+
 .template-collection .product-item img,
 .product-list--vertical .product-item img {
   object-fit: contain !important;
   height: 328px !important;
   width: 100% !important;
 }
+
 
 .product-list--vertical .product-item {
   background: #ffffff !important;
@@ -26113,7 +26373,7 @@ product-rerender {
 }
 
 .template-collection .product-item .add-to-cart-form button,
-.product-list--vertical .product-item .add-to-cart-form button {
+.product-list--vertical .product-item .add-to-cart-form button{
   background-color: #70a491;
   font-size: 16px;
   text-transform: capitalize;
@@ -26128,6 +26388,13 @@ product-rerender {
   position: relative;
   z-index: 1;
   transition: all 0.2s ease-in-out;
+}
+
+.section[data-section-type="recently-viewed-products"] .product-item .add-to-cart-form button,
+.section[data-section-type="recently-viewed-products"] .product-item__action-button,
+.section[data-section-type="product-recommendations"] .product-item .add-to-cart-form button,
+.section[data-section-type="product-recommendations"] .product-item__action-button {
+  background-color: #70a491;
 }
 
 .LaunchTipAddToCartForm, .launchtip_add_to_cart.launchtip_upsell_design.add-to-cart {
@@ -26155,9 +26422,13 @@ product-rerender {
 }
 
 .template-collection .product-item .add-to-cart-form button:hover,
-.product-list--vertical .product-item .add-to-cart-form button:hover {
-  background-color: #eb654e;
-  border-color: #eb654e;
+.product-list--vertical .product-item .add-to-cart-form button:hover,
+.section[data-section-type="recently-viewed-products"] .product-item .add-to-cart-form button:hover,
+.section[data-section-type="recently-viewed-products"] .product-item__action-button:hover,
+.section[data-section-type="product-recommendations"] .product-item .add-to-cart-form button:hover,
+.section[data-section-type="product-recommendations"] .product-item__action-button:hover {
+  background-color: #234240;
+  border-color: #234240;
 }
 
 .template-collection .product-item--vertical .product-item__info,
