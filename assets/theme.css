@@ -21752,7 +21752,10 @@ shopify-accelerated-checkout-cart {
 .product-form button[type="submit"],
 .product-form button[name="add"],
 form[action*="/cart/add"] button[type="submit"],
-form[action*="/cart/add"] .button--primary {
+form[action*="/cart/add"] .button--primary,
+.buy-me-add-to-cart-btn,
+button[id*="buy-me-add-to-cart"],
+#buy-me-add-to-cart-div button {
   background-color: #70A491 !important;
   border-color: #70A491 !important;
   transition: all 0.2s ease-in-out !important;
@@ -21764,9 +21767,21 @@ form[action*="/cart/add"] .button--primary {
 .product-form button[type="submit"]:hover,
 .product-form button[name="add"]:hover,
 form[action*="/cart/add"] button[type="submit"]:hover,
-form[action*="/cart/add"] .button--primary:hover {
+form[action*="/cart/add"] .button--primary:hover,
+.buy-me-add-to-cart-btn:hover,
+button[id*="buy-me-add-to-cart"]:hover,
+#buy-me-add-to-cart-div button:hover {
   background-color: #234240 !important;
   border-color: #234240 !important;
+}
+
+/* Variant selector border radius to match theme */
+.buy-me-variants select,
+select[id*="bm-all-products"],
+#bm-master-variant-box select,
+.buy-me .select-wrapper select,
+.select-wrapper--primary select {
+  border-radius: 30px !important;
 }
 
 /* Mobile improvements for product form */
@@ -26232,7 +26247,7 @@ product-rerender {
 /* Fix title and vendor spacing in recently viewed and related products - prevent layout shifts */
 .section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__title,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__title {
-  min-height: 3em !important;
+  min-height: 4em !important; /* Increased from 3em to handle 3-line titles */
   margin-bottom: 8px !important;
 }
 
@@ -26383,7 +26398,7 @@ product-rerender {
   }
   
   .mobile-carousel-wrapper .product-item__title {
-    min-height: 3em !important;
+    min-height: 4.5em !important;
     margin-bottom: 8px !important;
   }
   
