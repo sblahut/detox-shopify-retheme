@@ -789,6 +789,10 @@ html {
   line-height: 1.87;
 }
 
+.ewa-rteLine {
+  color: #000;
+}
+
 @media screen and (min-width: 641px) {
   html {
     font-size: var(--base-text-font-size);
