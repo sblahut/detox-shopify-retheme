@@ -342,7 +342,7 @@ th {
 }
 
 .flickity-prev-next-button:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .flickity-prev-next-button svg {
@@ -2037,7 +2037,7 @@ th {
 }
 
 .flickity-prev-next-button:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .flickity-prev-next-button svg {
@@ -7671,7 +7671,7 @@ th {
 }
 
 .flickity-prev-next-button:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .flickity-prev-next-button svg {
@@ -13113,7 +13113,7 @@ th {
 }
 
 .flickity-prev-next-button:hover {
-  background: #eb654e;
+  background: #234240;
 }
 
 .flickity-prev-next-button svg {
@@ -21567,7 +21567,7 @@ select option {
   background: #fff;
   max-width: 50%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 30px;
   gap: 0;
 }
 
@@ -21745,16 +21745,26 @@ shopify-accelerated-checkout-cart {
   text-align: center !important;
 }
 
-/* PDP Add to cart button colors */
+/* PDP Add to cart button colors - comprehensive coverage for all variant buttons */
 .product-form__add-button,
-.product-form__add-button--inline {
+.product-form__add-button--inline,
+.product-form .button--primary,
+.product-form button[type="submit"],
+.product-form button[name="add"],
+form[action*="/cart/add"] button[type="submit"],
+form[action*="/cart/add"] .button--primary {
   background-color: #70A491 !important;
   border-color: #70A491 !important;
   transition: all 0.2s ease-in-out !important;
 }
 
 .product-form__add-button:hover,
-.product-form__add-button--inline:hover {
+.product-form__add-button--inline:hover,
+.product-form .button--primary:hover,
+.product-form button[type="submit"]:hover,
+.product-form button[name="add"]:hover,
+form[action*="/cart/add"] button[type="submit"]:hover,
+form[action*="/cart/add"] .button--primary:hover {
   background-color: #234240 !important;
   border-color: #234240 !important;
 }
@@ -25124,6 +25134,11 @@ shopify-accelerated-checkout-cart {
   justify-content: center;
 }
 
+/* Ensure quantity selector buttons have rounded corners to match theme */
+ .buy-me-quantity {
+  border-radius: 30px!important;
+}
+
 .quantity-selector--product .quantity-selector__value {
   color: var(--heading-color);
   flex: 1 1 auto;
@@ -26214,10 +26229,31 @@ product-rerender {
   height: 200px !important;
 }
 
-/* Fix title spacing in recently viewed and related products - simpler approach */
+/* Fix title and vendor spacing in recently viewed and related products - prevent layout shifts */
 .section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__title,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__title {
   min-height: 3em !important;
+  margin-bottom: 8px !important;
+}
+
+/* Fix vendor name spacing to prevent layout shifts from long vendor names */
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__vendor,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__vendor {
+  min-height: 2.5em !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+/* Reduce spacing between price and add to cart button */
+.section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .product-item__price-list,
+.section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__price-list {
+  margin-bottom: 10px !important;
+  margin-top: 5px !important;
 }
 
 /* Mobile carousel - show one product at a time */
@@ -26332,6 +26368,28 @@ product-rerender {
   .mobile-carousel-btn:disabled {
     opacity: 0.3 !important;
     cursor: not-allowed !important;
+  }
+
+  /* Mobile carousel specific spacing fixes */
+  .mobile-carousel-wrapper .product-item__vendor {
+    min-height: 2.5em !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+  }
+  
+  .mobile-carousel-wrapper .product-item__title {
+    min-height: 3em !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .mobile-carousel-wrapper .product-item__price-list {
+    margin-bottom: 8px !important;
+    margin-top: 5px !important;
   }
 
   /* Remove height restriction to allow add to cart buttons to show */
