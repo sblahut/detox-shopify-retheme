@@ -26569,6 +26569,15 @@ product-rerender {
   margin-left: 45px !important;
 }
 
+/* Center collection toolbar and content on mobile */
+@media screen and (max-width: 999px) {
+  .template-collection .collection__toolbar {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 90% !important;
+  }
+}
+
 .template-collection .collection__toolbar-item--count {
   display: flex !important;
 }
