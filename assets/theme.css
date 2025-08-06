@@ -26576,6 +26576,10 @@ product-rerender {
     margin-right: auto !important;
     width: 90% !important;
   }
+  .template-collection .product-list, .template-collection .product-item, .template-collection .collection .card, .product-list--vertical .product-list {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 .template-collection .collection__toolbar-item--count {
