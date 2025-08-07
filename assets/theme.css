@@ -26899,3 +26899,8 @@ product-rerender {
   text-overflow: ellipsis;
   margin-bottom: 0;
 }
+
+/* Collection description text color */
+.collection__description .rte {
+  color: #000000;
+}
