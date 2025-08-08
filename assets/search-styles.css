@@ -216,7 +216,7 @@ body[class*="search"] .product-item .product-item__image-wrapper {
 }
 
 .template-search .product-item .add-to-cart-form button:hover {
-  background: rgb(235, 101, 78);
+  background: #234240;
 }
 
 /* Make add to cart buttons larger on search page */
@@ -342,13 +342,15 @@ body[class*="search"] .product-item .product-item__image-wrapper {
     min-height: 150px !important;
   }
   
-  /* Adjust button positioning for mobile */
+  /* Adjust button positioning for mobile - fit inside overlay */
   .template-search .product-item .add-to-cart-form .btn,
   .template-search .product-item .add-to-cart-form .button,
   .template-search .product-item .button {
-    width: 60% !important;
-    font-size: 14px !important;
-    min-height: 40px !important;
+    width: 45% !important;
+    font-size: 12px !important;
+    min-height: 36px !important;
+    padding: 6px 10px !important;
+    bottom: 5px !important;
   }
 
   .template-collection .collection__toolbar-item--count {
