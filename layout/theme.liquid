@@ -1,9 +1,9 @@
 <!doctype html>
 
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  {% if template contains "index" %}
+  {% comment %} {% if template contains "index" %}
     <script> window.location = "/collections/detox-shop"; </script>
-  {% endif %}
+  {% endif %} {% endcomment %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
