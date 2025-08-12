@@ -284,31 +284,39 @@
     }
   }
 
-  let checkboxHandler = null; // Store handler reference
+  let checkboxHandler = null; // Current handler reference
+  let boundCheckbox = null;   // The checkbox element we are currently bound to
 
   function setupMiniCartCheckout() {
     const checkbox = document.getElementById('miniCartTermsCheckbox');
     const checkoutBtn = document.getElementById('miniCartCheckoutButton');
     
-    if (checkbox && checkoutBtn) {
-      // Remove existing listener to prevent duplicates
-      if (checkboxHandler) {
-        checkbox.removeEventListener('change', checkboxHandler);
-      }
-      
-      // Set initial state
-      checkoutBtn.disabled = !checkbox.checked;
-      updateMiniCartButtonStyle(checkoutBtn, checkbox.checked);
-      
-      // Create new handler
-      checkboxHandler = function() {
-        checkoutBtn.disabled = !this.checked;
-        updateMiniCartButtonStyle(checkoutBtn, this.checked);
-      };
-      
-      // Add new listener
-      checkbox.addEventListener('change', checkboxHandler);
+    if (!checkbox || !checkoutBtn) return;
+
+    // Detach from previous checkbox if different
+    if (boundCheckbox && checkboxHandler && boundCheckbox !== checkbox) {
+      try { boundCheckbox.removeEventListener('change', checkboxHandler); } catch(e) {}
     }
+
+    // Restore persisted state
+    const persistedAccepted = sessionStorage.getItem('miniCartTermsAccepted') === 'true';
+    if (persistedAccepted) {
+      checkbox.checked = true;
+    }
+
+    // Initialize button state
+    checkoutBtn.disabled = !checkbox.checked;
+    updateMiniCartButtonStyle(checkoutBtn, checkbox.checked);
+
+    // (Re)bind listener for this checkbox
+    checkboxHandler = function() {
+      sessionStorage.setItem('miniCartTermsAccepted', String(this.checked));
+      checkoutBtn.disabled = !this.checked;
+      updateMiniCartButtonStyle(checkoutBtn, this.checked);
+    };
+    checkbox.addEventListener('change', checkboxHandler);
+
+    boundCheckbox = checkbox;
   }
 
   // Improved mini-cart detection
@@ -337,9 +345,10 @@
     setTimeout(setupMiniCartCheckout, 100);
   });
   
-  // Re-initialize after cart updates
-  document.addEventListener('cart:updated', function() {
-    setTimeout(setupMiniCartCheckout, 100);
+  // Re-initialize after cart updates (listen to theme event fired by cart rerenders)
+  document.addEventListener('theme:loading:end', function() {
+    // Delay slightly to allow DOM replacement to finish
+    setTimeout(setupMiniCartCheckout, 50);
   });
   
   // Additional event listener for drawer mutations
@@ -366,9 +375,11 @@
     const checkbox = document.getElementById('miniCartTermsCheckbox');
     const checkoutBtn = document.getElementById('miniCartCheckoutButton');
     
-    if (miniCart && miniCart.getAttribute('aria-hidden') === 'false' && 
-        checkbox && checkoutBtn && !checkboxHandler) {
-      setupMiniCartCheckout();
+    if (miniCart && miniCart.getAttribute('aria-hidden') === 'false' && checkbox && checkoutBtn) {
+      // If the currently bound checkbox is not the live one, re-bind
+      if (checkbox !== boundCheckbox) {
+        setupMiniCartCheckout();
+      }
     }
   }, 500);
 </script>
