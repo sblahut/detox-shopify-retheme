@@ -26245,7 +26245,7 @@ product-rerender {
 .section[data-section-type="recently-viewed-products"] .product-list--vertical .product-item .aspect-ratio,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .product-item__image-wrapper,
 .section[data-section-type="product-recommendations"] .product-list--vertical .product-item .aspect-ratio {
-  height: 200px !important;
+  height: 150px !important;
 }
 
 /* Fix title and vendor spacing in recently viewed and related products - prevent layout shifts */
@@ -26593,6 +26593,11 @@ product-rerender {
 /* Product Detail Page padding consistency */
 .template-product .product-block-list__item {
   padding: 0 20px;
+}
+
+/* Product image sizing and spacing fixes */
+.product-item__image-wrapper {
+  padding: 20px;
 }
 
 /* sidebar css */
