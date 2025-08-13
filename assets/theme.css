@@ -23893,6 +23893,24 @@ select[id*="bm-all-products"],
   color: #000000;
 }
 
+/* Fix product description text color */
+.product-meta__description .rte,
+.product-meta__description .rte p,
+.product-meta__description .rte div,
+.product-meta__description .rte span,
+.product-meta__description .rte ul,
+.product-meta__description .rte ol,
+.product-meta__description .rte li,
+.card__section .rte,
+.card__section .rte p,
+.card__section .rte div,
+.card__section .rte span,
+.card__section .rte ul,
+.card__section .rte ol,
+.card__section .rte li {
+  color: #232420 !important;
+}
+
 .footer__social-media {
   margin-top: 20px;
 }
