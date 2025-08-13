@@ -9,109 +9,31 @@
  */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
+    "quick_links_qerMwD": {
+      "type": "quick-links",
       "blocks": {
-        "slide-1": {
-          "type": "image",
-          "settings": {}
-        },
-        "slide-2": {
-          "type": "image",
-          "settings": {}
+        "link_hrad6e": {
+          "type": "link",
+          "settings": {
+            "title": "Detox Shop",
+            "link": "shopify://collections/all-products"
+          }
         }
       },
       "block_order": [
-        "slide-1",
-        "slide-2"
+        "link_hrad6e"
       ],
-      "settings": {}
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {}
-    },
-    "collection-list": {
-      "type": "collection-list",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-5": {
-          "type": "collection",
-          "settings": {}
-        },
-        "collection-6": {
-          "type": "collection",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-4",
-        "collection-5",
-        "collection-6"
-      ],
-      "settings": {}
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {}
-    },
-    "featured-product": {
-      "type": "featured-product",
-      "blocks": {
-        "product-meta": {
-          "type": "product_meta",
-          "settings": {}
-        },
-        "featured-description": {
-          "type": "featured_description",
-          "settings": {}
-        },
-        "variant-selector": {
-          "type": "variant_selector",
-          "settings": {}
-        },
-        "buy-buttons": {
-          "type": "buy_buttons",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "product-meta",
-        "featured-description",
-        "variant-selector",
-        "buy-buttons"
-      ],
-      "settings": {}
-    },
-    "blog-posts": {
-      "type": "blog-posts",
-      "settings": {}
+      "name": "Quick links",
+      "settings": {
+        "title": "Quick links",
+        "expand_items": true,
+        "show_desktop": true,
+        "link_title": "",
+        "link": ""
+      }
     }
   },
   "order": [
-    "slideshow",
-    "featured-collection",
-    "collection-list",
-    "newsletter",
-    "featured-product",
-    "blog-posts"
+    "quick_links_qerMwD"
   ]
 }
