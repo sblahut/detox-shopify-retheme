@@ -236,6 +236,9 @@
                       <div class="card__section">
                         <div class="complementary-product-list">
                           {%- for product in recommendations.products -%}
+                            {%- comment %}<locksmith:d6c9>{% endcomment -%}
+                              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: recommendations, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                            {%- comment %}</locksmith:d6c9>{% endcomment -%}
                             {%- render 'product-item', product: product, horizontal: true, hide_labels: true, show_add_to_cart: block.settings.show_quick_buy, complementary_products: true -%}
                           {%- endfor -%}
                         </div>

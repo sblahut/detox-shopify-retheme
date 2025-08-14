@@ -13,10 +13,16 @@
     <div class="scroller">
       <div class="scroller__inner">
         <div class="collection-list">
+          {%- comment %}<locksmith:5217>{% endcomment -%}
+            {%- assign locksmith_8b90_forloop__size = 0 %}{%- for block in section.blocks -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_8b90_forloop__size = locksmith_8b90_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_8b90_forloop__index = nil -%}
+          {%- comment %}</locksmith:5217>{% endcomment -%}
           {%- for block in section.blocks -%}
+            {%- comment %}<locksmith:eab7>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.collection, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_8b90_forloop__index == nil %}{% assign locksmith_8b90_forloop__index = 1 %}{% assign locksmith_8b90_forloop__index0 = 0 %}{% else %}{% assign locksmith_8b90_forloop__index = locksmith_8b90_forloop__index | plus: 1 %}{% assign locksmith_8b90_forloop__index0 = locksmith_8b90_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_8b90_forloop__index == 1 %}{% assign locksmith_8b90_forloop__first = true %}{% else %}{% assign locksmith_8b90_forloop__first = false %}{% endif %}{% if locksmith_8b90_forloop__index == locksmith_8b90_forloop__size %}{% assign locksmith_8b90_forloop__last = true %}{% else %}{% assign locksmith_8b90_forloop__last = false %}{% endif %}{% assign locksmith_8b90_forloop__rindex = locksmith_8b90_forloop__size | minus: locksmith_8b90_forloop__index | minus: 1 %}{% assign locksmith_8b90_forloop__rindex0 = locksmith_8b90_forloop__size | minus: locksmith_8b90_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:eab7>{% endcomment -%}
             {%- assign collection = block.settings.collection -%}
 
-            <a href="{{ block.settings.link | default: collection.url | default: '#' }}" class="collection-item" data-collection-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.link | default: collection.url | default: '#' }}" class="collection-item" data-collection-index="{{ locksmith_8b90_forloop__index0 }}" {{ block.shopify_attributes }}>
               {%- unless collection == blank -%}
                 {%- assign collection_image = block.settings.image | default: collection.image | default: collection.products.first.featured_image -%}
 

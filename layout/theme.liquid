@@ -1,7 +1,15 @@
+{%- comment %}<locksmith:4f67>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:4f67>{% endcomment -%}
+
 <!doctype html>
 
 <html class="no-js" lang="{{ request.locale.iso_code }}">
+  {% comment %} {% if template contains "index" %}
+    <script> window.location = "/collections/detox-shop"; </script>
+  {% endif %} {% endcomment %}
   <head>
+    {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="theme-color" content="{{ settings.accent_color }}">
@@ -9,7 +17,10 @@
     <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% endif %}</title>
 
     {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
+      {%- comment %}<locksmith:e91b>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:e91b>{% endcomment -%}
     {%- endif -%}
 
     <link rel="canonical" href="{{ canonical_url }}">
@@ -87,6 +98,14 @@
 
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script src="{{ 'custom.js' | asset_url }}" defer></script>
+
+    <script>
+      (function(){
+        if(window.location.href === "https://detoxrejuvenation.com/"){
+          window.location.href = "https://detoxnation.com/";
+        }
+      })();
+    </script>
 
     {%- if request.page_type != 'cart' -%}
       <script>

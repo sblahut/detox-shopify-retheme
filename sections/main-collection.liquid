@@ -570,6 +570,9 @@
 
                     <div class="product-list product-list--collection {% if has_filters %}product-list--with-sidebar{% endif %}">
                       {%- for product in collection.products -%}
+                        {%- comment %}<locksmith:9440>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:9440>{% endcomment -%}
                         {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes -%}
                       {%- endfor -%}
                     </div>
