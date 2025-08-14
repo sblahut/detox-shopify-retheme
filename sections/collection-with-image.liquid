@@ -32,6 +32,9 @@
 
               {%- unless collection == blank -%}
                 {%- for product in collection.products limit: section.settings.products_count -%}
+                  {%- comment %}<locksmith:33cb>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:33cb>{% endcomment -%}
                   {%- render 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy -%}
                 {%- endfor -%}
               {%- else -%}

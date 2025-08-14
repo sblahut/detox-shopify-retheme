@@ -466,6 +466,9 @@
                         {%- assign product_results = search.results | where: 'object_type', 'product' -%}
 
                         {%- for product in product_results -%}
+                          {%- comment %}<locksmith:ad04>{% endcomment -%}
+                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:ad04>{% endcomment -%}
                           {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes -%}
                         {%- endfor -%}
                       </div>

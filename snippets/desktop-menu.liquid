@@ -19,6 +19,9 @@ always visible.
 {%- assign downcase_title = menu.title | downcase | strip -%}
 
 {%- for mega_menu in mega_menus -%}
+  {%- comment %}<locksmith:b47f>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: mega_menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:b47f>{% endcomment -%}
   {%- assign mega_menu_setting_downcase = mega_menu | downcase | strip -%}
 
   {%- if mega_menu_setting_downcase == downcase_title -%}
@@ -40,6 +43,9 @@ always visible.
       {%- assign downcase_title = link.title | downcase | strip -%}
 
       {%- for mega_menu in mega_menus -%}
+        {%- comment %}<locksmith:9538>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: mega_menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:9538>{% endcomment -%}
         {%- assign mega_menu_setting_downcase = mega_menu | downcase | strip -%}
 
         {%- if mega_menu_setting_downcase == downcase_title -%}

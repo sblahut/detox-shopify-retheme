@@ -27,6 +27,9 @@
         <div class="card__section card__section--no-padding">
           <ul class="link-search-results__list" role="list">
             {%- for result in search.results limit: 20 -%}
+              {%- comment %}<locksmith:897f>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: result, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:897f>{% endcomment -%}
               {%- if result.object_type == 'product' -%}
                 {%- continue -%}
               {%- endif -%}
