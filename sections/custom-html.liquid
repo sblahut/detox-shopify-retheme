@@ -23,7 +23,12 @@
   <div class="container" style="position: relative; padding: 60px 0; margin-bottom: 0; background-image: url('{{ 'BG-1-min.webp' | asset_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; justify-content: center; align-items: center; overflow: hidden; max-width: 100%; min-height: 200px;">
     {%- if section.settings.title != blank -%}
       <header class="section__header">
-        <h2 class="section__title heading h2 custom-html-title">{{ section.settings.title | escape }}</h2>
+        {%- comment -%}Display collection title on collection pages, but use default title for main collections{%- endcomment -%}
+        {%- if template.name == 'collection' and collection.title != blank and collection.handle != 'all-products' and collection.handle != 'detox-shop' -%}
+          <h2 class="section__title heading h2 custom-html-title">{{ collection.title | escape }}</h2>
+        {%- else -%}
+          <h2 class="section__title heading h2 custom-html-title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
       </header>
     {%- endif -%}
   </div>
