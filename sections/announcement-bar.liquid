@@ -63,11 +63,17 @@
 
   <div class="announcement-bar">
     <div class="container">
-      <div class="announcement-bar__inner">
-        {%- if section.settings.link != blank -%}
+      <div class="announcement-bar__inner announcement-bar__inner--{% if section.settings.show_cta_button %}with-button{% else %}{{ section.settings.layout }}{% endif %}">
+        {%- if section.settings.link != blank and section.settings.show_cta_button == false -%}
           <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text | escape }}</a>
         {%- else -%}
           <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.show_cta_button and section.settings.cta_button_text != blank -%}
+          <a href="{{ section.settings.cta_button_link | default: '#' }}" class="announcement-bar__cta-button button button--primary">
+            {{ section.settings.cta_button_text | escape }}
+          </a>
         {%- endif -%}
 
         {%- if section.settings.show_newsletter -%}
@@ -85,6 +91,59 @@
   .announcement-bar {
     background: {{ section.settings.background }};
     color: {{ section.settings.text_color }};
+  }
+  
+  .announcement-bar__inner--with-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .announcement-bar__inner--text-only .announcement-bar__content {
+    text-align: {{ section.settings.text_position }};
+  }
+  
+  .announcement-bar__cta-button {
+    font-size: 20px !important;
+    padding: 10px 24px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 1 !important;
+    --primary-button-background: #70a491 !important;
+    --primary-button-background-rgb: 112, 164, 145 !important;
+    background: #70a491 !important;
+    background-color: #70a491 !important;
+    border-color: #70a491 !important;
+    color: white !important;
+  }
+  
+  .announcement-bar__cta-button:hover {
+    --primary-button-background: #234240 !important;
+    --primary-button-background-rgb: 35, 66, 64 !important;
+    background: #234240 !important;
+    background-color: #234240 !important;
+    border-color: #234240 !important;
+    opacity: 1 !important;
+    color: white !important;
+  }
+  
+  .announcement-bar__content {
+    font-size: 20px !important;
+  }
+  
+  @media screen and (max-width: 640px) {
+    .announcement-bar__inner--with-button {
+      flex-direction: column;
+      gap: 12px;
+      padding: 15px 0;
+    }
+    
+    .announcement-bar__content {
+      text-align: center !important;
+    }
   }
 </style>
 
@@ -141,7 +200,47 @@
     {
       "type": "url",
       "id": "link",
-      "label": "Link"
+      "label": "Link",
+      "info": "Only used when CTA button is disabled"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_button",
+      "label": "Show CTA button",
+      "default": false,
+      "info": "When enabled, the announcement text link is disabled"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "text-only",
+          "label": "Text only"
+        },
+        {
+          "value": "with-button",
+          "label": "Text with button (centered)"
+        }
+      ],
+      "default": "text-only",
+      "info": "Layout is automatically set to 'with-button' when CTA button is enabled"
     },
     {
       "type": "header",
