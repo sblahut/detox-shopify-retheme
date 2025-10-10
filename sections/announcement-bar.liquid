@@ -64,6 +64,10 @@
   <div class="announcement-bar">
     <div class="container">
       <div class="announcement-bar__inner announcement-bar__inner--{% if section.settings.show_cta_button %}with-button{% else %}{{ section.settings.layout }}{% endif %}">
+        <button type="button" class="announcement-bar__close" data-action="close-announcement-bar" aria-label="{{ 'general.accessibility.close' | t }}">
+          {%- render 'icon', icon: 'close' -%}
+        </button>
+        
         {%- if section.settings.link != blank and section.settings.show_cta_button == false -%}
           <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text | escape }}</a>
         {%- else -%}
@@ -91,13 +95,40 @@
   .announcement-bar {
     background: {{ section.settings.background }};
     color: {{ section.settings.text_color }};
+    position: relative;
+  }
+  
+  .announcement-bar__close {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: {{ section.settings.text_color }};
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  
+  .announcement-bar__close:hover {
+    opacity: 1;
+  }
+  
+  .announcement-bar__close svg {
+    width: 16px;
+    height: 16px;
   }
   
   .announcement-bar__inner--with-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
   }
   
@@ -155,6 +186,30 @@
   {%- endif -%}
 
   document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+
+  // Close announcement bar functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const closeButton = document.querySelector('[data-action="close-announcement-bar"]');
+    const announcementSection = document.getElementById('shopify-section-{{ section.id }}');
+    
+    if (closeButton && announcementSection) {
+      closeButton.addEventListener('click', function() {
+        announcementSection.style.display = 'none';
+        document.documentElement.style.setProperty('--announcement-bar-height', '0px');
+        
+        // Store in sessionStorage so it stays closed during the session
+        sessionStorage.setItem('announcement-bar-closed', 'true');
+      });
+    }
+    
+    // Check if announcement bar was previously closed in this session
+    if (sessionStorage.getItem('announcement-bar-closed') === 'true') {
+      if (announcementSection) {
+        announcementSection.style.display = 'none';
+        document.documentElement.style.setProperty('--announcement-bar-height', '0px');
+      }
+    }
+  });
 </script>
 
 {% schema %}

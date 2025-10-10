@@ -13,7 +13,7 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": true,
+      "disabled": false,
       "settings": {
         "background": "#c8e8e4",
         "text_color": "#494644",
