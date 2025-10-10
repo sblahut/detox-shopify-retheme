@@ -88,6 +88,16 @@
     "checkout_accent_color": "#00badb",
     "checkout_button_color": "#00badb",
     "checkout_error_color": "#ff0000",
+    "sections": {
+      "main-customers-register": {
+        "type": "main-customers-register",
+        "settings": {}
+      },
+      "main-customers-login": {
+        "type": "main-customers-login",
+        "settings": {}
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "14236898902689827741": {
@@ -121,11 +131,6 @@
           "cards_border_color": "rgba(0,0,0,0)"
         }
       },
-      "16913884154400998716": {
-        "type": "shopify://apps/slick-alert-bar-builder/blocks/alert_bars/0536d01b-aee9-424a-ae41-487f9b309fd2",
-        "disabled": false,
-        "settings": {}
-      },
       "18228966181090706294": {
         "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
         "disabled": true,
@@ -141,6 +146,11 @@
       "2567389343055140935": {
         "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
         "disabled": false,
+        "settings": {}
+      },
+      "16913884154400998716": {
+        "type": "shopify://apps/slick-alert-bar-builder/blocks/alert_bars/0536d01b-aee9-424a-ae41-487f9b309fd2",
+        "disabled": true,
         "settings": {}
       }
     }
