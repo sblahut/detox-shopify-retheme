@@ -197,6 +197,32 @@
             </span>
           </label>
         </div>
+
+        {%- comment -%}Cart Note Section{%- endcomment -%}
+        <div class="mini-cart__note-block" style="margin-bottom: 5px;">
+          <div id="miniCartNoteToggle" style="display: flex; align-items: center; justify-content: space-between; font-size: 14px; cursor: pointer; color: #234240; padding: 5px 0; user-select: none;">
+            <span id="miniCartNoteLabel">Add a note for our team:</span>
+            <svg id="miniCartNoteChevron" width="16" height="16" viewBox="0 0 16 16" style="transition: transform 0.3s ease; flex-shrink: 0;">
+              <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div id="miniCartNoteBox" style="margin-top: 5px; display: none; overflow: hidden; transition: all 0.3s ease;">
+            <textarea 
+              id="miniCartNoteText" 
+              name="note" 
+              placeholder="Add special instructions or notes for your order..."
+              style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid #d1d1d1; border-radius: 4px; font-size: 14px; font-family: inherit; resize: vertical; box-sizing: border-box;"
+            >{{ cart.note }}</textarea>
+            <button 
+              id="miniCartNoteSave" 
+              type="button"
+              style="margin-top: 8px; padding: 8px 16px; background-color: #234240; color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 14px; font-weight: 500; transition: opacity 0.2s;"
+              onmouseover="this.style.opacity='0.85'"
+              onmouseout="this.style.opacity='1'"
+            >Save</button>
+          </div>
+        </div>
+
         {%- if cart.cart_level_discount_applications != blank -%}
           {%- for discount_application in cart.cart_level_discount_applications -%}
             <div class="mini-cart__recap-price-line mini-cart__recap-price-line--highlight text--pull">
@@ -382,5 +408,132 @@
       }
     }
   }, 500);
+
+  // Cart Note Functionality
+  function setupCartNoteHandlers() {
+    const toggle = document.getElementById('miniCartNoteToggle');
+    const noteBox = document.getElementById('miniCartNoteBox');
+    const noteText = document.getElementById('miniCartNoteText');
+    const saveBtn = document.getElementById('miniCartNoteSave');
+    const noteLabel = document.getElementById('miniCartNoteLabel');
+    const chevron = document.getElementById('miniCartNoteChevron');
+    
+    if (!toggle || !noteBox || !noteText || !saveBtn || !noteLabel || !chevron) return;
+    
+    // Track if dropdown is currently open
+    let isOpen = false;
+    
+    // Remove existing listeners to prevent duplicates
+    const newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    const newSaveBtn = saveBtn.cloneNode(true);
+    saveBtn.parentNode.replaceChild(newSaveBtn, saveBtn);
+    
+    // Get references again after cloning
+    const finalToggle = document.getElementById('miniCartNoteToggle');
+    const finalChevron = document.getElementById('miniCartNoteChevron');
+    
+    // Toggle dropdown on click
+    finalToggle.addEventListener('click', function() {
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        noteBox.style.display = 'block';
+        if (finalChevron) {
+          finalChevron.style.transform = 'rotate(180deg)';
+        }
+      } else {
+        noteBox.style.display = 'none';
+        if (finalChevron) {
+          finalChevron.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+    
+    // Save note to cart
+    newSaveBtn.addEventListener('click', function() {
+      const note = noteText.value.trim();
+      const originalText = this.textContent;
+      
+      // Show saving state
+      this.textContent = 'Saving...';
+      this.disabled = true;
+      
+      // Update cart note via AJAX
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          note: note
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Show success feedback
+        this.textContent = 'Saved!';
+        
+        // Minimize the dropdown after saving
+        setTimeout(() => {
+          const box = document.getElementById('miniCartNoteBox');
+          const chevronEl = document.getElementById('miniCartNoteChevron');
+          if (box) {
+            box.style.display = 'none';
+            isOpen = false;
+          }
+          if (chevronEl) {
+            chevronEl.style.transform = 'rotate(0deg)';
+          }
+          this.textContent = 'Save Note';
+          this.disabled = false;
+        }, 1000);
+      })
+      .catch(error => {
+        console.error('Error saving cart note:', error);
+        this.textContent = 'Error - Try Again';
+        setTimeout(() => {
+          this.textContent = originalText;
+          this.disabled = false;
+        }, 2000);
+      });
+    });
+  }
+  
+  // Initialize cart note handlers on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setupCartNoteHandlers, 100);
+  });
+  
+  // Re-initialize after cart updates
+  document.addEventListener('theme:loading:end', function() {
+    setTimeout(setupCartNoteHandlers, 50);
+  });
+  
+  // Initialize when mini-cart opens
+  document.addEventListener('click', function(event) {
+    if (event.target.closest('.header__cart-toggle')) {
+      setTimeout(setupCartNoteHandlers, 50);
+      setTimeout(setupCartNoteHandlers, 150);
+      setTimeout(setupCartNoteHandlers, 300);
+    }
+  });
+  
+  // Re-initialize when mini-cart becomes visible
+  const miniCartObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden') {
+        const target = mutation.target;
+        if (target.getAttribute('aria-hidden') === 'false') {
+          setTimeout(setupCartNoteHandlers, 50);
+        }
+      }
+    });
+  });
+  
+  const miniCartForNoteObserver = document.getElementById('mini-cart');
+  if (miniCartForNoteObserver) {
+    miniCartObserver.observe(miniCartForNoteObserver, { attributes: true });
+  }
 </script>
   
