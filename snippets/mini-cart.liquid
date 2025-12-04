@@ -32,6 +32,12 @@
     </div>
   {%- else -%}
     <div class="mini-cart__inner">
+      <!-- Resize handle -->
+      <div class="mini-cart__resize-handle" id="miniCartResizeHandle" title="Drag to resize" onmousedown="event.stopPropagation();">
+        <div class="mini-cart__resize-grip">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
       <button class="close-button mini-cart__close-button" aria-label="Close cart" type="button" onclick="closeMiniCart()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -189,13 +195,15 @@
       <div class="mini-cart__recap">
         <div class="mini-cart__info-block" style="margin-bottom: 18px;">
           <div style="margin-bottom: 8px; color: #234240;">Shipping calculated at checkout</div>
-          <label style="display: flex; align-items: flex-start; font-size: 14px; margin-bottom: 8px; gap: 8px;">
-            <span>
-              I have read and agree to Detox RejuveNation's
-              <a href="/pages/terms-and-conditions" target="_blank" style="color: #70a491; text-decoration: underline; white-space: nowrap;">terms and conditions</a>.
-            </span>
-            <input id="miniCartTermsCheckbox" type="checkbox" required style="margin-top: 2px;">
-          </label>
+          <div id="termsCheckboxContainer" style="background: #f0f7f4; border: 2px solid #70a491; border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+            <label style="display: flex; align-items: center; font-size: 14px; cursor: pointer; gap: 12px; margin: 0;">
+              <input id="miniCartTermsCheckbox" type="checkbox" required style="width: 22px; height: 22px; min-width: 22px; accent-color: #234240; cursor: pointer; margin: 0; flex-shrink: 0;">
+              <span style="color: #234240; line-height: 1.4;">
+                I have read and agree to Detox RejuveNation's
+                <a href="/pages/terms-and-conditions" target="_blank" style="color: #70a491; text-decoration: underline;">terms and conditions</a>.
+              </span>
+            </label>
+          </div>
         </div>
 
         {%- comment -%}Cart Note Section{%- endcomment -%}
@@ -296,17 +304,163 @@
     }
   }
 
+  // Mini-cart resize functionality
+  (function() {
+    let isResizing = false;
+    let startX = 0;
+    let startWidth = 0;
+    const minWidth = 375;
+    let resizeHandle = null;
+    let miniCart = null;
+    
+    function getMaxWidth() {
+      return Math.min(window.innerWidth * 0.9, 800);
+    }
+    
+    function setupMiniCartResize() {
+      miniCart = document.getElementById('mini-cart');
+      resizeHandle = document.getElementById('miniCartResizeHandle');
+      
+      if (!miniCart || !resizeHandle) return;
+      
+      // Restore saved width from localStorage
+      const savedWidth = localStorage.getItem('miniCartWidth');
+      if (savedWidth) {
+        const width = parseInt(savedWidth, 10);
+        if (width >= minWidth && width <= getMaxWidth()) {
+          miniCart.style.width = width + 'px';
+        }
+      }
+    }
+    
+    function startResize(e) {
+      miniCart = document.getElementById('mini-cart');
+      resizeHandle = document.getElementById('miniCartResizeHandle');
+      
+      if (!miniCart || !resizeHandle) return;
+      
+      isResizing = true;
+      startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      startWidth = miniCart.offsetWidth;
+      
+      miniCart.classList.add('is-resizing');
+      resizeHandle.classList.add('is-resizing');
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+      document.body.style.webkitUserSelect = 'none';
+      
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    function doResize(e) {
+      if (!isResizing || !miniCart) return;
+      
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      if (clientX === undefined) return;
+      
+      // Calculate new width (dragging left increases width since drawer is on right)
+      const diff = startX - clientX;
+      let newWidth = startWidth + diff;
+      
+      // Clamp to min/max
+      newWidth = Math.max(minWidth, Math.min(getMaxWidth(), newWidth));
+      
+      miniCart.style.width = newWidth + 'px';
+      
+      e.preventDefault();
+    }
+    
+    function stopResize(e) {
+      if (!isResizing) return;
+      
+      isResizing = false;
+      
+      if (miniCart) {
+        miniCart.classList.remove('is-resizing');
+        // Save width to localStorage
+        localStorage.setItem('miniCartWidth', miniCart.offsetWidth);
+      }
+      
+      if (resizeHandle) {
+        resizeHandle.classList.remove('is-resizing');
+      }
+      
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      document.body.style.webkitUserSelect = '';
+    }
+    
+    // Use capture phase to get events before theme JS
+    document.addEventListener('mousedown', function(e) {
+      if (e.target.closest('#miniCartResizeHandle')) {
+        startResize(e);
+      }
+    }, true);
+    
+    document.addEventListener('mousemove', doResize, true);
+    document.addEventListener('mouseup', stopResize, true);
+    
+    // Touch events
+    document.addEventListener('touchstart', function(e) {
+      if (e.target.closest('#miniCartResizeHandle')) {
+        startResize(e);
+      }
+    }, { capture: true, passive: false });
+    
+    document.addEventListener('touchmove', function(e) {
+      if (isResizing) {
+        doResize(e);
+      }
+    }, { capture: true, passive: false });
+    
+    document.addEventListener('touchend', stopResize, true);
+    
+    // Update max width on window resize
+    window.addEventListener('resize', function() {
+      const cart = document.getElementById('mini-cart');
+      if (cart) {
+        const currentWidth = cart.offsetWidth;
+        const newMaxWidth = getMaxWidth();
+        if (currentWidth > newMaxWidth) {
+          cart.style.width = newMaxWidth + 'px';
+        }
+      }
+    });
+    
+    // Initialize on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupMiniCartResize);
+    } else {
+      setupMiniCartResize();
+    }
+    
+    // Re-initialize when mini-cart content is replaced (after cart updates)
+    const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+    // Also setup on theme events
+    document.addEventListener('theme:loading:end', setupMiniCartResize);
+  })();
+
   function updateMiniCartButtonStyle(button, isEnabled) {
+    const container = document.getElementById('termsCheckboxContainer');
     if (isEnabled) {
       button.style.opacity = '1';
       button.style.cursor = 'pointer';
-      button.style.backgroundColor = '#234240 !important';
+      button.style.backgroundColor = '#234240';
       button.style.borderColor = '#234240';
+      if (container) {
+        container.style.borderColor = '#70a491';
+        container.style.background = '#f0f7f4';
+      }
     } else {
       button.style.opacity = '0.5';
       button.style.cursor = 'not-allowed';
-      button.style.backgroundColor = '#234240 !important';
+      button.style.backgroundColor = '#234240';
       button.style.borderColor = '#234240';
+      if (container) {
+        container.style.borderColor = '#e8a87c';
+        container.style.background = '#fff8f5';
+      }
     }
   }
 

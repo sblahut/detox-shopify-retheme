@@ -4324,16 +4324,90 @@ body:not(.is-tabbing) textarea:focus {
   top: 0 !important;
   right: 0 !important;
   left: auto !important;
-  width: 400px !important;
-  max-width: 100vw !important;
+  width: 400px;
+  max-width: 90vw;
+  min-width: 320px;
   height: 100vh !important;
   z-index: 1002 !important;
   box-shadow: -2px 0 16px rgba(0,0,0,0.15) !important;
   border-radius: 0 !important;
   transform: translateX(100%) !important;
-  transition: transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), opacity 0.25s, visibility 0.25s !important;
+  transition: transform 0.4s cubic-bezier(0.18, 1.25, 0.4, 1), opacity 0.25s, visibility 0.25s, width 0s !important;
   opacity: 0 !important;
   visibility: hidden !important;
+}
+
+/* Resize handle on the left side of the drawer */
+.mini-cart__resize-handle {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 16px;
+  height: 100%;
+  cursor: ew-resize;
+  z-index: 9999;
+  background: transparent;
+  transition: background 0.2s ease;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.mini-cart__resize-handle:hover,
+.mini-cart__resize-handle.is-resizing {
+  background: linear-gradient(90deg, rgba(112, 164, 145, 0.4) 0%, transparent 100%);
+}
+
+.mini-cart__resize-grip {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 4px;
+  background: #70a491;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mini-cart__resize-grip span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+.mini-cart__resize-handle:hover .mini-cart__resize-grip,
+.mini-cart__resize-handle.is-resizing .mini-cart__resize-grip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* When resizing, disable the slide animation */
+.mini-cart--drawer.is-resizing {
+  transition: none !important;
+}
+
+/* Ensure mini-cart inner doesn't block resize handle */
+.mini-cart--drawer .mini-cart__inner {
+  position: relative;
+  overflow: visible;
+}
+
+/* Hide resize handle on mobile (too small to be useful) */
+@media screen and (max-width: 640px) {
+  .mini-cart__resize-handle {
+    display: none;
+  }
+  
+  .mini-cart--drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
 }
 .mini-cart--drawer[aria-hidden="false"] {
   transform: translateX(0) !important;
