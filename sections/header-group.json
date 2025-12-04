@@ -13,16 +13,15 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": false,
       "settings": {
         "background": "#c8e8e4",
         "text_color": "#494644",
-        "text": "Mold Illness is a Puzzle. 🧩 Learn the Recovery Roadmap in our FREE 3-day workshop to discover the missing pieces for lasting recovery.",
+        "text": "🔥Tired of \"Normal\" Lab Results? Learn the Toxic Lab Secrets that reveal the real root cause of chronic conditions in this FREE workshop!",
         "text_position": "center",
-        "link": "https://reset.detoxnation.com/summer-2025-breakthrough-the-illness-plateau-reg",
+        "link": "https://detoxnation.com/resilience-reset-winter-2025-info/?utm_source=HomeSite&utm_medium=LiveEvent&utm_content=50%offSale&utm_term=SalesPage&utm_campaign=Resilience-Reset",
         "show_cta_button": true,
-        "cta_button_text": "Register Now",
-        "cta_button_link": "https://reset.detoxnation.com/fall-2025-mold-immersion-stabilize-reg",
+        "cta_button_text": "UNCOVER THE ROOT CAUSE",
+        "cta_button_link": "https://reset.detoxnation.com/hl-winter-2025-mc1-toxic-lab-secrets?utm_source=HomeSite&utm_medium=LiveEvent&utm_content=ToxicLabSecrets&utm_term=RegPage&utm_campaign=HL-MC-Winter-2025",
         "layout": "with-button",
         "show_newsletter": false,
         "newsletter_button": "Subscribe & Save",
