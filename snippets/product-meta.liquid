@@ -29,7 +29,7 @@
 
 <div class="product-meta">
   {%- if update_url -%}
-    <h1 class="product-meta__title heading h1" style="font-family: Marlide Display; font-size: 50px; font-weight: 500; line-height: 125%; color: #234240">{{ product.title }}</h1>
+    <h1 class="product-meta__title heading h1" style="font-family: var(--font-display); font-size: 50px; font-weight: 500; line-height: 125%; color: #234240">{{ product.title }}</h1>
   {%- else -%}
     <h3 class="product-meta__title heading h2">
       <a href="{{ product.url }}">{{ product.title }}</a>

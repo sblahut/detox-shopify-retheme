@@ -42,6 +42,13 @@
     {% render 'social-meta-tags' %}
     {% render 'css-variables' %}
 
+    <!--
+      Fonts loaded via Adobe Fonts (Typekit).
+      Mozaic Variable and Marlide Display Variable are served under Detox Nation's Adobe subscription.
+      Do not self-host font files without licensing approval.
+    -->
+    <link rel="stylesheet" href="https://use.typekit.net/wbd8sav.css">
+
     {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">

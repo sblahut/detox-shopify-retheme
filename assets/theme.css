@@ -1,4 +1,11 @@
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
+
+:root {
+  /* Adobe Fonts - Mozaic Variable and Marlide Display Variable */
+  --font-primary: "mozaic-geo-variable", sans-serif;
+  --font-display: "marlide-display-variable", serif;
+}
+
 *,
 :before,
 :after {
@@ -3984,7 +3991,7 @@ body:not(.is-tabbing) textarea:focus {
   font-weight: 500;
   font-size: 20px !important;
   text-transform: none;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
 }
 
 .button--primary:hover {
@@ -3995,7 +4002,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--secondary-button-text-color);
   border-radius: 50px;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
 }
 
 .button--secondary:hover {
@@ -4993,7 +5000,7 @@ body.no-mobile-scroll {
   text-align: center;
   font-weight: var(--text-font-bolder-weight);
   margin-bottom: 10px;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
 }
 
 .cart-recap__secure-payment-title svg {
@@ -9694,7 +9701,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--secondary-button-text-color);
   border-radius: 50px;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
 }
 
 .button--secondary:hover {
@@ -15135,7 +15142,7 @@ body:not(.is-tabbing) textarea:focus {
   font-weight: 500;
   font-size: 20px !important;
   text-transform: none;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
 }
 
 .button--secondary:hover {
@@ -16051,7 +16058,7 @@ body:not(.is-tabbing) textarea:focus {
 }
 
 .collection__title.heading.h1 {
-  font-family: "Marlide Display", sans-serif;
+  font-family: var(--font-display);
   font-size: 32px;
   margin-bottom: 0;
   color: #000000;
@@ -21476,7 +21483,7 @@ select option {
 
 .product-meta__vendor {
   font-size: 20px;
-  font-family: Mozaic Geo;
+  font-family: var(--font-primary);
   color: #234240;
 }
 
@@ -21525,13 +21532,13 @@ select option {
 
 .product-meta__description p {
   color: #232420;
-  font-family: Mozaic GEO;
+  font-family: var(--font-primary);
   margin-block-end: 0.9rem;
   margin-block-start: 0;
 }
 
 .product-meta__description h4 {
-  font-family: Mozaic GEO;
+  font-family: var(--font-primary);
   text-transform: none;
 }
 
@@ -24672,7 +24679,7 @@ select[id*="bm-all-products"],
   align-items: center;
   list-style: none;
   display: flex;
-  font-family: Mozaic GEO;
+  font-family: var(--font-primary);
   font-size: 18px;
   line-height: 150%;
 }
@@ -26713,7 +26720,7 @@ product-rerender {
   text-decoration: none;
   transition: all 0.5s linear;
   padding-bottom: 25px;
-  font-family: "Marlide Display", Sans-serif;
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 500;
   margin: 0;
