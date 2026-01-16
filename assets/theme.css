@@ -3988,7 +3988,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--primary-button-text-color);
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px !important;
   text-transform: none;
   font-family: var(--font-primary);
@@ -9688,7 +9688,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--primary-button-text-color);
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   text-transform: none;
 }
@@ -15126,7 +15126,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--primary-button-text-color);
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   text-transform: none;
 }
@@ -15139,7 +15139,7 @@ body:not(.is-tabbing) textarea:focus {
   background: #70a491;
   color: var(--secondary-button-text-color);
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px !important;
   text-transform: none;
   font-family: var(--font-primary);
@@ -18369,7 +18369,7 @@ select option {
   background: #eb654e;
   color: #ffffff;
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   text-transform: none;
   margin-left: 2px;
@@ -18384,7 +18384,7 @@ select option {
   background: #eb654e;
   color: #ffffff;
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 16px;
   text-transform: none;
   margin-left: 2px;
@@ -22469,7 +22469,7 @@ select[id*="bm-all-products"],
 
 .template-collection .collection__dynamic-part .product-list--collection .product-item .buy-button .button {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 300;
   padding: 8px 12px;
 }
 
