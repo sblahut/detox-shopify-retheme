@@ -9,7 +9,7 @@ A custom Shopify theme for the Detox Nation website, based on the Warehouse them
 - Enhanced product display with image galleries and quick view
 - Advanced collection filtering and sorting
 - Newsletter integration
-- Custom fonts (Marlide Display, Mozaic GEO Variable)
+- Adobe Fonts (Mozaic Variable, Marlide Display Variable) - served via Typekit
 - Optimized performance with WebP images
 - Multi-language support (EN, DE, ES, FR, IT, JA, NB, PT-BR, TR)
 
