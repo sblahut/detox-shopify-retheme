@@ -218,6 +218,9 @@
     <div class="footer__copyright">
       {%- capture copyright_info -%}© Detox Nation Enterprise Inc, All Right Reserved{%- endcapture -%}
       <p>{{ copyright_info }}</p>
+      <p>
+        <a href="https://zero-tech.org" target="_blank" class="footer__link-item" style="opacity: 0.7; font-size: 0.9em;">Built by Zero Tech</a>
+      </p>
     </div>
   </div>
 </footer>
@@ -251,15 +254,28 @@
     }
   }
 
-  /* Existing styles */
+
+  .footer__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+
   @media screen and (max-width: 699px) {
     .footer__copyright {
-      padding: 60px 0px 0px 0px;
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+      padding: 40px 0 0 0;
     }
     
     .footer__copyright p {
       font-size: 12px;
       line-height: 1.4;
+      margin: 0;
     }
   }
 </style>
